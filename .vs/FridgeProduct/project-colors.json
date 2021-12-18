@@ -5,7 +5,12 @@
       "ProjectGuid": "74b0d8da-757a-4dd2-a39b-ba47542fbe67",
       "DisplayName": "FridgeProduct",
       "ColorIndex": 0
+    },
+    "4405ca0b-6ff0-480f-91a6-53dd59c69e72": {
+      "ProjectGuid": "4405ca0b-6ff0-480f-91a6-53dd59c69e72",
+      "DisplayName": "FridgeProduct.Entities",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }
