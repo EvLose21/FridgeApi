@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProduct", "FridgeProduct\FridgeProduct.csproj", "{74B0D8DA-757A-4DD2-A39B-BA47542FBE67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProduct", "FridgeProduct\FridgeProduct.csproj", "{74B0D8DA-757A-4DD2-A39B-BA47542FBE67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProduct.Entities", "FridgeProduct.Entities\FridgeProduct.Entities.csproj", "{4405CA0B-6FF0-480F-91A6-53DD59C69E72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{74B0D8DA-757A-4DD2-A39B-BA47542FBE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74B0D8DA-757A-4DD2-A39B-BA47542FBE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74B0D8DA-757A-4DD2-A39B-BA47542FBE67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4405CA0B-6FF0-480F-91A6-53DD59C69E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4405CA0B-6FF0-480F-91A6-53DD59C69E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4405CA0B-6FF0-480F-91A6-53DD59C69E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4405CA0B-6FF0-480F-91A6-53DD59C69E72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
