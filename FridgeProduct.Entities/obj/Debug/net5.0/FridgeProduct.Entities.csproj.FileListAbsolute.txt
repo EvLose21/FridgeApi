@@ -1,0 +1,14 @@
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.deps.json
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.runtimeconfig.json
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.runtimeconfig.dev.json
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\bin\Debug\net5.0\ref\FridgeProduct.Entities.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.pdb
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.AssemblyInfoInputs.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.AssemblyInfo.cs
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.csproj.CoreCompileInputs.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\ref\FridgeProduct.Entities.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.pdb
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.genruntimeconfig.cache

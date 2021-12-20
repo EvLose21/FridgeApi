@@ -1,0 +1,15 @@
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\bin\Debug\net5.0\FridgeProduct.Contracts.deps.json
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\bin\Debug\net5.0\FridgeProduct.Contracts.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\bin\Debug\net5.0\ref\FridgeProduct.Contracts.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\bin\Debug\net5.0\FridgeProduct.Contracts.pdb
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\bin\Debug\net5.0\FridgeProduct.Entities.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\bin\Debug\net5.0\FridgeProduct.Entities.pdb
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\obj\Debug\net5.0\FridgeProduct.Contracts.csproj.AssemblyReference.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\obj\Debug\net5.0\FridgeProduct.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\obj\Debug\net5.0\FridgeProduct.Contracts.AssemblyInfoInputs.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\obj\Debug\net5.0\FridgeProduct.Contracts.AssemblyInfo.cs
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\obj\Debug\net5.0\FridgeProduct.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\obj\Debug\net5.0\FridgeProduct.Contracts.csproj.CopyComplete
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\obj\Debug\net5.0\FridgeProduct.Contracts.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\obj\Debug\net5.0\ref\FridgeProduct.Contracts.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Contracts\obj\Debug\net5.0\FridgeProduct.Contracts.pdb

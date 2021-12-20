@@ -1,0 +1,17 @@
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\bin\Debug\net5.0\FridgeProduct.LoggerService.deps.json
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\bin\Debug\net5.0\FridgeProduct.LoggerService.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\bin\Debug\net5.0\ref\FridgeProduct.LoggerService.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\bin\Debug\net5.0\FridgeProduct.LoggerService.pdb
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\bin\Debug\net5.0\FridgeProduct.Contracts.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\bin\Debug\net5.0\FridgeProduct.Entities.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\bin\Debug\net5.0\FridgeProduct.Contracts.pdb
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\bin\Debug\net5.0\FridgeProduct.Entities.pdb
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\obj\Debug\net5.0\FridgeProduct.LoggerService.csproj.AssemblyReference.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\obj\Debug\net5.0\FridgeProduct.LoggerService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\obj\Debug\net5.0\FridgeProduct.LoggerService.AssemblyInfoInputs.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\obj\Debug\net5.0\FridgeProduct.LoggerService.AssemblyInfo.cs
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\obj\Debug\net5.0\FridgeProduct.LoggerService.csproj.CoreCompileInputs.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\obj\Debug\net5.0\FridgeProduct.LoggerService.csproj.CopyComplete
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\obj\Debug\net5.0\FridgeProduct.LoggerService.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\obj\Debug\net5.0\ref\FridgeProduct.LoggerService.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.LoggerService\obj\Debug\net5.0\FridgeProduct.LoggerService.pdb

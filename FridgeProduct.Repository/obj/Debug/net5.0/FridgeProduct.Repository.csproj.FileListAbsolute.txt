@@ -1,0 +1,17 @@
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\bin\Debug\net5.0\FridgeProduct.Repository.deps.json
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\bin\Debug\net5.0\FridgeProduct.Repository.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\bin\Debug\net5.0\ref\FridgeProduct.Repository.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\bin\Debug\net5.0\FridgeProduct.Repository.pdb
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\bin\Debug\net5.0\FridgeProduct.Contracts.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\bin\Debug\net5.0\FridgeProduct.Entities.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\bin\Debug\net5.0\FridgeProduct.Contracts.pdb
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\bin\Debug\net5.0\FridgeProduct.Entities.pdb
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\obj\Debug\net5.0\FridgeProduct.Repository.csproj.AssemblyReference.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\obj\Debug\net5.0\FridgeProduct.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\obj\Debug\net5.0\FridgeProduct.Repository.AssemblyInfoInputs.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\obj\Debug\net5.0\FridgeProduct.Repository.AssemblyInfo.cs
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\obj\Debug\net5.0\FridgeProduct.Repository.csproj.CoreCompileInputs.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\obj\Debug\net5.0\FridgeProduct.Repository.csproj.CopyComplete
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\obj\Debug\net5.0\FridgeProduct.Repository.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\obj\Debug\net5.0\ref\FridgeProduct.Repository.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Repository\obj\Debug\net5.0\FridgeProduct.Repository.pdb

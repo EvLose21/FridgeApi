@@ -10,7 +10,22 @@
       "ProjectGuid": "4405ca0b-6ff0-480f-91a6-53dd59c69e72",
       "DisplayName": "FridgeProduct.Entities",
       "ColorIndex": 1
+    },
+    "246a9b5a-8e3f-4095-98c2-f17386e513d3": {
+      "ProjectGuid": "246a9b5a-8e3f-4095-98c2-f17386e513d3",
+      "DisplayName": "FridgeProduct.Contracts",
+      "ColorIndex": 2
+    },
+    "4a527bc6-1040-4e79-bf34-182fb2d4bdf6": {
+      "ProjectGuid": "4a527bc6-1040-4e79-bf34-182fb2d4bdf6",
+      "DisplayName": "FridgeProduct.LoggerService",
+      "ColorIndex": 3
+    },
+    "a2d71002-097d-4885-b7d4-f2b239f57673": {
+      "ProjectGuid": "a2d71002-097d-4885-b7d4-f2b239f57673",
+      "DisplayName": "FridgeProduct.Repository",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 5
 }
