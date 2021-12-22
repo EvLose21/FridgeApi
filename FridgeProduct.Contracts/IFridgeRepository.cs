@@ -1,11 +1,11 @@
-﻿using Entities.Models;
+﻿using FridgeProduct.Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contracts
+namespace FridgeProduct.Contracts
 {
     public interface IFridgeRepository
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Models
+namespace FridgeProduct.Entities.Models
 {
     public class FridgeModel
     {

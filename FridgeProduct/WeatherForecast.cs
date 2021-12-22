@@ -1,6 +1,6 @@
 using System;
 
-namespace Fridge.Server
+namespace FridgeProduct
 {
     public class WeatherForecast
     {

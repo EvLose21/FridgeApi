@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contracts
+namespace FridgeProduct.Contracts
 {
     public interface IFridgeModelRepository
     {

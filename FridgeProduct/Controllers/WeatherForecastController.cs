@@ -1,4 +1,4 @@
-﻿using Contracts;
+﻿using FridgeProduct.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Fridge.Server.Controllers
+namespace FridgeProduct.Controllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -1,4 +1,4 @@
-﻿using Contracts;
+﻿using FridgeProduct.Contracts;
 using Microsoft.Extensions.Logging;
 using NLog;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoggerService
+namespace FridgeProduct.LoggerService
 {
     public class LoggerManager : ILoggerManager
     {

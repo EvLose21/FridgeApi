@@ -1,17 +1,17 @@
-﻿using Contracts;
-using Entities;
-using LoggerService;
+﻿using FridgeProduct.Contracts;
+using FridgeProduct.Entities;
+using FridgeProduct.LoggerService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Repository;
+using FridgeProduct.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Fridge.Server.Extensions
+namespace FridgeProduct.Extensions
 {
     public static class ServiceExtensions
     {

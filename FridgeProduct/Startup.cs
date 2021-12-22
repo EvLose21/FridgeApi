@@ -1,4 +1,4 @@
-using Fridge.Server.Extensions;
+using FridgeProduct.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -16,7 +16,7 @@ using NLog;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Fridge.Server
+namespace FridgeProduct
 {
     public class Startup
     {

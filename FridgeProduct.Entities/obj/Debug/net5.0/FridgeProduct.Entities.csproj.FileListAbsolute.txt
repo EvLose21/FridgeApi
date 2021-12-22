@@ -12,3 +12,4 @@ C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.
 C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\ref\FridgeProduct.Entities.dll
 C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.pdb
 C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.genruntimeconfig.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.csproj.AssemblyReference.cache

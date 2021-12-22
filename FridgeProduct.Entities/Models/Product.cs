@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Models
+namespace FridgeProduct.Entities.Models
 {
     public class Product
     {
@@ -16,7 +16,7 @@ namespace Entities.Models
         [Required(ErrorMessage = "Product name is a required field.")]
         public string Name { get; set; }
         public int DefaultQuantity { get; set; }
-        public int FridgeId { get; set; }
         public List<Fridge> Fridges { get; set; } = new();
+        public List<FridgeToProduct> FridgeToProducts { get; set; } = new();
     }
 }

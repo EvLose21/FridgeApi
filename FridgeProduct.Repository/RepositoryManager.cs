@@ -1,12 +1,12 @@
-﻿using Contracts;
-using Entities;
+﻿using FridgeProduct.Contracts;
+using FridgeProduct.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository
+namespace FridgeProduct.Repository
 {
     public class RepositoryManager : IRepositoryManager
     {

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Contracts;
-using Entities;
+using FridgeProduct.Contracts;
+using FridgeProduct.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Repository
+namespace FridgeProduct.Repository
 {
     public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
