@@ -15,6 +15,7 @@ using System.IO;
 using NLog;
 using System.Linq;
 using System.Threading.Tasks;
+using FridgeProduct.Contracts;
 
 namespace FridgeProduct
 {
@@ -36,11 +37,12 @@ namespace FridgeProduct
             services.ConfigureLoggerService();
             services.ConfigureSqlContext(Configuration);
             services.ConfigureRepositoryManager();
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger)
         {
             if (env.IsDevelopment())
             {
@@ -51,7 +53,8 @@ namespace FridgeProduct
                 app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
+            app.ConfigureExceptionHandler(logger);
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseCors("CorsPolicy"); //почитать

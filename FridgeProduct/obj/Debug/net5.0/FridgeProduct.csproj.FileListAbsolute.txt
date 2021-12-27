@@ -65,3 +65,5 @@ C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\obj\Debug\net5.0\FridgeP
 C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\obj\Debug\net5.0\ref\FridgeProduct.dll
 C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\obj\Debug\net5.0\FridgeProduct.pdb
 C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\obj\Debug\net5.0\FridgeProduct.genruntimeconfig.cache
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
