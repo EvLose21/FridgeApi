@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FridgeProduct.Entities.Migrations
 {
-    public partial class initDb : Migration
+    public partial class createDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,20 +21,6 @@ namespace FridgeProduct.Entities.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Fridges",
-                columns: table => new
-                {
-                    FridgeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ModelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OwnerName = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Fridges", x => x.FridgeId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -45,6 +31,27 @@ namespace FridgeProduct.Entities.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.ProductId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Fridges",
+                columns: table => new
+                {
+                    FridgeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ModelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OwnerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FridgeModelId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Fridges", x => x.FridgeId);
+                    table.ForeignKey(
+                        name: "FK_Fridges_FridgeModels_FridgeModelId",
+                        column: x => x.FridgeModelId,
+                        principalTable: "FridgeModels",
+                        principalColumn: "ModelId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,11 +90,11 @@ namespace FridgeProduct.Entities.Migrations
 
             migrationBuilder.InsertData(
                 table: "Fridges",
-                columns: new[] { "FridgeId", "ModelId", "Name", "OwnerName" },
+                columns: new[] { "FridgeId", "FridgeModelId", "ModelId", "Name", "OwnerName" },
                 values: new object[,]
                 {
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"), new Guid("745cff18-3dfe-4c44-8eb9-5bd6c3e8f328"), "Holod", "Aleks" },
-                    { new Guid("5df63d42-598e-4b30-8493-8fd0c6cdaf18"), new Guid("41914da1-1deb-47d2-bf06-92e71952b7d4"), "Moroz", "Viktor" }
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"), null, new Guid("745cff18-3dfe-4c44-8eb9-5bd6c3e8f328"), "Holod", "Aleks" },
+                    { new Guid("5df63d42-598e-4b30-8493-8fd0c6cdaf18"), null, new Guid("41914da1-1deb-47d2-bf06-92e71952b7d4"), "Moroz", "Viktor" }
                 });
 
             migrationBuilder.InsertData(
@@ -100,6 +107,11 @@ namespace FridgeProduct.Entities.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Fridges_FridgeModelId",
+                table: "Fridges",
+                column: "FridgeModelId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_FridgeToProduct_ProductId",
                 table: "FridgeToProduct",
                 column: "ProductId");
@@ -108,9 +120,6 @@ namespace FridgeProduct.Entities.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "FridgeModels");
-
-            migrationBuilder.DropTable(
                 name: "FridgeToProduct");
 
             migrationBuilder.DropTable(
@@ -118,6 +127,9 @@ namespace FridgeProduct.Entities.Migrations
 
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "FridgeModels");
         }
     }
 }

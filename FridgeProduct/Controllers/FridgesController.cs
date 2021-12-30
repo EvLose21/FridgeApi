@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FridgeProduct.Contracts;
 using FridgeProduct.Entities.DataTransferObjects;
+using FridgeProduct.Entities.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -33,7 +34,7 @@ namespace FridgeProduct.Controllers
             return Ok(fridgesDto);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "FridgeById")]
         public IActionResult GetFridge(Guid id)
         {
             var fridge = _repostitory.Fridge.GetFridge(id, trackChanges: false);
@@ -47,6 +48,25 @@ namespace FridgeProduct.Controllers
                 var fridgeDto = _mapper.Map<FridgeDto>(fridge);
                 return Ok(fridgeDto);
             }
+        }
+        [HttpPost]
+        public IActionResult CreateFridge([FromBody]FridgeForCreationDto fridge)
+        {
+            if (fridge == null)
+            {
+                _logger.LogError("FridgeForCreationDto object sent from client is null.");
+                return BadRequest("FridgeForCreationDto object is null");
+            }
+
+            var fridgeEntity = _mapper.Map<Fridge>(fridge);
+
+            _repostitory.Fridge.CreateFridge(fridgeEntity);
+            _repostitory.Save();
+
+            var fridgeToReturn = _mapper.Map<FridgeDto>(fridgeEntity);
+
+            return CreatedAtRoute("FridgeById", new {id = fridgeToReturn.Id},
+                fridgeToReturn);
         }
     }
 }

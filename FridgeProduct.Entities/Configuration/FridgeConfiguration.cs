@@ -19,7 +19,14 @@ namespace FridgeProduct.Entities.Configuration
                     Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
                     Name = "Holod",
                     OwnerName = "Aleks",
-                    ModelId = new Guid("745cff18-3dfe-4c44-8eb9-5bd6c3e8f328")
+                    ModelId = new Guid("745cff18-3dfe-4c44-8eb9-5bd6c3e8f328"),
+                },
+                new Fridge
+                {
+                Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"),
+                    Name = "Holodilnik",
+                    OwnerName = "Loser",
+                    ModelId = new Guid("745cff18-3dfe-4c44-8eb9-5bd6c3e8f328"),
                 },
                 new Fridge
                 {

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FridgeProduct.Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20211222082209_initDb")]
-    partial class initDb
+    [Migration("20211228230846_createDb")]
+    partial class createDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace FridgeProduct.Entities.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("FridgeId");
 
+                    b.Property<Guid?>("FridgeModelId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("ModelId")
                         .HasColumnType("uniqueidentifier");
 
@@ -39,6 +42,8 @@ namespace FridgeProduct.Entities.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FridgeModelId");
 
                     b.ToTable("Fridges");
 
@@ -146,6 +151,15 @@ namespace FridgeProduct.Entities.Migrations
                         });
                 });
 
+            modelBuilder.Entity("FridgeProduct.Entities.Models.Fridge", b =>
+                {
+                    b.HasOne("FridgeProduct.Entities.Models.FridgeModel", "FridgeModel")
+                        .WithMany("Fridges")
+                        .HasForeignKey("FridgeModelId");
+
+                    b.Navigation("FridgeModel");
+                });
+
             modelBuilder.Entity("FridgeProduct.Entities.Models.FridgeToProduct", b =>
                 {
                     b.HasOne("FridgeProduct.Entities.Models.Fridge", "Fridge")
@@ -168,6 +182,11 @@ namespace FridgeProduct.Entities.Migrations
             modelBuilder.Entity("FridgeProduct.Entities.Models.Fridge", b =>
                 {
                     b.Navigation("FridgeToProducts");
+                });
+
+            modelBuilder.Entity("FridgeProduct.Entities.Models.FridgeModel", b =>
+                {
+                    b.Navigation("Fridges");
                 });
 
             modelBuilder.Entity("FridgeProduct.Entities.Models.Product", b =>

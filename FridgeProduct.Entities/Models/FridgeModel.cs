@@ -15,5 +15,6 @@ namespace FridgeProduct.Entities.Models
         [Required(ErrorMessage = "Fridge model is a required field.")]
         public string Name { get; set; }
         public int Year { get; set; }
+        public List<Fridge> Fridges { get; set; } = new List<Fridge>();
     }
 }

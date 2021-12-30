@@ -8,9 +8,10 @@ namespace FridgeProduct
     {
         public MappingProfile()
         {
-            CreateMap<Fridge, FridgeDto>()
-                .ForMember(f => f.Names,
-                opt => opt.MapFrom(x => string.Join(' ', x.Name, x.OwnerName)));
+            CreateMap<Fridge, FridgeDto>();
+
+            CreateMap<Product, ProductDto>();
+            CreateMap<FridgeForCreationDto, Fridge>();
         }
     }
 }

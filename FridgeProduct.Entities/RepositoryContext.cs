@@ -21,6 +21,7 @@ namespace FridgeProduct.Entities
             modelBuilder.ApplyConfiguration(new FridgeConfiguration());
             modelBuilder.ApplyConfiguration(new FridgeModelConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new FridgeToProductConfiguration());
             modelBuilder
                 .Entity<Fridge>()
                 .HasMany(f => f.Products)
@@ -44,5 +45,6 @@ namespace FridgeProduct.Entities
         public DbSet<Fridge> Fridges { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<FridgeModel> FridgeModels { get; set; }
+        public DbSet<FridgeToProduct> FridgeToProducts { get; set; }
     }
 }
