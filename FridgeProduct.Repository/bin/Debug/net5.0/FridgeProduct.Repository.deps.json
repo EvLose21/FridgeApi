@@ -9,7 +9,8 @@
       "FridgeProduct.Repository/1.0.0": {
         "dependencies": {
           "FridgeProduct.Contracts": "1.0.0",
-          "FridgeProduct.Entities": "1.0.0"
+          "FridgeProduct.Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.13"
         },
         "runtime": {
           "FridgeProduct.Repository.dll": {}

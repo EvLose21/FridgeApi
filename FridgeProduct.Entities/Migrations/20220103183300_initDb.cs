@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FridgeProduct.Entities.Migrations
 {
-    public partial class createDb : Migration
+    public partial class initDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -94,6 +94,7 @@ namespace FridgeProduct.Entities.Migrations
                 values: new object[,]
                 {
                     { new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"), null, new Guid("745cff18-3dfe-4c44-8eb9-5bd6c3e8f328"), "Holod", "Aleks" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"), null, new Guid("745cff18-3dfe-4c44-8eb9-5bd6c3e8f328"), "Holodilnik", "Loser" },
                     { new Guid("5df63d42-598e-4b30-8493-8fd0c6cdaf18"), null, new Guid("41914da1-1deb-47d2-bf06-92e71952b7d4"), "Moroz", "Viktor" }
                 });
 
@@ -105,6 +106,16 @@ namespace FridgeProduct.Entities.Migrations
                     { new Guid("962be0f6-a4a3-4e17-bf3e-1ea1b7e029d3"), 1, "Eggs" },
                     { new Guid("14ad7a49-95f6-4e96-9c29-c3080ec493d0"), 1, "Bacon" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "FridgeToProduct",
+                columns: new[] { "FridgeId", "ProductId", "Quantity" },
+                values: new object[] { new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"), new Guid("962be0f6-a4a3-4e17-bf3e-1ea1b7e029d3"), 1100 });
+
+            migrationBuilder.InsertData(
+                table: "FridgeToProduct",
+                columns: new[] { "FridgeId", "ProductId", "Quantity" },
+                values: new object[] { new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"), new Guid("14ad7a49-95f6-4e96-9c29-c3080ec493d0"), 10 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Fridges_FridgeModelId",

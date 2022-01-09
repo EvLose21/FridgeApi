@@ -9,9 +9,10 @@ namespace FridgeProduct
         public MappingProfile()
         {
             CreateMap<Fridge, FridgeDto>();
-
             CreateMap<Product, ProductDto>();
             CreateMap<FridgeForCreationDto, Fridge>();
+            CreateMap<ProductForCreationDto, Product>();
+            CreateMap<ProductForUpdateDto, ProductForFridge>();
         }
     }
 }

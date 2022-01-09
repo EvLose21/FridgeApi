@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.Extensions.Logging;
 
 namespace FridgeProduct.Entities
 {
@@ -15,7 +17,10 @@ namespace FridgeProduct.Entities
             : base(options)
         { 
         }
-
+        public DbSet<Fridge> Fridges { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<FridgeModel> FridgeModels { get; set; }
+        public DbSet<FridgeToProduct> FridgeToProducts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new FridgeConfiguration());
@@ -31,20 +36,22 @@ namespace FridgeProduct.Entities
                     .HasOne(pt => pt.Product)
                     .WithMany(t => t.FridgeToProducts)
                     .HasForeignKey(pt => pt.ProductId),
-                j => j
+                   j => j
                     .HasOne(pt => pt.Fridge)
                     .WithMany(p => p.FridgeToProducts)
                     .HasForeignKey(pt => pt.FridgeId),
-                j =>
-                {
+                   j =>
+                   {
                     j.Property(pt => pt.Quantity).HasDefaultValue(3);
                     j.HasKey(t => new { t.FridgeId, t.ProductId });
                     j.ToTable("FridgeToProduct");
-                });
+                   });
         }
-        public DbSet<Fridge> Fridges { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<FridgeModel> FridgeModels { get; set; }
-        public DbSet<FridgeToProduct> FridgeToProducts { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FridgeProduct;Trusted_Connection=True");
+            optionsBuilder.LogTo(Console.WriteLine);
+        }
     }
 }

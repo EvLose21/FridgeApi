@@ -67,3 +67,6 @@ C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\obj\Debug\net5.0\FridgeP
 C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\obj\Debug\net5.0\FridgeProduct.genruntimeconfig.cache
 C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\ryzen\source\repos\FridgeProduct\FridgeProduct\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

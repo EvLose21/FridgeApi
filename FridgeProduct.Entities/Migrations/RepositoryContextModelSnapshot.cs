@@ -125,8 +125,14 @@ namespace FridgeProduct.Entities.Migrations
                         new
                         {
                             FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
+                            ProductId = new Guid("14ad7a49-95f6-4e96-9c29-c3080ec493d0"),
+                            Quantity = 10
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
                             ProductId = new Guid("962be0f6-a4a3-4e17-bf3e-1ea1b7e029d3"),
-                            Quantity = 1
+                            Quantity = 1100
                         });
                 });
 

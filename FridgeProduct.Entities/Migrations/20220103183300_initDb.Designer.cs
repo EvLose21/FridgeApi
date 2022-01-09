@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FridgeProduct.Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20211228230846_createDb")]
-    partial class createDb
+    [Migration("20220103183300_initDb")]
+    partial class initDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,6 +54,13 @@ namespace FridgeProduct.Entities.Migrations
                             ModelId = new Guid("745cff18-3dfe-4c44-8eb9-5bd6c3e8f328"),
                             Name = "Holod",
                             OwnerName = "Aleks"
+                        },
+                        new
+                        {
+                            Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"),
+                            ModelId = new Guid("745cff18-3dfe-4c44-8eb9-5bd6c3e8f328"),
+                            Name = "Holodilnik",
+                            OwnerName = "Loser"
                         },
                         new
                         {
@@ -115,6 +122,20 @@ namespace FridgeProduct.Entities.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("FridgeToProduct");
+
+                    b.HasData(
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
+                            ProductId = new Guid("14ad7a49-95f6-4e96-9c29-c3080ec493d0"),
+                            Quantity = 10
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
+                            ProductId = new Guid("962be0f6-a4a3-4e17-bf3e-1ea1b7e029d3"),
+                            Quantity = 1100
+                        });
                 });
 
             modelBuilder.Entity("FridgeProduct.Entities.Models.Product", b =>
