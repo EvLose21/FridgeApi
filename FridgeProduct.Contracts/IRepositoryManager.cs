@@ -11,6 +11,7 @@ namespace FridgeProduct.Contracts
         IFridgeRepository Fridge { get; }
         IProductRepository Product { get; }
         IFridgeModelRepository FridgeModel { get; }
+        IFridgeToProductRepository FridgeToProduct { get; }
         void Save();
     }
 }

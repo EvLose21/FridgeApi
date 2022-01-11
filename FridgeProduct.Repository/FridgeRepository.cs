@@ -16,8 +16,6 @@ namespace FridgeProduct.Repository
         {
         }
 
-        public void CreateFridge(Fridge fridge) => Create(fridge);
-
         public IEnumerable<Fridge> GetAllFridges(bool trackChanges)=>
             FindAll(trackChanges)
             .OrderBy(f=>f.Name)
@@ -26,7 +24,5 @@ namespace FridgeProduct.Repository
         public Fridge GetFridge(Guid fridgeId, bool trackChanges)=>
             FindByCondition(f => f.Id.Equals(fridgeId), trackChanges)
             .SingleOrDefault();
-
-
     }
 }

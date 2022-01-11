@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace FridgeProduct.Entities.DataTransferObjects
 {
-    public class FridgeForCreationDto
+    public class FridgeToProductDto
     {
-        public string Name { get; set; }
-        public Guid ModelId { get; set; }
-        public string OwnerName { get; set; }
+        public Guid ProductId { get; set; }
+        public Guid FridgeId { get; set; }
+        public int Quantity { get; set; }
     }
 }

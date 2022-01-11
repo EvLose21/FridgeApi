@@ -14,6 +14,7 @@ namespace FridgeProduct.Repository
         private IFridgeRepository _fridgeRepository;
         private IFridgeModelRepository _fridgeModelRepository;
         private IProductRepository _productRepository;
+        private IFridgeToProductRepository _fridgeToProductRepository;
 
         public RepositoryManager(RepositoryContext repositoryContext)
         {
@@ -50,6 +51,17 @@ namespace FridgeProduct.Repository
                     _fridgeModelRepository = new FridgeModelRepository(_repositoryContext);
 
                 return _fridgeModelRepository;
+            }
+        }
+
+        public IFridgeToProductRepository FridgeToProduct
+        {
+            get
+            {
+                if (_fridgeToProductRepository == null)
+                    _fridgeToProductRepository = new FridgeToProductRepository(_repositoryContext);
+
+                return _fridgeToProductRepository;
             }
         }
 

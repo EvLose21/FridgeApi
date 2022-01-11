@@ -9,11 +9,37 @@ using System.Threading.Tasks;
 
 namespace FridgeProduct.Repository
 {
-    public class FridgeToProductRepository : RepositoryBase<FridgeToProduct>, IFridgeModelRepository
+    public class FridgeToProductRepository : RepositoryBase<FridgeToProduct>, IFridgeToProductRepository
     {
         public FridgeToProductRepository(RepositoryContext repositoryContext)
             : base(repositoryContext)
         {
         }
+
+        public IEnumerable<FridgeToProduct> GetAllFProducts(bool trackChanges) =>
+            FindAll(trackChanges)
+            .OrderBy(f => f.Quantity)
+            .ToList();
+
+        public void AddProductForFridge(FridgeToProduct fproduct)
+        {
+            var addProduct = new FridgeToProduct
+            {
+                ProductId = fproduct.ProductId,
+                Quantity = fproduct.Quantity,
+                FridgeId = fproduct.FridgeId,
+            };
+
+            Create(addProduct);
+        }
+
+        public void DeleteProductForFridge(FridgeToProduct fproduct)
+        {
+            Delete(fproduct);
+        }
+
+        public FridgeToProduct GetFProduct(Guid fridgeId, Guid id, bool trackChanges) =>
+            FindByCondition(fp => fp.FridgeId.Equals(fridgeId) && fp.ProductId.Equals(id), trackChanges)
+            .FirstOrDefault();
     }
 }

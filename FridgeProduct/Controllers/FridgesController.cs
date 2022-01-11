@@ -26,6 +26,7 @@ namespace FridgeProduct.Controllers
             _mapper = mapper;
         }
 
+        //список холодильников
         [HttpGet]
         public IActionResult GetFridges()
         {
@@ -34,39 +35,82 @@ namespace FridgeProduct.Controllers
             return Ok(fridgesDto);
         }
 
-        [HttpGet("{id}", Name = "FridgeById")]
-        public IActionResult GetFridge(Guid id)
+        //список продуктов по холодильнику
+        [HttpGet("{fridgeId}")]
+        public IActionResult GetProductsForFridge(Guid fridgeId)
         {
-            var fridge = _repostitory.Fridge.GetFridge(id, trackChanges: false);
-            if(fridge == null)
-            {
-                _logger.LogInfo($"Fridge with id: {id} doesn't exist in the database.");
-                return NotFound();
-            }
-            else
-            {
-                var fridgeDto = _mapper.Map<FridgeDto>(fridge);
-                return Ok(fridgeDto);
-            }
-        }
-        [HttpPost]
-        public IActionResult CreateFridge([FromBody]FridgeForCreationDto fridge)
-        {
+            var fridge = _repostitory.Fridge.GetFridge(fridgeId, trackChanges: false);
             if (fridge == null)
             {
-                _logger.LogError("FridgeForCreationDto object sent from client is null.");
-                return BadRequest("FridgeForCreationDto object is null");
+                _logger.LogInfo($"Fridge with id: {fridgeId} doesn't exist in the database.");
+                return NotFound();
             }
 
-            var fridgeEntity = _mapper.Map<Fridge>(fridge);
+            var productsFromDb = _repostitory.Product.GetProducts(fridgeId, trackChanges: false);
+            return Ok(productsFromDb);
+        }
 
-            _repostitory.Fridge.CreateFridge(fridgeEntity);
+        //добавление продуктов в холодильник
+        [HttpPost]
+        public IActionResult AddProduct([FromBody] FridgeToProductForCreationDto fproduct)
+        {
+            if (fproduct == null)
+            {
+                _logger.LogError("FridgeToProductDto object sent from client is null.");
+                return BadRequest("FridgeToProductDto object is null");
+            }
+
+            var fproductEntity = _mapper.Map<FridgeToProduct>(fproduct);
+            _repostitory.FridgeToProduct.AddProductForFridge(fproductEntity);
             _repostitory.Save();
 
-            var fridgeToReturn = _mapper.Map<FridgeDto>(fridgeEntity);
+            var fproductToReturn = _mapper.Map<FridgeToProductDto>(fproductEntity);
 
-            return CreatedAtRoute("FridgeById", new {id = fridgeToReturn.Id},
-                fridgeToReturn);
+            return CreatedAtRoute("", new { id = fproductToReturn.FridgeId }, fproductToReturn);
+        }
+
+        //удаление продуктов из холодильника
+        [HttpDelete("{fridgeId}/{id}")]
+        public IActionResult DeleteProductForFridge(Guid fridgeId, Guid id)
+        {
+            var fproduct = _repostitory.FridgeToProduct.GetFProduct(fridgeId, id, trackChanges: false);
+            if (fproduct == null)
+            {
+                _logger.LogInfo($"Product with id: {id} doesn't exist in the database.");
+                return NotFound();
+            }
+
+            _repostitory.FridgeToProduct.DeleteProductForFridge(fproduct);
+            _repostitory.Save();
+
+            return NoContent();
+        }
+
+        //изменение инфрмации о холодильнике
+        [HttpPut("{id}")] 
+        public IActionResult UpdateFridge(Guid id, [FromBody] FridgeForUpdateDto fridge) 
+        { 
+            if (fridge == null) 
+            { 
+                _logger.LogError("FridgeForUpdateDto object sent from client is null."); 
+                return BadRequest("FridgeForUpdateDto object is null"); 
+            }
+
+            if (!ModelState.IsValid)
+            {
+                _logger.LogError("Invalid model state for the FridgeForUpdateDto object");
+                return UnprocessableEntity(ModelState);
+            }
+
+            var fridgeEntity = _repostitory.Fridge.GetFridge(id, trackChanges: true); 
+            if (fridgeEntity == null) 
+            { 
+                _logger.LogInfo($"Fridge with id: {id} doesn't exist in the database."); 
+                return NotFound(); 
+            } 
+            _mapper.Map(fridge, fridgeEntity); 
+            _repostitory.Save();
+            return NoContent(); 
         }
     }
 }

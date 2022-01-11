@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ryzen\\source\\repos\\FridgeProduct\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {}
+    "D:\\Projects\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ryzen\\source\\repos\\FridgeProduct\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
+    "D:\\Projects\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ryzen\\source\\repos\\FridgeProduct\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj",
+        "projectUniqueName": "D:\\Projects\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj",
         "projectName": "FridgeProduct.Contracts",
-        "projectPath": "C:\\Users\\ryzen\\source\\repos\\FridgeProduct\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj",
-        "packagesPath": "C:\\Users\\ryzen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ryzen\\source\\repos\\FridgeProduct\\FridgeProduct.Contracts\\obj\\",
+        "projectPath": "D:\\Projects\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj",
+        "packagesPath": "C:\\Users\\mobil\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\FridgeApi\\FridgeProduct.Contracts\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ryzen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\mobil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\ryzen\\source\\repos\\FridgeProduct\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj": {
-                "projectPath": "C:\\Users\\ryzen\\source\\repos\\FridgeProduct\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj"
+              "D:\\Projects\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj": {
+                "projectPath": "D:\\Projects\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj"
               }
             }
           }
@@ -62,25 +58,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ryzen\\source\\repos\\FridgeProduct\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj": {
+    "D:\\Projects\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ryzen\\source\\repos\\FridgeProduct\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj",
+        "projectUniqueName": "D:\\Projects\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj",
         "projectName": "FridgeProduct.Entities",
-        "projectPath": "C:\\Users\\ryzen\\source\\repos\\FridgeProduct\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj",
-        "packagesPath": "C:\\Users\\ryzen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ryzen\\source\\repos\\FridgeProduct\\FridgeProduct.Entities\\obj\\",
+        "projectPath": "D:\\Projects\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj",
+        "packagesPath": "C:\\Users\\mobil\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\FridgeApi\\FridgeProduct.Entities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ryzen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\mobil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -106,6 +98,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.13, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.13, )"
@@ -142,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

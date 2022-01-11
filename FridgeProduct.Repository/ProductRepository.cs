@@ -17,29 +17,15 @@ namespace FridgeProduct.Repository
             : base(repositoryContext)
         {
         }
-
-        public void CreateProdcut(Product product)
-        {
+        public IEnumerable<Product> GetAllProducts(bool trackChanges) =>
+            FindAll(trackChanges)
+            .OrderBy(f => f.Name)
+            .ToList();
+        public void CreateProdcut(Product product)=>
             Create(product);
-        }
 
-        public void DeleteProduct(Product product)
-        {
+        public void DeleteProduct(Product product)=>
             Delete(product);
-        }
-        public IEnumerable<ProductForFridge> GetProduct(Guid fridgeId, Guid id, bool trackChanges)
-        {
-            var productByFridge = RepositoryContext.FridgeToProducts
-                .Where(fp => fp.FridgeId == fridgeId)
-                .Select(fp => new ProductForFridge
-                {
-                    ProductId = id,
-                    ProductName = fp.Product.Name,
-                    Quantity = fp.Quantity
-                })
-                .OrderBy(fp => fp.Quantity);
-            return productByFridge;
-        }
         public IEnumerable<ProductForFridge> GetProducts(Guid fridgeId, bool trackChanges)
         {
             var productsByFridge = RepositoryContext.FridgeToProducts
@@ -52,16 +38,10 @@ namespace FridgeProduct.Repository
                 })
                 .OrderBy(fp => fp.Quantity);
             return productsByFridge;
-
-            /*
-            select p.ProductId, p.ProductName, fp.Quantity
-	        from FridgeToProduct as fp
-	        join Products as p
-	        on fp.ProductId = p.ProductId
-            where fp.FridgeId = '7B104622-4FEF-465A-A5D4-2015DE2C7090'
-             */
         }
 
-
+        public Product GetProduct(Guid id, bool trackChanges)=>
+            FindByCondition(p => p.Id.Equals(id), trackChanges)
+            .SingleOrDefault();
     }
 }

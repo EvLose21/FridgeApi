@@ -10,9 +10,14 @@ namespace FridgeProduct
         {
             CreateMap<Fridge, FridgeDto>();
             CreateMap<Product, ProductDto>();
-            CreateMap<FridgeForCreationDto, Fridge>();
+            CreateMap<FridgeToProduct, FridgeToProductDto>();
+
             CreateMap<ProductForCreationDto, Product>();
-            CreateMap<ProductForUpdateDto, ProductForFridge>();
+            CreateMap<ProductForUpdateDto, Product>();
+            CreateMap<FridgeToProductForCreationDto, FridgeToProduct>();
+            CreateMap<FridgeForUpdateDto, Fridge>();
+
+            CreateMap<UserForRegistrationDto, User>();
         }
     }
 }

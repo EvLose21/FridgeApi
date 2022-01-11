@@ -11,6 +11,5 @@ namespace FridgeProduct.Contracts
     {
         IEnumerable<Fridge> GetAllFridges(bool trackChanges);
         Fridge GetFridge(Guid fridgeId, bool trackChanges);
-        void CreateFridge(Fridge fridge);
     }
 }

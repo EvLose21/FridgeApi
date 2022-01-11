@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FridgeProduct.Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220103183300_initDb")]
+    [Migration("20220110103209_initDb")]
     partial class initDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

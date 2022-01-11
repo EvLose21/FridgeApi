@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace FridgeProduct.Entities
 {
-    public class RepositoryContext : DbContext
+    public class RepositoryContext : IdentityDbContext<User>
     {
         public RepositoryContext(DbContextOptions options)
             : base(options)
@@ -23,10 +24,13 @@ namespace FridgeProduct.Entities
         public DbSet<FridgeToProduct> FridgeToProducts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfiguration(new FridgeConfiguration());
             modelBuilder.ApplyConfiguration(new FridgeModelConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new FridgeToProductConfiguration());
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
             modelBuilder
                 .Entity<Fridge>()
                 .HasMany(f => f.Products)
@@ -46,6 +50,8 @@ namespace FridgeProduct.Entities
                     j.HasKey(t => new { t.FridgeId, t.ProductId });
                     j.ToTable("FridgeToProduct");
                    });
+
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
