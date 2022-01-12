@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using FridgeProduct.Entities.DataTransferObjects;
+using FridgeProduct.Entities.RequestFeatures;
 
 namespace FridgeProduct.Repository
 {
@@ -17,21 +18,21 @@ namespace FridgeProduct.Repository
             : base(repositoryContext)
         {
         }
-        public IEnumerable<Product> GetAllProducts(bool trackChanges) =>
-            FindAll(trackChanges)
+        public async Task<IEnumerable<Product>> GetAllProductsAsync(bool trackChanges) =>
+            await FindAll(trackChanges)
             .OrderBy(f => f.Name)
-            .ToList();
+            .ToListAsync();
         public void CreateProdcut(Product product)=>
             Create(product);
 
         public void DeleteProduct(Product product)=>
             Delete(product);
-        public IEnumerable<ProductForFridge> GetProducts(Guid fridgeId, bool trackChanges)
+        public IEnumerable<ProductForFridge> GetProducts(Guid fridgeId, ProductParameters productParameters, bool trackChanges)
         {
             var productsByFridge = RepositoryContext.FridgeToProducts
                 .Where(fp => fp.FridgeId == fridgeId)
                 .Select(fp => new ProductForFridge
-                { 
+                {
                     ProductId = fp.ProductId,
                     ProductName = fp.Product.Name,
                     Quantity = fp.Quantity
@@ -40,8 +41,9 @@ namespace FridgeProduct.Repository
             return productsByFridge;
         }
 
-        public Product GetProduct(Guid id, bool trackChanges)=>
-            FindByCondition(p => p.Id.Equals(id), trackChanges)
-            .SingleOrDefault();
+
+        public async Task<Product> GetProductAsync(Guid id, bool trackChanges)=>
+            await FindByCondition(p => p.Id.Equals(id), trackChanges)
+            .SingleOrDefaultAsync();
     }
 }

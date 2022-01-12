@@ -16,6 +16,9 @@ using NLog;
 using System.Linq;
 using System.Threading.Tasks;
 using FridgeProduct.Contracts;
+using System.Net;
+using FridgeProduct.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace FridgeProduct
 {
@@ -35,11 +38,14 @@ namespace FridgeProduct
             services.ConfigureCors();
             services.ConfigureIISIntegration();
             services.ConfigureLoggerService();
+
             services.ConfigureSqlContext(Configuration);
             services.ConfigureRepositoryManager();
             services.AddAutoMapper(typeof(Startup));
+
             services.AddAuthentication();
             services.ConfigureIdentity();
+            services.ConfigureJWT(Configuration);
 
             services.AddControllers(config =>
             {
@@ -51,6 +57,16 @@ namespace FridgeProduct
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
+            services.AddScoped<IAuthenticationManager, Repository.AuthenticationManager>();
+
+            services.AddControllersWithViews();
+            services.AddDbContext<RepositoryContext>(o => o.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
+            services.AddControllersWithViews()
+                .AddJsonOptions(o =>
+                {
+                    o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                    o.JsonSerializerOptions.PropertyNamingPolicy = null;
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger)

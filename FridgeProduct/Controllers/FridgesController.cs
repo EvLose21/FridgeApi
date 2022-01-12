@@ -2,6 +2,8 @@
 using FridgeProduct.Contracts;
 using FridgeProduct.Entities.DataTransferObjects;
 using FridgeProduct.Entities.Models;
+using FridgeProduct.Entities.RequestFeatures;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -27,32 +29,32 @@ namespace FridgeProduct.Controllers
         }
 
         //список холодильников
-        [HttpGet]
-        public IActionResult GetFridges()
+        [HttpGet, Authorize(Roles = "Administrator")]
+        public async Task <IActionResult> GetFridges()
         {
-            var fridges = _repostitory.Fridge.GetAllFridges(trackChanges: false);
+            var fridges = await _repostitory.Fridge.GetAllFridgesAsync(trackChanges: false);
             var fridgesDto = _mapper.Map<IEnumerable<FridgeDto>>(fridges);
             return Ok(fridgesDto);
         }
 
         //список продуктов по холодильнику
         [HttpGet("{fridgeId}")]
-        public IActionResult GetProductsForFridge(Guid fridgeId)
+        public async Task<IActionResult> GetProductsForFridge(Guid fridgeId, [FromQuery] ProductParameters productParameters)
         {
-            var fridge = _repostitory.Fridge.GetFridge(fridgeId, trackChanges: false);
+            var fridge = await _repostitory.Fridge.GetFridgeAsync(fridgeId, trackChanges: false);
             if (fridge == null)
             {
                 _logger.LogInfo($"Fridge with id: {fridgeId} doesn't exist in the database.");
                 return NotFound();
             }
 
-            var productsFromDb = _repostitory.Product.GetProducts(fridgeId, trackChanges: false);
+            var productsFromDb = _repostitory.Product.GetProducts(fridgeId, productParameters, trackChanges: false);
             return Ok(productsFromDb);
         }
 
         //добавление продуктов в холодильник
         [HttpPost]
-        public IActionResult AddProduct([FromBody] FridgeToProductForCreationDto fproduct)
+        public async Task<IActionResult> AddProduct([FromBody] FridgeToProductForCreationDto fproduct)
         {
             if (fproduct == null)
             {
@@ -62,7 +64,7 @@ namespace FridgeProduct.Controllers
 
             var fproductEntity = _mapper.Map<FridgeToProduct>(fproduct);
             _repostitory.FridgeToProduct.AddProductForFridge(fproductEntity);
-            _repostitory.Save();
+            await _repostitory.SaveAsync();
 
             var fproductToReturn = _mapper.Map<FridgeToProductDto>(fproductEntity);
 
@@ -71,7 +73,7 @@ namespace FridgeProduct.Controllers
 
         //удаление продуктов из холодильника
         [HttpDelete("{fridgeId}/{id}")]
-        public IActionResult DeleteProductForFridge(Guid fridgeId, Guid id)
+        public async Task<IActionResult> DeleteProductForFridge(Guid fridgeId, Guid id)
         {
             var fproduct = _repostitory.FridgeToProduct.GetFProduct(fridgeId, id, trackChanges: false);
             if (fproduct == null)
@@ -81,14 +83,14 @@ namespace FridgeProduct.Controllers
             }
 
             _repostitory.FridgeToProduct.DeleteProductForFridge(fproduct);
-            _repostitory.Save();
+            await _repostitory.SaveAsync();
 
             return NoContent();
         }
 
         //изменение инфрмации о холодильнике
         [HttpPut("{id}")] 
-        public IActionResult UpdateFridge(Guid id, [FromBody] FridgeForUpdateDto fridge) 
+        public async Task<IActionResult> UpdateFridge(Guid id, [FromBody] FridgeForUpdateDto fridge) 
         { 
             if (fridge == null) 
             { 
@@ -102,14 +104,14 @@ namespace FridgeProduct.Controllers
                 return UnprocessableEntity(ModelState);
             }
 
-            var fridgeEntity = _repostitory.Fridge.GetFridge(id, trackChanges: true); 
+            var fridgeEntity = await _repostitory.Fridge.GetFridgeAsync(id, trackChanges: true); 
             if (fridgeEntity == null) 
             { 
                 _logger.LogInfo($"Fridge with id: {id} doesn't exist in the database."); 
                 return NotFound(); 
             } 
             _mapper.Map(fridge, fridgeEntity); 
-            _repostitory.Save();
+            await _repostitory.SaveAsync();
             return NoContent(); 
         }
     }

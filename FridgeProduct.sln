@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProduct", "FridgeProd
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProduct.Entities", "FridgeProduct.Entities\FridgeProduct.Entities.csproj", "{4405CA0B-6FF0-480F-91A6-53DD59C69E72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProduct.Contracts", "FridgeProduct.Contracts\FridgeProduct.Contracts.csproj", "{246A9B5A-8E3F-4095-98C2-F17386E513D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProduct.Contracts", "FridgeProduct.Contracts\FridgeProduct.Contracts.csproj", "{246A9B5A-8E3F-4095-98C2-F17386E513D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProduct.LoggerService", "FridgeProduct.LoggerService\FridgeProduct.LoggerService.csproj", "{4A527BC6-1040-4E79-BF34-182FB2D4BDF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProduct.LoggerService", "FridgeProduct.LoggerService\FridgeProduct.LoggerService.csproj", "{4A527BC6-1040-4E79-BF34-182FB2D4BDF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProduct.Repository", "FridgeProduct.Repository\FridgeProduct.Repository.csproj", "{A2D71002-097D-4885-B7D4-F2B239F57673}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProduct.Repository", "FridgeProduct.Repository\FridgeProduct.Repository.csproj", "{A2D71002-097D-4885-B7D4-F2B239F57673}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,6 +5,7 @@ using FridgeProduct.Entities.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace FridgeProduct.Controllers
@@ -16,13 +17,15 @@ namespace FridgeProduct.Controllers
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
-
-        public AuthenticationController(ILoggerManager logger, IMapper mapper, UserManager<User> userManager)
+        private readonly IAuthenticationManager _authManager;
+        public AuthenticationController(ILoggerManager logger, IMapper mapper, UserManager<User> userManager, IAuthenticationManager authManager)
         {
             _logger = logger;
             _mapper = mapper;
             _userManager = userManager;
+            _authManager = authManager;
         }
+
 
         [HttpPost]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto
@@ -40,6 +43,26 @@ namespace FridgeProduct.Controllers
             }
             await _userManager.AddToRolesAsync(user, userForRegistration.Roles);
             return StatusCode(201);
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Authenticate([FromBody] UserForAuthenticationDto user)
+        {
+            if (!await _authManager.ValidateUser(user))
+            {
+                _logger.LogWarn($"{nameof(Authenticate)}: Authentication failed. Wrong user name or password.");
+                return Unauthorized();
+            }
+            try
+            {
+                return Ok(new { Token = await _authManager.CreateToken() });
+            }
+            catch(Exception ex)
+            {
+                //Console.WriteLine(ex.Message);
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }
