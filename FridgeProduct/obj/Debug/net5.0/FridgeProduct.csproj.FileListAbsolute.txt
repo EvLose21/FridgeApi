@@ -148,3 +148,7 @@ D:\Projects\FridgeApi\FridgeProduct\bin\Debug\net5.0\Microsoft.AspNetCore.Identi
 D:\Projects\FridgeApi\FridgeProduct\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 D:\Projects\FridgeApi\FridgeProduct\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 D:\Projects\FridgeApi\FridgeProduct\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\FridgeApi\FridgeProduct\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\FridgeApi\FridgeProduct\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\FridgeApi\FridgeProduct\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\FridgeApi\FridgeProduct\obj\Debug\net5.0\FridgeProduct.MvcApplicationPartsAssemblyInfo.cs

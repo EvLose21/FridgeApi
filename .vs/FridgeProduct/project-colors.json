@@ -35,7 +35,12 @@
       "ProjectGuid": "3c6af77a-2621-41ab-a6dd-f6983061a536",
       "DisplayName": "FridgeProduct.Client",
       "ColorIndex": 5
+    },
+    "6e16affb-ce4a-431d-b35f-3c5ac65a6080": {
+      "ProjectGuid": "6e16affb-ce4a-431d-b35f-3c5ac65a6080",
+      "DisplayName": "FridgeProduct.Tests",
+      "ColorIndex": 6
     }
   },
-  "NextColorIndex": 6
+  "NextColorIndex": 7
 }

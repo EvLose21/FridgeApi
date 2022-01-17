@@ -15,6 +15,7 @@ namespace FridgeProduct.Controllers
 {
     [Route("api/fridges")]
     [ApiController]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class FridgesController : ControllerBase
     {
         private readonly IRepositoryManager _repostitory;

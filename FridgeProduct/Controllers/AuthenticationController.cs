@@ -12,6 +12,7 @@ namespace FridgeProduct.Controllers
 {
     [Route("api/authentication")]
     [ApiController]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class AuthenticationController : ControllerBase
     {
         private readonly ILoggerManager _logger;
