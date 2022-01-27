@@ -158,3 +158,6 @@ D:\Projects\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.d
 D:\Projects\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\ref\FridgeProduct.Tests.dll
 D:\Projects\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.pdb
 D:\Projects\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.genruntimeconfig.cache
+D:\Projects\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll

@@ -48,6 +48,8 @@ namespace FridgeProduct
             services.ConfigureJWT(Configuration);
             services.ConfigureSwagger();
 
+            services.AddRazorPages();
+
             services.AddControllers(config =>
             {
                 config.RespectBrowserAcceptHeader = true;
@@ -59,15 +61,17 @@ namespace FridgeProduct
                 options.SuppressModelStateInvalidFilter = true;
             });
             services.AddScoped<IAuthenticationManager, Repository.AuthenticationManager>();
-
-            services.AddControllersWithViews();
+            //services.AddScoped<IFridgeToProductRepository, IFridgeToProductRepository>();
+            services.AddMvc();
+            //services.AddControllers();
+            //services.AddControllersWithViews();
             services.AddDbContext<RepositoryContext>(o => o.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
-            services.AddControllersWithViews()
-                .AddJsonOptions(o =>
-                {
-                    o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-                    o.JsonSerializerOptions.PropertyNamingPolicy = null;
-                });
+            //services.AddControllersWithViews()
+            //    .AddJsonOptions(o =>
+            //    {
+            //        o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+            //        o.JsonSerializerOptions.PropertyNamingPolicy = null;
+            //    });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger)
@@ -78,11 +82,13 @@ namespace FridgeProduct
             }
             else
             {
+                app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
 
             app.ConfigureExceptionHandler(logger);
             app.UseHttpsRedirection();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseCors("CorsPolicy"); //почитать
@@ -96,16 +102,13 @@ namespace FridgeProduct
 
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseSwagger();
-            app.UseSwaggerUI(s =>
-            {
-                s.SwaggerEndpoint("swagger/v1/swagger.json", "Fridge Products API v1");
-                s.SwaggerEndpoint("swagger/v2/swagger.json", "Fridge Products API v2");
-            });
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<FridgeProduct.ViewModels.ProductViewModel>
+@{
+    ViewBag.Title = "Все Продукты";
+}
+<a asp-action="Create">Добавить продукты</a>
+<table class="table">
+    <tr><td>Название</td><td>Количество</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.Name</td><td>@item.DefaultQuantity</td>
+        <td>|
+                <a asp-action="Edit" asp-controller="Products" asp-route-id="@item.Id">Изменить</a> |
+            </td></tr>
+    }
+</table>

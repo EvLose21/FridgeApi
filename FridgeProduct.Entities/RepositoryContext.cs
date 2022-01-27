@@ -22,6 +22,7 @@ namespace FridgeProduct.Entities
         public DbSet<Product> Products { get; set; }
         public DbSet<FridgeModel> FridgeModels { get; set; }
         public DbSet<FridgeToProduct> FridgeToProducts { get; set; }
+        public DbSet<FileModel> Files { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

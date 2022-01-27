@@ -9,7 +9,7 @@ namespace FridgeProduct.Entities.DataTransferObjects
     public class FridgeDto
     {
         public Guid Id { get; set; }
-        public Guid ModelId { get; set; }
+        public Guid FridgeModelId { get; set; }
         public string Name { get; set; }
         public string OwnerName { get; set; }
     }

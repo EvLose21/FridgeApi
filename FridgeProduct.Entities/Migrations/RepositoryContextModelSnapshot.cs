@@ -26,10 +26,7 @@ namespace FridgeProduct.Entities.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("FridgeId");
 
-                    b.Property<Guid?>("FridgeModelId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ModelId")
+                    b.Property<Guid>("FridgeModelId")
                         .HasMaxLength(60)
                         .HasColumnType("uniqueidentifier");
 
@@ -51,23 +48,86 @@ namespace FridgeProduct.Entities.Migrations
                         new
                         {
                             Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
-                            ModelId = new Guid("745cff18-3dfe-4c44-8eb9-5bd6c3e8f328"),
-                            Name = "Holod",
-                            OwnerName = "Aleks"
+                            FridgeModelId = new Guid("65afe2b1-27ac-4657-865c-065d10505bef"),
+                            Name = "One",
+                            OwnerName = "First"
                         },
                         new
                         {
                             Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"),
-                            ModelId = new Guid("745cff18-3dfe-4c44-8eb9-5bd6c3e8f328"),
-                            Name = "Holodilnik",
-                            OwnerName = "Loser"
+                            FridgeModelId = new Guid("65afe2b1-27ac-4657-865c-065d10505bef"),
+                            Name = "Two",
+                            OwnerName = "Second"
                         },
                         new
                         {
-                            Id = new Guid("5df63d42-598e-4b30-8493-8fd0c6cdaf18"),
-                            ModelId = new Guid("41914da1-1deb-47d2-bf06-92e71952b7d4"),
-                            Name = "Moroz",
-                            OwnerName = "Viktor"
+                            Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7092"),
+                            FridgeModelId = new Guid("7366b8d8-f4ba-4747-9806-f85bad203ef5"),
+                            Name = "Three",
+                            OwnerName = "Third"
+                        },
+                        new
+                        {
+                            Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7093"),
+                            FridgeModelId = new Guid("7366b8d8-f4ba-4747-9806-f85bad203ef5"),
+                            Name = "Four",
+                            OwnerName = "Fourth"
+                        },
+                        new
+                        {
+                            Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7094"),
+                            FridgeModelId = new Guid("7366b8d8-f4ba-4747-9806-f85bad203ef5"),
+                            Name = "Five",
+                            OwnerName = "Fivth"
+                        },
+                        new
+                        {
+                            Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7095"),
+                            FridgeModelId = new Guid("8523783c-d082-4805-90ce-b2d32147aedb"),
+                            Name = "Six",
+                            OwnerName = "Sixth"
+                        },
+                        new
+                        {
+                            Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7096"),
+                            FridgeModelId = new Guid("8523783c-d082-4805-90ce-b2d32147aedb"),
+                            Name = "Seven",
+                            OwnerName = "Seventh"
+                        },
+                        new
+                        {
+                            Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7097"),
+                            FridgeModelId = new Guid("8523783c-d082-4805-90ce-b2d32147aedb"),
+                            Name = "Eight",
+                            OwnerName = "8th"
+                        },
+                        new
+                        {
+                            Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7098"),
+                            FridgeModelId = new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"),
+                            Name = "Nine",
+                            OwnerName = "Ninth"
+                        },
+                        new
+                        {
+                            Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7099"),
+                            FridgeModelId = new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"),
+                            Name = "Ten",
+                            OwnerName = "Tenth"
+                        },
+                        new
+                        {
+                            Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7100"),
+                            FridgeModelId = new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"),
+                            Name = "Eleven",
+                            OwnerName = "Eleventh"
+                        },
+                        new
+                        {
+                            Id = new Guid("7b104622-4fef-465a-a5d4-2015de2c7102"),
+                            FridgeModelId = new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"),
+                            Name = "Twelve",
+                            OwnerName = "Twelfth"
                         });
                 });
 
@@ -93,14 +153,26 @@ namespace FridgeProduct.Entities.Migrations
                         new
                         {
                             Id = new Guid("65afe2b1-27ac-4657-865c-065d10505bef"),
-                            Name = "NewModelOne",
-                            Year = 2019
+                            Name = "Model1",
+                            Year = 2014
+                        },
+                        new
+                        {
+                            Id = new Guid("7366b8d8-f4ba-4747-9806-f85bad203ef5"),
+                            Name = "Model2",
+                            Year = 2015
+                        },
+                        new
+                        {
+                            Id = new Guid("8523783c-d082-4805-90ce-b2d32147aedb"),
+                            Name = "Model3",
+                            Year = 2016
                         },
                         new
                         {
                             Id = new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"),
-                            Name = "NewModelTwo",
-                            Year = 2019
+                            Name = "Model1v2",
+                            Year = 2018
                         });
                 });
 
@@ -127,14 +199,92 @@ namespace FridgeProduct.Entities.Migrations
                         new
                         {
                             FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
-                            ProductId = new Guid("14ad7a49-95f6-4e96-9c29-c3080ec493d0"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf51"),
                             Quantity = 10
                         },
                         new
                         {
                             FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
-                            ProductId = new Guid("962be0f6-a4a3-4e17-bf3e-1ea1b7e029d3"),
-                            Quantity = 1100
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf52"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf53"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf54"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf55"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf56"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf57"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf51"),
+                            Quantity = 10
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf56"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf57"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf58"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf59"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf60"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf61"),
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            FridgeId = new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"),
+                            ProductId = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf58"),
+                            Quantity = 2
                         });
                 });
 
@@ -160,15 +310,81 @@ namespace FridgeProduct.Entities.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("962be0f6-a4a3-4e17-bf3e-1ea1b7e029d3"),
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf51"),
                             DefaultQuantity = 1,
                             Name = "Eggs"
                         },
                         new
                         {
-                            Id = new Guid("14ad7a49-95f6-4e96-9c29-c3080ec493d0"),
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf52"),
                             DefaultQuantity = 1,
-                            Name = "Bacon"
+                            Name = "Butter"
+                        },
+                        new
+                        {
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf53"),
+                            DefaultQuantity = 1,
+                            Name = "Meat"
+                        },
+                        new
+                        {
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf54"),
+                            DefaultQuantity = 1,
+                            Name = "Milk"
+                        },
+                        new
+                        {
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf55"),
+                            DefaultQuantity = 1,
+                            Name = "Kefir"
+                        },
+                        new
+                        {
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf56"),
+                            DefaultQuantity = 1,
+                            Name = "Sausage"
+                        },
+                        new
+                        {
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf57"),
+                            DefaultQuantity = 1,
+                            Name = "Ice-cream"
+                        },
+                        new
+                        {
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf58"),
+                            DefaultQuantity = 1,
+                            Name = "Cheese"
+                        },
+                        new
+                        {
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf59"),
+                            DefaultQuantity = 1,
+                            Name = "Cabbage"
+                        },
+                        new
+                        {
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf60"),
+                            DefaultQuantity = 1,
+                            Name = "Cake"
+                        },
+                        new
+                        {
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf61"),
+                            DefaultQuantity = 1,
+                            Name = "Onion"
+                        },
+                        new
+                        {
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf62"),
+                            DefaultQuantity = 1,
+                            Name = "Chicken"
+                        },
+                        new
+                        {
+                            Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf63"),
+                            DefaultQuantity = 1,
+                            Name = "Tomato"
                         });
                 });
 
@@ -272,15 +488,15 @@ namespace FridgeProduct.Entities.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "37710fb0-bcb9-45b2-86ff-9992f91fd611",
-                            ConcurrencyStamp = "dfacfcf3-f49e-411a-8b8b-29d139b233d0",
+                            Id = "320b3530-4840-44f6-a88c-a5604671a2a4",
+                            ConcurrencyStamp = "1d1f7bc6-c2a6-4944-8cb3-0f97070bc2ac",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "38fc5ac8-6339-4cbf-8269-06a7d408aa96",
-                            ConcurrencyStamp = "f29488a7-4c7f-4d9e-bc49-647ff3d4f573",
+                            Id = "9953fbcc-af0c-4c45-a38b-dd7d7ce42b7a",
+                            ConcurrencyStamp = "ff0f5d1a-c6eb-4227-8de5-1f77ae77aacd",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -394,7 +610,9 @@ namespace FridgeProduct.Entities.Migrations
                 {
                     b.HasOne("FridgeProduct.Entities.Models.FridgeModel", "FridgeModel")
                         .WithMany("Fridges")
-                        .HasForeignKey("FridgeModelId");
+                        .HasForeignKey("FridgeModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("FridgeModel");
                 });

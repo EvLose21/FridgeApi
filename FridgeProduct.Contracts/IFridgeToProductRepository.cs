@@ -13,5 +13,6 @@ namespace FridgeProduct.Contracts
         FridgeToProduct GetFProduct(Guid fridgeId, Guid id, bool trackChanges);
         void AddProductForFridge(FridgeToProduct fproduct);
         void DeleteProductForFridge(FridgeToProduct fproduct);
+        Task<IEnumerable<FridgeToProduct>> GetMissingProductAsync(Guid fridgeId, bool trackChanges);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using FridgeProduct.Contracts;
 using FridgeProduct.Entities;
 using FridgeProduct.Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,13 @@ namespace FridgeProduct.Repository
             FindAll(trackChanges)
             .OrderBy(f => f.Quantity)
             .ToList();
+
+
+        public async Task<IEnumerable<FridgeToProduct>> GetMissingProductAsync(Guid fridgeId, bool trackChanges)
+        {
+            var missingProducts = await RepositoryContext.FridgeToProducts.FromSqlRaw($"checkprod {fridgeId}").ToListAsync();
+            return missingProducts;
+        }
 
         public void AddProductForFridge(FridgeToProduct fproduct)
         {

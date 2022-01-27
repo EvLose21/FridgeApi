@@ -16,14 +16,80 @@ namespace FridgeProduct.Entities.Configuration
             builder.HasData(
                 new Product
                 {
-                    Id = new Guid("962be0f6-a4a3-4e17-bf3e-1ea1b7e029d3"),
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf51"),
                     Name = "Eggs",
                     DefaultQuantity = 1
                 },
                 new Product
                 {
-                    Id = new Guid("14ad7a49-95f6-4e96-9c29-c3080ec493d0"),
-                    Name = "Bacon",
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf52"),
+                    Name = "Butter",
+                    DefaultQuantity = 1
+                },
+                new Product
+                {
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf53"),
+                    Name = "Meat",
+                    DefaultQuantity = 1
+                },
+                new Product
+                {
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf54"),
+                    Name = "Milk",
+                    DefaultQuantity = 1
+                },
+                new Product
+                {
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf55"),
+                    Name = "Kefir",
+                    DefaultQuantity = 1
+                },
+                new Product
+                {
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf56"),
+                    Name = "Sausage",
+                    DefaultQuantity = 1
+                },
+                new Product
+                {
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf57"),
+                    Name = "Ice-cream",
+                    DefaultQuantity = 1
+                },
+                new Product
+                {
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf58"),
+                    Name = "Cheese",
+                    DefaultQuantity = 1
+                },
+                new Product
+                {
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf59"),
+                    Name = "Cabbage",
+                    DefaultQuantity = 1
+                },
+                new Product
+                {
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf60"),
+                    Name = "Cake",
+                    DefaultQuantity = 1
+                },
+                new Product
+                {
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf61"),
+                    Name = "Onion",
+                    DefaultQuantity = 1
+                },
+                new Product
+                {
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf62"),
+                    Name = "Chicken",
+                    DefaultQuantity = 1
+                },
+                new Product
+                {
+                    Id = new Guid("43bf4f29-ec38-47a7-a2c2-80df6997bf63"),
+                    Name = "Tomato",
                     DefaultQuantity = 1
                 }
             );

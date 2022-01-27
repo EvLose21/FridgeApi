@@ -14,7 +14,7 @@ namespace FridgeProduct.Entities.Models
         public Guid Id { get; set; }
         [Required(ErrorMessage = "ModelId is a required field.")]
         [MaxLength(60, ErrorMessage = "Maximum length for the model is 60 characters.")]
-        public Guid ModelId { get; set; }
+        public Guid FridgeModelId { get; set; }
         [Required(ErrorMessage = "Fridge name is a required field.")]
         [MaxLength(60, ErrorMessage = "Maximum length for the Name is 60 characters.")]
         public string Name { get; set; }

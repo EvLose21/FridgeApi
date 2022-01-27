@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProduct.LoggerService
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProduct.Repository", "FridgeProduct.Repository\FridgeProduct.Repository.csproj", "{A2D71002-097D-4885-B7D4-F2B239F57673}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProduct.Tests", "FridgeProduct.Tests\FridgeProduct.Tests.csproj", "{6E16AFFB-CE4A-431D-B35F-3C5AC65A6080}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProduct.Tests", "FridgeProduct.Tests\FridgeProduct.Tests.csproj", "{6E16AFFB-CE4A-431D-B35F-3C5AC65A6080}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
