@@ -4,7 +4,7 @@ namespace FridgeProduct.ViewModels
 {
     public class IndexFridgeViewModel
     {
-        public IEnumerable<Fridge> Fridges { get; set; }
-        public IEnumerable<FridgeModel> FridgeModels { get; set; }
+        public IEnumerable<FridgeViewModel> Fridges { get; set; }
+        public PageViewModel PageViewModel { get; set; }
     }
 }

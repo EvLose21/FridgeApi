@@ -174,3 +174,4 @@ D:\Projects\FridgeApi\FridgeProduct\obj\Debug\net5.0\Razor\Views\Fridges\Index.c
 D:\Projects\FridgeApi\FridgeProduct\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 D:\Projects\FridgeApi\FridgeProduct\obj\Debug\net5.0\Razor\Views\Products\Create.cshtml.g.cs
 D:\Projects\FridgeApi\FridgeProduct\obj\Debug\net5.0\Razor\Views\Fridges\Delete.cshtml.g.cs
+D:\Projects\FridgeApi\FridgeProduct\obj\Debug\net5.0\Razor\Views\Fridges\Details.cshtml.g.cs

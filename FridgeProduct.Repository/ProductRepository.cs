@@ -41,7 +41,6 @@ namespace FridgeProduct.Repository
             return productsByFridge;
         }
 
-
         public async Task<Product> GetProductAsync(Guid id, bool trackChanges)=>
             await FindByCondition(p => p.Id.Equals(id), trackChanges)
             .SingleOrDefaultAsync();

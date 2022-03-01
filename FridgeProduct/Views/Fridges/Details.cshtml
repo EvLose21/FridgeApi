@@ -1,0 +1,34 @@
+﻿@model FridgeProduct.ViewModels.PaginatedList<FridgeProduct.ViewModels.ProductViewModel>
+@{
+    ViewBag.Title = "Продукты";
+}
+<label>Продукты, которых мало:</label><br />
+<input type="checkbox" name="isMarried" value="true" />
+<a asp-action="create" asp-controller="products">Добавить продукты</a>
+<table class="table">
+    <tr><td>Название</td><td>Количество</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.Name</td><td>@item.DefaultQuantity</td></tr>
+    }
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Details"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Details"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
