@@ -1,15 +1,72 @@
-﻿@model IEnumerable<FridgeProduct.ViewModels.ProductViewModel>
+﻿@model FridgeProduct.ViewModels.PaginatedList<FridgeProduct.ViewModels.ProductViewModel>
 @{
-    ViewBag.Title = "Все Продукты";
+    ViewData["Title"] = "Index";
 }
+
+<h2>Список продуктов</h2>
+
 <a asp-action="Create">Добавить продукты</a>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Поиск по названию: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Поиск" class="btn btn-default" />
+        </p>
+    </div>
+</form>
+
 <table class="table">
-    <tr><td>Название</td><td>Количество</td></tr>
-    @foreach (var item in Model)
-    {
-        <tr><td>@item.Name</td><td>@item.DefaultQuantity</td>
-        <td>|
-                <a asp-action="Edit" asp-controller="Products" asp-route-id="@item.Id">Изменить</a> |
-            </td></tr>
-    }
+    <thead>
+        <tr>
+            <th>
+                Название
+            </th>
+            <th>
+                Количество
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DefaultQuantity)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> 
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Prev
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
+
+<div>
+    <a asp-action="Index" asp-controller="home">Вернуться на главную</a>
+</div>

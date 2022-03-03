@@ -2,8 +2,6 @@
 @{
     ViewBag.Title = "Продукты";
 }
-<label>Продукты, которых мало:</label><br />
-<input type="checkbox" name="isMarried" value="true" />
 <a asp-action="create" asp-controller="products">Добавить продукты</a>
 <table class="table">
     <tr><td>Название</td><td>Количество</td></tr>
@@ -23,7 +21,7 @@
    asp-route-pageNumber="@(Model.PageIndex - 1)"
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
    class="btn btn-default @prevDisabled">
-    Previous
+    Prev
 </a>
 <a asp-action="Details"
    asp-route-sortOrder="@ViewData["CurrentSort"]"

@@ -1,6 +1,6 @@
 ﻿@model FridgeProduct.Entities.Models.Product
 @{
-    ViewBag.Title = "Редактирование продуктов";
+    ViewData["Title"] = "Index";
 }
 <form asp-action="edit" asp-controller="products" asp-route-id="@Model.Id">
     <div class="form-group">
@@ -15,3 +15,7 @@
         <input type="submit" value="Сохранить" class="btn btn-default" />
     </div>
 </form>
+
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>

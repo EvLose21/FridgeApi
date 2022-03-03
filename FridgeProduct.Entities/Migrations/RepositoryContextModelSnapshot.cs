@@ -19,6 +19,24 @@ namespace FridgeProduct.Entities.Migrations
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("FridgeProduct.Entities.Models.FileModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Files");
+                });
+
             modelBuilder.Entity("FridgeProduct.Entities.Models.Fridge", b =>
                 {
                     b.Property<Guid>("Id")
@@ -488,15 +506,15 @@ namespace FridgeProduct.Entities.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "320b3530-4840-44f6-a88c-a5604671a2a4",
-                            ConcurrencyStamp = "1d1f7bc6-c2a6-4944-8cb3-0f97070bc2ac",
+                            Id = "9c722039-76c2-4e6d-9dbc-fdd4dbfed7d6",
+                            ConcurrencyStamp = "b95926a7-14c4-4b8b-98c9-2c68b4e0d87a",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "9953fbcc-af0c-4c45-a38b-dd7d7ce42b7a",
-                            ConcurrencyStamp = "ff0f5d1a-c6eb-4227-8de5-1f77ae77aacd",
+                            Id = "07b95c3b-1282-411b-a82c-cfc6394c1cfa",
+                            ConcurrencyStamp = "98186158-e582-47ee-81ab-d7a4bbec2b60",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

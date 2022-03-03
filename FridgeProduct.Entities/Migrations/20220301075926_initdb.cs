@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FridgeProduct.Entities.Migrations
 {
-    public partial class initDb : Migration
+    public partial class initdb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,20 @@ namespace FridgeProduct.Entities.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Files",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Path = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Files", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -230,8 +244,8 @@ namespace FridgeProduct.Entities.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "9953fbcc-af0c-4c45-a38b-dd7d7ce42b7a", "ff0f5d1a-c6eb-4227-8de5-1f77ae77aacd", "Administrator", "ADMINISTRATOR" },
-                    { "320b3530-4840-44f6-a88c-a5604671a2a4", "1d1f7bc6-c2a6-4944-8cb3-0f97070bc2ac", "Manager", "MANAGER" }
+                    { "07b95c3b-1282-411b-a82c-cfc6394c1cfa", "98186158-e582-47ee-81ab-d7a4bbec2b60", "Administrator", "ADMINISTRATOR" },
+                    { "9c722039-76c2-4e6d-9dbc-fdd4dbfed7d6", "b95926a7-14c4-4b8b-98c9-2c68b4e0d87a", "Manager", "MANAGER" }
                 });
 
             migrationBuilder.InsertData(
@@ -372,6 +386,9 @@ namespace FridgeProduct.Entities.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Files");
 
             migrationBuilder.DropTable(
                 name: "FridgeToProduct");

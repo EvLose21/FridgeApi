@@ -1,10 +1,8 @@
-﻿using AutoMapper;
-using FridgeProduct.Contracts;
-using FridgeProduct.Entities;
-using FridgeProduct.Entities.DataTransferObjects;
+﻿using FridgeProduct.Entities;
 using FridgeProduct.Entities.Models;
 using FridgeProduct.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -75,6 +73,7 @@ namespace FridgeProduct.Controllers.MVC
 
             int pageSize = 3;
             return View(await PaginatedList<FridgeViewModel>.CreateAsync(fridges.AsNoTracking(), pageNumber ?? 1, pageSize));
+
         }
 
 
@@ -112,11 +111,16 @@ namespace FridgeProduct.Controllers.MVC
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Fridge fridge)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id, Name, Model")]Fridge fridge)
         {
-            _context.Fridges.Add(fridge);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _context.Fridges.Add(fridge);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(fridge);
         }
 
         public async Task<IActionResult> Edit(Guid? id)
@@ -167,6 +171,35 @@ namespace FridgeProduct.Controllers.MVC
             return NotFound();
         }
 
+        public IActionResult AddProduct(Guid? id)
+        {
+            if (id != null)
+            {
+                var fProducts = _context.FridgeToProducts.ToList();
+                ViewBag.FridgeProducts = new SelectList(fProducts, "FridgeId", "ProductId", "Quantity");
+                return View();
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddProduct(Guid? id, FridgeToProduct fProduct)
+        {
+            if (id != null)
+            {
+                fProduct = new FridgeToProduct
+                {
+                    ProductId = fProduct.ProductId,
+                    Quantity = fProduct.Quantity,
+                    FridgeId = (Guid)id
+                };
+                _context.FridgeToProducts.Add(fProduct);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Details");
+            }
+
+            return NotFound();
+        }
 
     }
 }
