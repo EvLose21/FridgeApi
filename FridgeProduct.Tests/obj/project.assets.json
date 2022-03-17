@@ -29,6 +29,15 @@
           "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "bootstrap.chosen/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "1.6.4"
+        }
+      },
+      "jQuery/1.6.4": {
+        "type": "package"
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.13": {
         "type": "package",
         "dependencies": {
@@ -2618,7 +2627,8 @@
           "NLog.Extensions.Logging": "1.7.4",
           "Swashbuckle.AspNetCore.Swagger": "6.2.3",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.2.3",
-          "Swashbuckle.AspNetCore.SwaggerUI": "6.2.3"
+          "Swashbuckle.AspNetCore.SwaggerUI": "6.2.3",
+          "bootstrap.chosen": "1.0.0"
         },
         "compile": {
           "bin/placeholder/FridgeProduct.dll": {}
@@ -2717,6 +2727,42 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "bootstrap.chosen/1.0.0": {
+      "sha512": "gq1QwZ53xlx1mKUBbSP9+o0AVsL61g6RQ5Jia/ghXb4CurA1aJUZtoOnO77fZrSsuRNh0J7I5ct5qTu2otQUmg==",
+      "type": "package",
+      "path": "bootstrap.chosen/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bootstrap.chosen.1.0.0.nupkg.sha512",
+        "bootstrap.chosen.nuspec",
+        "content/Content/bootstrap-chosen.css",
+        "content/Content/bootstrap-chosen.less",
+        "content/Content/bootstrap-chosen.scss",
+        "content/Content/chosen-sprite.png",
+        "content/Content/chosen-sprite@2x.png",
+        "content/Scripts/chosen.jquery.js",
+        "content/Scripts/chosen.jquery.min.js"
+      ]
+    },
+    "jQuery/1.6.4": {
+      "sha512": "8RzoZQFeFYL/cINRXksLWyl8D5TKctZ/2G8hrlOLLM5OgFNI9h3t3l5tB+BBbsBUxaPUageVe0p9ruU5jrFeow==",
+      "type": "package",
+      "path": "jquery/1.6.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/jquery-1.6.4-vsdoc.js",
+        "Content/Scripts/jquery-1.6.4.js",
+        "Content/Scripts/jquery-1.6.4.min.js",
+        "Tools/install.ps1",
+        "Tools/jquery-1.6.4-vsdoc-para.js",
+        "Tools/uninstall.ps1",
+        "jquery.1.6.4.nupkg.sha512",
+        "jquery.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.13": {
@@ -8848,8 +8894,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ryzen\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\mobil\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -8857,15 +8902,11 @@
       "projectUniqueName": "D:\\Work\\FridgeApi\\FridgeProduct.Tests\\FridgeProduct.Tests.csproj",
       "projectName": "FridgeProduct.Tests",
       "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Tests\\FridgeProduct.Tests.csproj",
-      "packagesPath": "C:\\Users\\ryzen\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\mobil\\.nuget\\packages\\",
       "outputPath": "D:\\Work\\FridgeApi\\FridgeProduct.Tests\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ryzen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\mobil\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8925,7 +8966,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

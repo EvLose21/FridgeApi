@@ -19,5 +19,6 @@ namespace FridgeProduct.Entities.Models
         public FridgeModel FridgeModel { get; set; }
         public List<Product> Products { get; set; } = new();
         public List<FridgeToProduct> FridgeToProducts { get; set; } = new();
+        public string Description { get; set; }
     }
 }

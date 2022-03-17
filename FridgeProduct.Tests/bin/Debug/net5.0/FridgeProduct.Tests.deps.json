@@ -42,6 +42,12 @@
           }
         }
       },
+      "bootstrap.chosen/1.0.0": {
+        "dependencies": {
+          "jQuery": "1.6.4"
+        }
+      },
+      "jQuery/1.6.4": {},
       "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.13": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.7.1"
@@ -1724,7 +1730,8 @@
           "NLog.Extensions.Logging": "1.7.4",
           "Swashbuckle.AspNetCore.Swagger": "6.2.3",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.2.3",
-          "Swashbuckle.AspNetCore.SwaggerUI": "6.2.3"
+          "Swashbuckle.AspNetCore.SwaggerUI": "6.2.3",
+          "bootstrap.chosen": "1.0.0"
         },
         "runtime": {
           "FridgeProduct.dll": {}
@@ -1788,6 +1795,20 @@
       "sha512": "sha512-xSWoVzOipuDU4PeZcUfaZQ+xqXU8QmGv5jrdlxt3MYm9xaOmrefqcfzGQ3SQ+D+8wfBa/ZwSuL0qKOVj080inA==",
       "path": "automapper.extensions.microsoft.dependencyinjection/8.1.1",
       "hashPath": "automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512"
+    },
+    "bootstrap.chosen/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gq1QwZ53xlx1mKUBbSP9+o0AVsL61g6RQ5Jia/ghXb4CurA1aJUZtoOnO77fZrSsuRNh0J7I5ct5qTu2otQUmg==",
+      "path": "bootstrap.chosen/1.0.0",
+      "hashPath": "bootstrap.chosen.1.0.0.nupkg.sha512"
+    },
+    "jQuery/1.6.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8RzoZQFeFYL/cINRXksLWyl8D5TKctZ/2G8hrlOLLM5OgFNI9h3t3l5tB+BBbsBUxaPUageVe0p9ruU5jrFeow==",
+      "path": "jquery/1.6.4",
+      "hashPath": "jquery.1.6.4.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.13": {
       "type": "package",

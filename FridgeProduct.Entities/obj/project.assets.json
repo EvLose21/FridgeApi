@@ -5954,8 +5954,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ryzen\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\mobil\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -5963,15 +5962,11 @@
       "projectUniqueName": "D:\\Work\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj",
       "projectName": "FridgeProduct.Entities",
       "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj",
-      "packagesPath": "C:\\Users\\ryzen\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\mobil\\.nuget\\packages\\",
       "outputPath": "D:\\Work\\FridgeApi\\FridgeProduct.Entities\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ryzen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\mobil\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6037,7 +6032,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

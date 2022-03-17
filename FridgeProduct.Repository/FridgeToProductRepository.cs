@@ -35,7 +35,7 @@ namespace FridgeProduct.Repository
             {
                 ProductId = fproduct.ProductId,
                 Quantity = fproduct.Quantity,
-                FridgeId = fproduct.FridgeId,
+                FridgeId = fproduct.FridgeId
             };
 
             Create(addProduct);

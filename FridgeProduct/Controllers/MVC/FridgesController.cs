@@ -107,30 +107,56 @@ namespace FridgeProduct.Controllers.MVC
 
         public IActionResult Create()
         {
-            return View();
+            FridgeCreateViewModel fridgeCreateViewModel = new FridgeCreateViewModel();
+            fridgeCreateViewModel.ModelsList = _context.FridgeModels.Select(x => new SelectListItem { 
+                Value = x.Id.ToString(), 
+                Text = x.Name, })
+                .ToList();
+
+            
+            return View(fridgeCreateViewModel);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id, Name, Model")]Fridge fridge)
+        public async Task<IActionResult> Create(FridgeCreateViewModel fridgeCreateViewModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Fridges.Add(fridge);
+                Fridge fridge = new Fridge()
+                {
+                    Name = fridgeCreateViewModel.Name,
+                    FridgeModel = fridgeCreateViewModel.ModelId,
+                    Description = fridgeCreateViewModel.Description,
+                };
+
+
+                /*for (int i = 0; i < fridgeCreateViewModel.SelectedProducts.Count; i++)
+                {
+                    FridgeToProduct fProduct = new FridgeToProduct()
+                    {
+                        FridgeId = fridge.Id,
+                        ProductId = fridgeCreateViewModel.SelectedProducts[i]
+                    };
+                    _context.Add(fProduct);
+                }*/
+
+                _context.Add(fridge);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(fridge);
+            return View(fridgeCreateViewModel);
         }
 
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id != null)
             {
-                FridgeViewModel fridgeViewModel = new FridgeViewModel();
+                FridgeUpdateViewModel fridgeUpdateViewModel = new FridgeUpdateViewModel();
                 Fridge fridge = await _context.Fridges.FirstOrDefaultAsync(p => p.Id == id);
-                if (fridge != null)
-                    return View(fridge);
+                fridge.Name = fridgeUpdateViewModel.Name;
+                fridge.Description = fridgeUpdateViewModel.Description;
+                await _context.SaveChangesAsync();
+                return View(fridgeUpdateViewModel);
             }
             return NotFound();
         }

@@ -44,6 +44,9 @@ namespace FridgeProduct.Entities.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("FridgeId");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("FridgeModelId")
                         .HasMaxLength(60)
                         .HasColumnType("uniqueidentifier");
@@ -506,15 +509,15 @@ namespace FridgeProduct.Entities.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9c722039-76c2-4e6d-9dbc-fdd4dbfed7d6",
-                            ConcurrencyStamp = "b95926a7-14c4-4b8b-98c9-2c68b4e0d87a",
+                            Id = "6155822c-67a6-47d0-a948-87ea9feb0cb9",
+                            ConcurrencyStamp = "025cf466-d8c3-4033-a707-9e0534480fdc",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "07b95c3b-1282-411b-a82c-cfc6394c1cfa",
-                            ConcurrencyStamp = "98186158-e582-47ee-81ab-d7a4bbec2b60",
+                            Id = "4d090ff9-8ab8-4416-9ca8-0007bea8b5ba",
+                            ConcurrencyStamp = "81a65785-555a-47b9-8783-d9bfa3a75f5f",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

@@ -77,9 +77,9 @@ namespace FridgeProduct.Controllers.MVC
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id, Name, DefaultQuantity")]Product product)
+        public async Task<IActionResult> Create([Bind("Name, DefaultQuantity")]Product product)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.Add(product);
                 await _context.SaveChangesAsync();

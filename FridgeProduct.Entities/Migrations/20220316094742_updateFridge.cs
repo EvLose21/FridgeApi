@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FridgeProduct.Entities.Migrations
 {
-    public partial class initdb : Migration
+    public partial class updateFridge : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -201,7 +201,8 @@ namespace FridgeProduct.Entities.Migrations
                     FridgeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FridgeModelId = table.Column<Guid>(type: "uniqueidentifier", maxLength: 60, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
-                    OwnerName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    OwnerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -244,8 +245,8 @@ namespace FridgeProduct.Entities.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "07b95c3b-1282-411b-a82c-cfc6394c1cfa", "98186158-e582-47ee-81ab-d7a4bbec2b60", "Administrator", "ADMINISTRATOR" },
-                    { "9c722039-76c2-4e6d-9dbc-fdd4dbfed7d6", "b95926a7-14c4-4b8b-98c9-2c68b4e0d87a", "Manager", "MANAGER" }
+                    { "4d090ff9-8ab8-4416-9ca8-0007bea8b5ba", "81a65785-555a-47b9-8783-d9bfa3a75f5f", "Administrator", "ADMINISTRATOR" },
+                    { "6155822c-67a6-47d0-a948-87ea9feb0cb9", "025cf466-d8c3-4033-a707-9e0534480fdc", "Manager", "MANAGER" }
                 });
 
             migrationBuilder.InsertData(
@@ -281,21 +282,21 @@ namespace FridgeProduct.Entities.Migrations
 
             migrationBuilder.InsertData(
                 table: "Fridges",
-                columns: new[] { "FridgeId", "FridgeModelId", "Name", "OwnerName" },
+                columns: new[] { "FridgeId", "Description", "FridgeModelId", "Name", "OwnerName" },
                 values: new object[,]
                 {
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"), new Guid("65afe2b1-27ac-4657-865c-065d10505bef"), "One", "First" },
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"), new Guid("65afe2b1-27ac-4657-865c-065d10505bef"), "Two", "Second" },
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7092"), new Guid("7366b8d8-f4ba-4747-9806-f85bad203ef5"), "Three", "Third" },
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7093"), new Guid("7366b8d8-f4ba-4747-9806-f85bad203ef5"), "Four", "Fourth" },
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7094"), new Guid("7366b8d8-f4ba-4747-9806-f85bad203ef5"), "Five", "Fivth" },
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7095"), new Guid("8523783c-d082-4805-90ce-b2d32147aedb"), "Six", "Sixth" },
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7096"), new Guid("8523783c-d082-4805-90ce-b2d32147aedb"), "Seven", "Seventh" },
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7097"), new Guid("8523783c-d082-4805-90ce-b2d32147aedb"), "Eight", "8th" },
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7098"), new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"), "Nine", "Ninth" },
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7099"), new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"), "Ten", "Tenth" },
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7100"), new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"), "Eleven", "Eleventh" },
-                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7102"), new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"), "Twelve", "Twelfth" }
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7090"), null, new Guid("65afe2b1-27ac-4657-865c-065d10505bef"), "One", "First" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7091"), null, new Guid("65afe2b1-27ac-4657-865c-065d10505bef"), "Two", "Second" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7092"), null, new Guid("7366b8d8-f4ba-4747-9806-f85bad203ef5"), "Three", "Third" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7093"), null, new Guid("7366b8d8-f4ba-4747-9806-f85bad203ef5"), "Four", "Fourth" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7094"), null, new Guid("7366b8d8-f4ba-4747-9806-f85bad203ef5"), "Five", "Fivth" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7095"), null, new Guid("8523783c-d082-4805-90ce-b2d32147aedb"), "Six", "Sixth" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7096"), null, new Guid("8523783c-d082-4805-90ce-b2d32147aedb"), "Seven", "Seventh" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7097"), null, new Guid("8523783c-d082-4805-90ce-b2d32147aedb"), "Eight", "8th" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7098"), null, new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"), "Nine", "Ninth" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7099"), null, new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"), "Ten", "Tenth" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7100"), null, new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"), "Eleven", "Eleventh" },
+                    { new Guid("7b104622-4fef-465a-a5d4-2015de2c7102"), null, new Guid("ce82a987-8381-43c1-9dae-c1181da0510f"), "Twelve", "Twelfth" }
                 });
 
             migrationBuilder.InsertData(
