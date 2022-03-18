@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work\\FridgeApi\\FridgeProduct.Tests\\FridgeProduct.Tests.csproj": {}
+    "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Tests\\FridgeProduct.Tests.csproj": {}
   },
   "projects": {
-    "D:\\Work\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
+    "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj",
+        "projectUniqueName": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj",
         "projectName": "FridgeProduct.Contracts",
-        "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj",
-        "packagesPath": "C:\\Users\\mobil\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\FridgeApi\\FridgeProduct.Contracts\\obj\\",
+        "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj",
+        "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Contracts\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mobil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Work\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj": {
-                "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj"
+              "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj": {
+                "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj"
               }
             }
           }
@@ -58,21 +62,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj": {
+    "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj",
+        "projectUniqueName": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj",
         "projectName": "FridgeProduct.Entities",
-        "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj",
-        "packagesPath": "C:\\Users\\mobil\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\FridgeApi\\FridgeProduct.Entities\\obj\\",
+        "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj",
+        "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Entities\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mobil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -138,21 +146,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj": {
+    "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj",
+        "projectUniqueName": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj",
         "projectName": "FridgeProduct.LoggerService",
-        "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj",
-        "packagesPath": "C:\\Users\\mobil\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\FridgeApi\\FridgeProduct.LoggerService\\obj\\",
+        "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj",
+        "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.LoggerService\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mobil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -166,8 +178,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Work\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
-                "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj"
+              "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
+                "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj"
               }
             }
           }
@@ -202,21 +214,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj": {
+    "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj",
+        "projectUniqueName": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj",
         "projectName": "FridgeProduct.Repository",
-        "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj",
-        "packagesPath": "C:\\Users\\mobil\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\FridgeApi\\FridgeProduct.Repository\\obj\\",
+        "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj",
+        "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Repository\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mobil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -230,11 +246,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Work\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
-                "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj"
+              "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
+                "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj"
               },
-              "D:\\Work\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj": {
-                "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj"
+              "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj": {
+                "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj"
               }
             }
           }
@@ -269,21 +285,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\FridgeApi\\FridgeProduct.Tests\\FridgeProduct.Tests.csproj": {
+    "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Tests\\FridgeProduct.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\FridgeApi\\FridgeProduct.Tests\\FridgeProduct.Tests.csproj",
+        "projectUniqueName": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Tests\\FridgeProduct.Tests.csproj",
         "projectName": "FridgeProduct.Tests",
-        "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Tests\\FridgeProduct.Tests.csproj",
-        "packagesPath": "C:\\Users\\mobil\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\FridgeApi\\FridgeProduct.Tests\\obj\\",
+        "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Tests\\FridgeProduct.Tests.csproj",
+        "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Tests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mobil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -297,8 +317,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Work\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj": {
-                "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj"
+              "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj": {
+                "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj"
               }
             }
           }
@@ -343,21 +363,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj": {
+    "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj",
+        "projectUniqueName": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj",
         "projectName": "FridgeProduct",
-        "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj",
-        "packagesPath": "C:\\Users\\mobil\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\FridgeApi\\FridgeProduct\\obj\\",
+        "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj",
+        "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mobil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -371,14 +395,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Work\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
-                "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj"
+              "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
+                "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj"
               },
-              "D:\\Work\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj": {
-                "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj"
+              "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj": {
+                "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj"
               },
-              "D:\\Work\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj": {
-                "projectPath": "D:\\Work\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj"
+              "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj": {
+                "projectPath": "D:\\Projects\\18_march\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj"
               }
             }
           }
@@ -458,7 +482,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FridgeProduct.Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220316094742_updateFridge")]
-    partial class updateFridge
+    [Migration("20220318105347_initDb")]
+    partial class initDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -511,15 +511,15 @@ namespace FridgeProduct.Entities.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6155822c-67a6-47d0-a948-87ea9feb0cb9",
-                            ConcurrencyStamp = "025cf466-d8c3-4033-a707-9e0534480fdc",
+                            Id = "9309c97d-b089-4205-a11b-6178a3bdf058",
+                            ConcurrencyStamp = "3522aa9f-dbe8-445e-b0a5-4aca2c4fddb9",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "4d090ff9-8ab8-4416-9ca8-0007bea8b5ba",
-                            ConcurrencyStamp = "81a65785-555a-47b9-8783-d9bfa3a75f5f",
+                            Id = "85897ff6-352f-4ea3-9396-840c23d10073",
+                            ConcurrencyStamp = "825277b6-9920-4fdc-a724-71956bd840fe",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

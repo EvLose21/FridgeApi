@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FridgeProduct.Entities.Migrations
 {
-    public partial class updateFridge : Migration
+    public partial class initDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -245,8 +245,8 @@ namespace FridgeProduct.Entities.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4d090ff9-8ab8-4416-9ca8-0007bea8b5ba", "81a65785-555a-47b9-8783-d9bfa3a75f5f", "Administrator", "ADMINISTRATOR" },
-                    { "6155822c-67a6-47d0-a948-87ea9feb0cb9", "025cf466-d8c3-4033-a707-9e0534480fdc", "Manager", "MANAGER" }
+                    { "85897ff6-352f-4ea3-9396-840c23d10073", "825277b6-9920-4fdc-a724-71956bd840fe", "Administrator", "ADMINISTRATOR" },
+                    { "9309c97d-b089-4205-a11b-6178a3bdf058", "3522aa9f-dbe8-445e-b0a5-4aca2c4fddb9", "Manager", "MANAGER" }
                 });
 
             migrationBuilder.InsertData(

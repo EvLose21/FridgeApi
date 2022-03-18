@@ -19,11 +19,7 @@ namespace FridgeProduct.Controllers.MVC
             _context = context;
         }
 
-        public async Task<IActionResult> Index(
-            string sortOrder,
-            string currentFilter,
-            string searchString,
-            int? pageNumber)
+        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
             ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParam"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -76,7 +72,6 @@ namespace FridgeProduct.Controllers.MVC
 
         }
 
-
         public async Task<IActionResult> Details(string sortOrder, Guid? id, string currentFilter, string searchString, int? pageNumber)
         {
             if (id != null)
@@ -108,43 +103,62 @@ namespace FridgeProduct.Controllers.MVC
         public IActionResult Create()
         {
             FridgeCreateViewModel fridgeCreateViewModel = new FridgeCreateViewModel();
+            //Models List
             fridgeCreateViewModel.ModelsList = _context.FridgeModels.Select(x => new SelectListItem { 
                 Value = x.Id.ToString(), 
-                Text = x.Name, })
-                .ToList();
-
-            
+                Text = x.Name,
+            }).ToList();
+            //Products List
+            fridgeCreateViewModel.Products = _context.Products.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Name
+            }).ToList();
+            Console.WriteLine(fridgeCreateViewModel.ModelsList);
             return View(fridgeCreateViewModel);
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(FridgeCreateViewModel fridgeCreateViewModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                Fridge fridge = new Fridge()
+                if (ModelState.IsValid)
                 {
-                    Name = fridgeCreateViewModel.Name,
-                    FridgeModel = fridgeCreateViewModel.ModelId,
-                    Description = fridgeCreateViewModel.Description,
-                };
-
-
-                /*for (int i = 0; i < fridgeCreateViewModel.SelectedProducts.Count; i++)
-                {
-                    FridgeToProduct fProduct = new FridgeToProduct()
+                    Fridge fridge = new Fridge()
                     {
-                        FridgeId = fridge.Id,
-                        ProductId = fridgeCreateViewModel.SelectedProducts[i]
+                        Name = fridgeCreateViewModel.Name,
+                        FridgeModelId = fridgeCreateViewModel.ModelId,
+                        Description = fridgeCreateViewModel.Description
                     };
-                    _context.Add(fProduct);
-                }*/
 
-                _context.Add(fridge);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                    /*for (int i = 0; i < fridgeCreateViewModel.SelectedProducts.Count; i++)
+                    {
+                        FridgeToProduct fProduct = new FridgeToProduct()
+                        {
+                            FridgeId = fridge.Id,
+                            ProductId = fridgeCreateViewModel.SelectedProducts[i]
+                        };
+                        _context.Add(fProduct);
+                    }*/
+                    try
+                    {
+                        _context.Add(fridge);
+                    }
+                    catch (Exception ex)
+                    {
+                        return BadRequest(ex.Message);
+                    }
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(fridgeCreateViewModel);
             }
-            return View(fridgeCreateViewModel);
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         public async Task<IActionResult> Edit(Guid? id)
