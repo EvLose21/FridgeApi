@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FridgeProduct.Entities.DataTransferObjects;
 using FridgeProduct.Entities.Models;
+using FridgeProduct.ViewModels;
 
 namespace FridgeProduct
 {
@@ -18,6 +19,10 @@ namespace FridgeProduct
             CreateMap<FridgeForUpdateDto, Fridge>();
 
             CreateMap<UserForRegistrationDto, User>();
+
+            CreateMap<Fridge, FridgeViewModel>()
+                .ForMember(f => f.Model,
+                opt => opt.MapFrom(x => x.FridgeModel.Name));
         }
     }
 }

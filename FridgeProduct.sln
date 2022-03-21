@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProduct.Repository", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProduct.Tests", "FridgeProduct.Tests\FridgeProduct.Tests.csproj", "{6E16AFFB-CE4A-431D-B35F-3C5AC65A6080}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProduct.BusinessLayer", "FridgeProduct.BusinessLayer\FridgeProduct.BusinessLayer.csproj", "{8B93627A-AD14-4741-8B1B-AF4771C67A0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{6E16AFFB-CE4A-431D-B35F-3C5AC65A6080}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E16AFFB-CE4A-431D-B35F-3C5AC65A6080}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E16AFFB-CE4A-431D-B35F-3C5AC65A6080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B93627A-AD14-4741-8B1B-AF4771C67A0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B93627A-AD14-4741-8B1B-AF4771C67A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B93627A-AD14-4741-8B1B-AF4771C67A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B93627A-AD14-4741-8B1B-AF4771C67A0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

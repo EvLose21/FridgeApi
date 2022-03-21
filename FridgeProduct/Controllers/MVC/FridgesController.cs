@@ -1,4 +1,6 @@
-﻿using FridgeProduct.Entities;
+﻿using AutoMapper;
+using FridgeProduct.Contracts;
+using FridgeProduct.Entities;
 using FridgeProduct.Entities.Models;
 using FridgeProduct.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -14,78 +16,35 @@ namespace FridgeProduct.Controllers.MVC
     public class FridgesController : Controller
     {
         RepositoryContext _context;
-        public FridgesController(RepositoryContext context)
+        private readonly IRepositoryManager _repostitory;
+        private readonly ILoggerManager _logger;
+        private readonly IMapper _mapper;
+        public FridgesController(IRepositoryManager repostitory, ILoggerManager logger, IMapper mapper, RepositoryContext context)
         {
+            _repostitory = repostitory;
+            _logger = logger;
+            _mapper = mapper;
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
+        public async Task<IActionResult> Index(int? pageNumber)
         {
-            ViewData["CurrentSort"] = sortOrder;
-            ViewData["NameSortParam"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["ModelSortParm"] = sortOrder == "Model" ? "model_desc" : "Model";
-
-            if (searchString != null)
+            var fridges = _context.Fridges.Select(f=>new FridgeViewModel
             {
-                pageNumber = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-
-            ViewData["CurrentFilter"] = searchString;
-
-            var fridges = _context.Fridges
-               .Select(c => new FridgeViewModel 
-               { 
-                   Id = c.Id, 
-                   Name = c.Name, 
-                   Model = c.FridgeModel.Name 
-               });
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                fridges = fridges.Where(
-                    f=>f.Name.Contains(searchString)
-                    || f.Model.Contains(searchString));
-            }
-
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    fridges = fridges.OrderByDescending(f=>f.Name);
-                    break;
-                case "Model":
-                    fridges = fridges.OrderBy(f => f.Model);
-                    break;
-                case "model_desc":
-                    fridges = fridges.OrderByDescending(f => f.Model);
-                    break;
-                default:
-                    fridges = fridges.OrderBy(f => f.Name);
-                    break;
-            }
+                Id = f.Id,
+                Name = f.Name,
+                Model = f.FridgeModel.Name
+            });
+            //var fridgesVm = _mapper.Map<IQueryable<FridgeViewModel>>(fridges);
 
             int pageSize = 3;
             return View(await PaginatedList<FridgeViewModel>.CreateAsync(fridges.AsNoTracking(), pageNumber ?? 1, pageSize));
-
         }
 
-        public async Task<IActionResult> Details(string sortOrder, Guid? id, string currentFilter, string searchString, int? pageNumber)
+        public async Task<IActionResult> Details(Guid? id, int? pageNumber)
         {
             if (id != null)
             {
-                ViewData["CurrentSort"] = sortOrder;
-                if (searchString != null)
-                {
-                    pageNumber = 1;
-                }
-                else
-                {
-                    searchString = currentFilter;
-                }
-                ViewData["CurrentFilter"] = searchString;
                 var products = _context.FridgeToProducts
                 .Where(fp => fp.FridgeId == id)
                 .Select(fp => new ProductViewModel
@@ -100,86 +59,100 @@ namespace FridgeProduct.Controllers.MVC
             return NotFound();
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            FridgeCreateViewModel fridgeCreateViewModel = new FridgeCreateViewModel();
-            //Models List
-            fridgeCreateViewModel.ModelsList = _context.FridgeModels.Select(x => new SelectListItem { 
-                Value = x.Id.ToString(), 
-                Text = x.Name,
-            }).ToList();
-            //Products List
-            fridgeCreateViewModel.Products = _context.Products.Select(x => new SelectListItem
+            FridgeCreateViewModel model = new FridgeCreateViewModel()
             {
-                Value = x.Id.ToString(),
-                Text = x.Name
-            }).ToList();
-            Console.WriteLine(fridgeCreateViewModel.ModelsList);
-            return View(fridgeCreateViewModel);
+                ModelsList = await _context.FridgeModels.Select(x => new SelectListItem
+                {
+                    Value = x.Id.ToString(),
+                    Text = x.Name,
+                }).ToListAsync(),
+
+                AvailableProducts = await _context.Products.Select(x => new SelectListItem
+                {
+                    Value = x.Id.ToString(),
+                    Text = x.Name
+                }).ToListAsync()
+            };
+            return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(FridgeCreateViewModel fridgeCreateViewModel)
+        public async Task<IActionResult> Create(FridgeCreateViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                Fridge fridge = new Fridge()
                 {
-                    Fridge fridge = new Fridge()
+                    Name = model.Name,
+                    FridgeModelId = model.ModelId,
+                    Description = model.Description,
+                };
+
+                _context.Add(fridge);
+
+                for (int i = 0; i < model.SelectedProducts.Count; i++)
+                {
+                    FridgeToProduct fProduct = new FridgeToProduct()
                     {
-                        Name = fridgeCreateViewModel.Name,
-                        FridgeModelId = fridgeCreateViewModel.ModelId,
-                        Description = fridgeCreateViewModel.Description
+                        FridgeId = fridge.Id,
+                        ProductId = model.SelectedProducts[i]
                     };
 
-
-                    /*for (int i = 0; i < fridgeCreateViewModel.SelectedProducts.Count; i++)
-                    {
-                        FridgeToProduct fProduct = new FridgeToProduct()
-                        {
-                            FridgeId = fridge.Id,
-                            ProductId = fridgeCreateViewModel.SelectedProducts[i]
-                        };
-                        _context.Add(fProduct);
-                    }*/
-                    try
-                    {
-                        _context.Add(fridge);
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest(ex.Message);
-                    }
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    _context.Add(fProduct);
                 }
-                return View(fridgeCreateViewModel);
+
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            catch (Exception ex)
+
+            model.ModelsList = await _context.FridgeModels.Select(x => new SelectListItem
             {
-                return BadRequest(ex.Message);
-            }
+                Value = x.Id.ToString(),
+                Text = x.Name,
+            }).ToListAsync();
+
+            model.AvailableProducts = await _context.Products.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Name
+            }).ToListAsync();
+
+            return View(model);
         }
 
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id != null)
             {
-                FridgeUpdateViewModel fridgeUpdateViewModel = new FridgeUpdateViewModel();
                 Fridge fridge = await _context.Fridges.FirstOrDefaultAsync(p => p.Id == id);
-                fridge.Name = fridgeUpdateViewModel.Name;
-                fridge.Description = fridgeUpdateViewModel.Description;
-                await _context.SaveChangesAsync();
-                return View(fridgeUpdateViewModel);
+                FridgeUpdateViewModel model = new FridgeUpdateViewModel()
+                {
+                    Name = fridge.Name,
+                    Description = fridge.Description,
+                    OwnerName = fridge.OwnerName
+                };
+                
+                return View(model);
             }
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(Fridge fridge)
+        public async Task<IActionResult> Edit(FridgeUpdateViewModel model)
         {
-            _context.Fridges.Update(fridge);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                Fridge fridge = await _context.Fridges.FirstOrDefaultAsync(p => p.Id == model.Id);
+                fridge.Name = model.Name;
+                fridge.Description = model.Description;
+                fridge.OwnerName = model.OwnerName;
+
+                _context.Fridges.Update(fridge);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
 
         [HttpGet]

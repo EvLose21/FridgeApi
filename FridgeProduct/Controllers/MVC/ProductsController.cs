@@ -21,26 +21,8 @@ namespace FridgeProduct.Controllers.MVC
             _context = context;
         }
 
-        public async Task<IActionResult> Index(
-            string sortOrder,
-            string currentFilter,
-            string searchString,
-            int? pageNumber)
+        public async Task<IActionResult> Index(int? pageNumber)
         {
-            ViewData["CurrentSort"] = sortOrder;
-            ViewData["NameSortParam"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-
-            if (searchString != null)
-            {
-                pageNumber = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-
-            ViewData["CurrentFilter"] = searchString;
-
             var products = _context.Products
                .Select(p => new ProductViewModel
                {
@@ -49,22 +31,6 @@ namespace FridgeProduct.Controllers.MVC
                    DefaultQuantity = p.DefaultQuantity
                });
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                products = products.Where(
-                    f => f.Name.Contains(searchString));
-            }
-
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    products = products.OrderByDescending(p => p.Name);
-                    break;
-                default:
-                    products = products.OrderBy(p => p.Name);
-                    break;
-            }
-
             int pageSize = 3;
             return View(await PaginatedList<ProductViewModel>.CreateAsync(products.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
@@ -72,20 +38,26 @@ namespace FridgeProduct.Controllers.MVC
 
         public IActionResult Create()
         {
-            return View();
+            ProductCreateViewModel model = new ProductCreateViewModel();
+            return View(model);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name, DefaultQuantity")]Product product)
+        public async Task<IActionResult> Create(ProductCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
+                Product product = new Product()
+                {
+                    Name = model.Name,
+                    DefaultQuantity = model.DefaultQuantity
+                };
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+
+            return View(model);
         }
 
         public async Task<IActionResult> Edit(Guid? id)
@@ -93,17 +65,31 @@ namespace FridgeProduct.Controllers.MVC
             if (id != null)
             {
                 Product product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
-                if (product != null)
-                    return View(product);
+                ProductUpdateViewModel model = new ProductUpdateViewModel()
+                {
+                    Name = product.Name,
+                    DefaultQuantity = product.DefaultQuantity
+                };
+
+                return View(model);
             }
+
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(Product product)
+        public async Task<IActionResult> Edit(ProductUpdateViewModel model)
         {
-            _context.Products.Update(product);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                Product product = await _context.Products.FirstOrDefaultAsync(p => p.Id == model.Id);
+                product.Name = model.Name;
+                product.DefaultQuantity = model.DefaultQuantity;
+
+                _context.Products.Update(product);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
     }
 }
