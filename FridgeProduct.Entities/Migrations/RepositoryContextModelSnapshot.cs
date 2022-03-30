@@ -509,15 +509,15 @@ namespace FridgeProduct.Entities.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9309c97d-b089-4205-a11b-6178a3bdf058",
-                            ConcurrencyStamp = "3522aa9f-dbe8-445e-b0a5-4aca2c4fddb9",
+                            Id = "1d2f185c-904f-4172-9f24-f38234e9e982",
+                            ConcurrencyStamp = "63c34413-7c80-4793-b1fa-9d6d150f0f1f",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "85897ff6-352f-4ea3-9396-840c23d10073",
-                            ConcurrencyStamp = "825277b6-9920-4fdc-a724-71956bd840fe",
+                            Id = "cc835824-ce3b-4e8b-bdf2-af200673d965",
+                            ConcurrencyStamp = "12352b8d-6a2e-43ac-91d6-64372783b894",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

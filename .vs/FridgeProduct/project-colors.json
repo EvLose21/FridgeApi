@@ -50,7 +50,12 @@
       "ProjectGuid": "09b3a84d-7308-4d71-823e-9a2257fe7199",
       "DisplayName": "FridgeProduct.Client",
       "ColorIndex": 8
+    },
+    "8b93627a-ad14-4741-8b1b-af4771c67a0e": {
+      "ProjectGuid": "8b93627a-ad14-4741-8b1b-af4771c67a0e",
+      "DisplayName": "FridgeProduct.BusinessLayer",
+      "ColorIndex": 9
     }
   },
-  "NextColorIndex": 9
+  "NextColorIndex": 10
 }

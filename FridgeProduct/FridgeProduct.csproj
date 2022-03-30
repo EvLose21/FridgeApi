@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FridgeProduct.BusinessLayer\FridgeProduct.BusinessLayer.csproj" />
     <ProjectReference Include="..\FridgeProduct.Contracts\FridgeProduct.Contracts.csproj" />
     <ProjectReference Include="..\FridgeProduct.LoggerService\FridgeProduct.LoggerService.csproj" />
     <ProjectReference Include="..\FridgeProduct.Repository\FridgeProduct.Repository.csproj" />

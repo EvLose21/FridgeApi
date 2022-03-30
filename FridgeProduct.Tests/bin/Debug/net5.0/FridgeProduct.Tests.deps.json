@@ -1720,6 +1720,7 @@
       "FridgeProduct/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
+          "FridgeProduct.BusinessLayer": "1.0.0",
           "FridgeProduct.Contracts": "1.0.0",
           "FridgeProduct.LoggerService": "1.0.0",
           "FridgeProduct.Repository": "1.0.0",
@@ -1735,6 +1736,14 @@
         },
         "runtime": {
           "FridgeProduct.dll": {}
+        }
+      },
+      "FridgeProduct.BusinessLayer/1.0.0": {
+        "dependencies": {
+          "FridgeProduct.Contracts": "1.0.0"
+        },
+        "runtime": {
+          "FridgeProduct.BusinessLayer.dll": {}
         }
       },
       "FridgeProduct.Contracts/1.0.0": {
@@ -2889,6 +2898,11 @@
       "hashPath": "xunit.runner.visualstudio.2.4.3.nupkg.sha512"
     },
     "FridgeProduct/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FridgeProduct.BusinessLayer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

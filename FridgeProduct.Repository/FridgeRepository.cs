@@ -19,8 +19,16 @@ namespace FridgeProduct.Repository
 
         public async Task<IEnumerable<Fridge>> GetAllFridgesAsync(bool trackChanges)=>
             await FindAll(trackChanges)
+            .Include(fr=>fr.FridgeModel)
+            .Include(fr=>fr.Products)
             .OrderBy(f=>f.Name)
             .ToListAsync();
+
+        public IQueryable<Fridge> GetAllFridgesQuery(bool trackChanges) =>
+             FindAll(trackChanges)
+            .Include(fr => fr.FridgeModel)
+            .Include(fr => fr.Products)
+            .OrderBy(f => f.Name);
 
         public async Task<Fridge> GetFridgeAsync(Guid fridgeId, bool trackChanges)=>
             await FindByCondition(f => f.Id.Equals(fridgeId), trackChanges)

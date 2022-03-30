@@ -1,0 +1,17 @@
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\bin\Debug\net5.0\FridgeProduct.BusinessLayer.deps.json
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\bin\Debug\net5.0\FridgeProduct.BusinessLayer.dll
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\bin\Debug\net5.0\ref\FridgeProduct.BusinessLayer.dll
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\bin\Debug\net5.0\FridgeProduct.BusinessLayer.pdb
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\bin\Debug\net5.0\FridgeProduct.Contracts.dll
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\bin\Debug\net5.0\FridgeProduct.Entities.dll
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\bin\Debug\net5.0\FridgeProduct.Contracts.pdb
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\bin\Debug\net5.0\FridgeProduct.Entities.pdb
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\obj\Debug\net5.0\FridgeProduct.BusinessLayer.csproj.AssemblyReference.cache
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\obj\Debug\net5.0\FridgeProduct.BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\obj\Debug\net5.0\FridgeProduct.BusinessLayer.AssemblyInfoInputs.cache
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\obj\Debug\net5.0\FridgeProduct.BusinessLayer.AssemblyInfo.cs
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\obj\Debug\net5.0\FridgeProduct.BusinessLayer.csproj.CoreCompileInputs.cache
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\obj\Debug\net5.0\FridgeProduct.BusinessLayer.csproj.CopyComplete
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\obj\Debug\net5.0\FridgeProduct.BusinessLayer.dll
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\obj\Debug\net5.0\ref\FridgeProduct.BusinessLayer.dll
+D:\Work\home\FridgeApi\FridgeProduct.BusinessLayer\obj\Debug\net5.0\FridgeProduct.BusinessLayer.pdb

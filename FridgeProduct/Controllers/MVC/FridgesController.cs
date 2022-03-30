@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FridgeProduct.BusinessLayer.Interfaces;
 using FridgeProduct.Contracts;
 using FridgeProduct.Entities;
 using FridgeProduct.Entities.Models;
@@ -19,26 +20,20 @@ namespace FridgeProduct.Controllers.MVC
         private readonly IRepositoryManager _repostitory;
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
-        public FridgesController(IRepositoryManager repostitory, ILoggerManager logger, IMapper mapper, RepositoryContext context)
+        private readonly IFridgeService _service;
+        public FridgesController(IRepositoryManager repostitory, ILoggerManager logger, IMapper mapper, RepositoryContext context, IFridgeService service)
         {
             _repostitory = repostitory;
             _logger = logger;
             _mapper = mapper;
             _context = context;
+            _service = service;
         }
 
         public async Task<IActionResult> Index(int? pageNumber)
         {
-            var fridges = _context.Fridges.Select(f=>new FridgeViewModel
-            {
-                Id = f.Id,
-                Name = f.Name,
-                Model = f.FridgeModel.Name
-            });
-            //var fridgesVm = _mapper.Map<IQueryable<FridgeViewModel>>(fridges);
-
-            int pageSize = 3;
-            return View(await PaginatedList<FridgeViewModel>.CreateAsync(fridges.AsNoTracking(), pageNumber ?? 1, pageSize));
+            var fridges1 = await _service.GetFridgeListAsync1(pageNumber);
+            return View(fridges1);
         }
 
         public async Task<IActionResult> Details(Guid? id, int? pageNumber)

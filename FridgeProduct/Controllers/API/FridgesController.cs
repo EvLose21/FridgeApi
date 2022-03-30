@@ -28,7 +28,6 @@ namespace FridgeProduct.Controllers
             _mapper = mapper;
         }
 
-        //список холодильников
         [HttpGet, Authorize(Roles = "Administrator")]
         public async Task<IActionResult> GetFridges()
         {
@@ -37,7 +36,6 @@ namespace FridgeProduct.Controllers
             return Ok(fridgesDto);
         }
 
-        //список продуктов по холодильнику
         [HttpGet("{fridgeId}")]
         public async Task<IActionResult> GetProductsForFridge(Guid fridgeId, [FromQuery] ProductParameters productParameters)
         {
@@ -52,7 +50,6 @@ namespace FridgeProduct.Controllers
             return Ok(productsFromDb);
         }
 
-        //добавление продуктов в холодильник
         [HttpPost]
         public async Task<IActionResult> AddProduct([FromBody] FridgeToProductForCreationDto fproduct)
         {
@@ -79,7 +76,6 @@ namespace FridgeProduct.Controllers
             return Ok(productsDto);
         }
 
-        //удаление продуктов из холодильника
         [HttpDelete("{fridgeId}/{id}")]
         public async Task<IActionResult> DeleteProductForFridge(Guid fridgeId, Guid id)
         {
@@ -96,7 +92,6 @@ namespace FridgeProduct.Controllers
             return NoContent();
         }
 
-        //изменение инфрмации о холодильнике
         [HttpPut("{id}")] 
         public async Task<IActionResult> UpdateFridge(Guid id, [FromBody] FridgeForUpdateDto fridge) 
         { 

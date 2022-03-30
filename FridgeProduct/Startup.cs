@@ -19,6 +19,8 @@ using FridgeProduct.Contracts;
 using System.Net;
 using FridgeProduct.Entities;
 using Microsoft.EntityFrameworkCore;
+using FridgeProduct.BusinessLayer.Interfaces;
+using FridgeProduct.BusinessLayer.Services;
 
 namespace FridgeProduct
 {
@@ -35,6 +37,8 @@ namespace FridgeProduct
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IFridgeService, FridgeService>();
+
             services.ConfigureCors();
             services.ConfigureIISIntegration();
             services.ConfigureLoggerService();

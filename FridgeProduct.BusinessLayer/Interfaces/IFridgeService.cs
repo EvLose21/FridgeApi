@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FridgeProduct.BusinessLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,8 @@ namespace FridgeProduct.BusinessLayer.Interfaces
 {
     public interface IFridgeService
     {
-
+        Task<FridgeList> GetFridgeListAsync();
+        Task<PaginatedList<FridgeListitem>> GetFridgeListAsync1(int? pageNumber);
 
     }
 }
