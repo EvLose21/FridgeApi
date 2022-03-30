@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using FridgeProduct.BusinessLayer.Models;
 using System.Threading.Tasks;
 
 namespace FridgeProduct.BusinessLayer.Interfaces
 {
     public interface IProductService
     {
+        Task<PaginatedList<ProductListItem>> GetProductListAsync(int? pageNumber);
     }
 }

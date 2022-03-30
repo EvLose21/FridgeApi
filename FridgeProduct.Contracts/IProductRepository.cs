@@ -12,6 +12,7 @@ namespace FridgeProduct.Contracts
     public interface IProductRepository
     {
         IEnumerable<ProductForFridge> GetProducts(Guid fridgeId, ProductParameters productParameters, bool trackChanges);
+        IQueryable<Product> GetAllProductsQuery(bool trackChanges);
         Task<IEnumerable<Product>> GetAllProductsAsync(bool trackChanges);
         Task<Product> GetProductAsync(Guid id, bool trackChanges);
 

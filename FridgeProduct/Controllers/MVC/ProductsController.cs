@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FridgeProduct.BusinessLayer.Interfaces;
 using FridgeProduct.Contracts;
 using FridgeProduct.Entities;
 using FridgeProduct.Entities.Models;
@@ -15,28 +16,20 @@ namespace FridgeProduct.Controllers.MVC
 {
     public class ProductsController : Controller
     {
-        RepositoryContext _context;
-        public ProductsController(RepositoryContext context)
+        private readonly IProductService _service;
+        public ProductsController(IProductService service)
         {
-            _context = context;
+            _service = service;
         }
 
         public async Task<IActionResult> Index(int? pageNumber)
         {
-            var products = _context.Products
-               .Select(p => new ProductViewModel
-               {
-                   Id = p.Id,
-                   Name = p.Name,
-                   DefaultQuantity = p.DefaultQuantity
-               });
-
-            int pageSize = 3;
-            return View(await PaginatedList<ProductViewModel>.CreateAsync(products.AsNoTracking(), pageNumber ?? 1, pageSize));
+            var products = await _service.GetProductListAsync(pageNumber);
+            return View(products);
         }
 
 
-        public IActionResult Create()
+        /*public IActionResult Create()
         {
             ProductCreateViewModel model = new ProductCreateViewModel();
             return View(model);
@@ -90,6 +83,6 @@ namespace FridgeProduct.Controllers.MVC
                 return RedirectToAction("Index");
             }
             return View(model);
-        }
+        }*/
     }
 }

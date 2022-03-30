@@ -37,7 +37,7 @@ namespace FridgeProduct
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IFridgeService, FridgeService>();
+            services.RegisterServices();
 
             services.ConfigureCors();
             services.ConfigureIISIntegration();

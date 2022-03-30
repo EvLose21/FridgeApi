@@ -27,8 +27,6 @@ namespace FridgeProduct.Controllers
         public IActionResult Index()
         {
             return View();
-            //return View(_context.Fridges.ToList());
-            //return View(_context.Files.ToList());
         }
     }
 }

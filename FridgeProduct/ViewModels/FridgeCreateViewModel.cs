@@ -16,6 +16,7 @@ namespace FridgeProduct.ViewModels
         public string Description { get; set; }
         [Required(ErrorMessage = "FridgeModel is a required field.")]
         public Guid ModelId { get; set; }
+
         public List<Guid> SelectedProducts { get; set;}
     }
 }

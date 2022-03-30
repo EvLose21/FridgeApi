@@ -1,16 +1,17 @@
 ﻿using FridgeProduct.BusinessLayer.Models;
-using System;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System;
 
 namespace FridgeProduct.BusinessLayer.Interfaces
 {
     public interface IFridgeService
     {
-        Task<FridgeList> GetFridgeListAsync();
-        Task<PaginatedList<FridgeListitem>> GetFridgeListAsync1(int? pageNumber);
+        Task<PaginatedList<FridgeListItem>> GetFridgeListAsync(int? pageNumber);
+        Task<List<SelectListItem>> InitModelsList();
+        Task<List<SelectListItem>> InitProductsList();
+        Task<Guid> CreateFridgeAsync(CreateFridgeModel model);
 
     }
 }

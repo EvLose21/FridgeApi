@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FridgeProduct.BusinessLayer.Interfaces;
+using FridgeProduct.BusinessLayer.Models;
 using FridgeProduct.Contracts;
 using FridgeProduct.Entities;
 using FridgeProduct.Entities.Models;
@@ -32,11 +33,11 @@ namespace FridgeProduct.Controllers.MVC
 
         public async Task<IActionResult> Index(int? pageNumber)
         {
-            var fridges1 = await _service.GetFridgeListAsync1(pageNumber);
-            return View(fridges1);
+            var fridges = await _service.GetFridgeListAsync(pageNumber);
+            return View(fridges);
         }
 
-        public async Task<IActionResult> Details(Guid? id, int? pageNumber)
+        /*public async Task<IActionResult> Details(Guid? id, int? pageNumber)
         {
             if (id != null)
             {
@@ -52,72 +53,35 @@ namespace FridgeProduct.Controllers.MVC
                 return View(await PaginatedList<ProductViewModel>.CreateAsync(products.AsNoTracking(), pageNumber ?? 1, pageSize));
             }
             return NotFound();
-        }
-
+        }*/
+        [HttpGet]
         public async Task<IActionResult> Create()
         {
-            FridgeCreateViewModel model = new FridgeCreateViewModel()
+            CreateFridgeModel model = new CreateFridgeModel()
             {
-                ModelsList = await _context.FridgeModels.Select(x => new SelectListItem
-                {
-                    Value = x.Id.ToString(),
-                    Text = x.Name,
-                }).ToListAsync(),
-
-                AvailableProducts = await _context.Products.Select(x => new SelectListItem
-                {
-                    Value = x.Id.ToString(),
-                    Text = x.Name
-                }).ToListAsync()
+                ModelsList = await _service.InitModelsList(),
+                AvailableProducts = await _service.InitProductsList()
             };
+
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(FridgeCreateViewModel model)
+        public async Task<IActionResult> Create(CreateFridgeModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                Fridge fridge = new Fridge()
-                {
-                    Name = model.Name,
-                    FridgeModelId = model.ModelId,
-                    Description = model.Description,
-                };
-
-                _context.Add(fridge);
-
-                for (int i = 0; i < model.SelectedProducts.Count; i++)
-                {
-                    FridgeToProduct fProduct = new FridgeToProduct()
-                    {
-                        FridgeId = fridge.Id,
-                        ProductId = model.SelectedProducts[i]
-                    };
-
-                    _context.Add(fProduct);
-                }
-
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                model.ModelsList = await _service.InitModelsList();
+                model.AvailableProducts = await _service.InitProductsList();
+                return View(model);
             }
 
-            model.ModelsList = await _context.FridgeModels.Select(x => new SelectListItem
-            {
-                Value = x.Id.ToString(),
-                Text = x.Name,
-            }).ToListAsync();
+            await _service.CreateFridgeAsync(model);
 
-            model.AvailableProducts = await _context.Products.Select(x => new SelectListItem
-            {
-                Value = x.Id.ToString(),
-                Text = x.Name
-            }).ToListAsync();
-
-            return View(model);
+            return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Edit(Guid? id)
+        /*public async Task<IActionResult> Edit(Guid? id)
         {
             if (id != null)
             {
@@ -207,7 +171,7 @@ namespace FridgeProduct.Controllers.MVC
             }
 
             return NotFound();
-        }
+        }*/
 
     }
 }

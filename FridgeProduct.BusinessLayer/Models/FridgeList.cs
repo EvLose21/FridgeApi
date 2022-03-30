@@ -4,6 +4,6 @@ namespace FridgeProduct.BusinessLayer.Models
 {
     public class FridgeList
     {
-        public IEnumerable<FridgeListitem> FridgesList { get; set; }
+        public IEnumerable<FridgeListItem> FridgesList { get; set; }
     }
 }

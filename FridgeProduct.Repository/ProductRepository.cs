@@ -22,6 +22,10 @@ namespace FridgeProduct.Repository
             await FindAll(trackChanges)
             .OrderBy(f => f.Name)
             .ToListAsync();
+
+        public IQueryable<Product> GetAllProductsQuery(bool trackChanges) =>
+             FindAll(trackChanges)
+            .OrderBy(f => f.Name);
         public void CreateProdcut(Product product)=>
             Create(product);
 

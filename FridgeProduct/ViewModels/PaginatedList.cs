@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace FridgeProduct.ViewModels
 {
@@ -14,7 +13,7 @@ namespace FridgeProduct.ViewModels
         public PaginatedList(List<T> items, int count, int pageIndex, int pageSize)
         {
             PageIndex = pageIndex;
-            TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+            TotalPages = (int)System.Math.Ceiling(count / (double)pageSize);
 
             this.AddRange(items);
         }

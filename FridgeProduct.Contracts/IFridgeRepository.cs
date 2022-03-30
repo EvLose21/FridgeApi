@@ -12,5 +12,6 @@ namespace FridgeProduct.Contracts
         Task<IEnumerable<Fridge>> GetAllFridgesAsync(bool trackChanges);
         IQueryable<Fridge> GetAllFridgesQuery(bool trackChanges);
         Task<Fridge> GetFridgeAsync(Guid fridgeId, bool trackChanges);
+        Task<Guid> CreateAsync(CreateFridgeParameter model);
     }
 }

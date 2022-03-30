@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FridgeProduct.Entities.Models;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FridgeProduct.Contracts
 {
     public interface IFridgeModelRepository
     {
+        IQueryable<FridgeModel> GetAllFridgeModelsQuery(bool trackChanges);
     }
 }

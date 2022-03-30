@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using FridgeProduct.BusinessLayer.Interfaces;
+using FridgeProduct.BusinessLayer.Services;
 
 namespace FridgeProduct.Extensions
 {
@@ -99,6 +101,12 @@ namespace FridgeProduct.Extensions
                 s.SwaggerDoc("v1", new OpenApiInfo { Title = "Fridge Products API", Version = "v1" });
                 s.SwaggerDoc("v2", new OpenApiInfo { Title = "Fridge Products API", Version = "v2" });
             });
+        }
+
+        public static void RegisterServices(this IServiceCollection services)
+        {
+            services.AddScoped<IFridgeService, FridgeService>();
+            services.AddScoped<IProductService, ProductService>();
         }
     }
 }

@@ -16,5 +16,9 @@ namespace FridgeProduct.Repository
             : base(repositoryContext)
         {
         }
+
+        public IQueryable<FridgeModel> GetAllFridgeModelsQuery(bool trackChanges)=>
+             FindAll(trackChanges)
+            .OrderBy(m => m.Name);
     }
 }
