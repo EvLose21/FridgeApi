@@ -21,62 +21,58 @@ namespace FridgeProduct.Controllers.MVC
         private readonly IRepositoryManager _repostitory;
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
-        private readonly IFridgeService _service;
-        public FridgesController(IRepositoryManager repostitory, ILoggerManager logger, IMapper mapper, RepositoryContext context, IFridgeService service)
+        private readonly IFridgeService _fridgeService;
+        private readonly IProductService _productService;
+        public FridgesController(IRepositoryManager repostitory, ILoggerManager logger, IMapper mapper, RepositoryContext context, IFridgeService fridgeService, IProductService productService)
         {
             _repostitory = repostitory;
             _logger = logger;
             _mapper = mapper;
             _context = context;
-            _service = service;
+            _fridgeService = fridgeService;
+            _productService = productService;
         }
 
         public async Task<IActionResult> Index(int? pageNumber)
         {
-            var fridges = await _service.GetFridgeListAsync(pageNumber);
+            var fridges = await _fridgeService.GetFridgeListAsync(pageNumber);
             return View(fridges);
         }
-
-        /*public async Task<IActionResult> Details(Guid? id, int? pageNumber)
+        [HttpGet]
+        public async Task<IActionResult> Details(Guid? id, int? pageNumber)
         {
             if (id != null)
             {
-                var products = _context.FridgeToProducts
-                .Where(fp => fp.FridgeId == id)
-                .Select(fp => new ProductViewModel
-                {
-                    Id = fp.ProductId,
-                    Name = fp.Product.Name,
-                    DefaultQuantity = fp.Quantity
-                });
-                int pageSize = 3;
-                return View(await PaginatedList<ProductViewModel>.CreateAsync(products.AsNoTracking(), pageNumber ?? 1, pageSize));
+                var productsByFridge = await _productService.ProductsByFridgeAsync(id, pageNumber);
+                return View(productsByFridge);
             }
             return NotFound();
-        }*/
+        }
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            CreateFridgeModel model = new CreateFridgeModel()
+            FridgeCreateViewModel model1 = new FridgeCreateViewModel()
             {
-                ModelsList = await _service.InitModelsList(),
-                AvailableProducts = await _service.InitProductsList()
+                ModelsList = await _fridgeService.GetFridgeModels(),
+                AvailableProducts = await _fridgeService.GetProductNames()
             };
 
-            return View(model);
+            return View(model1);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateFridgeModel model)
+        
+        public async Task<IActionResult> Create(FridgeCreateViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                model.ModelsList = await _service.InitModelsList();
-                model.AvailableProducts = await _service.InitProductsList();
+                model.ModelsList = await _fridgeService.GetFridgeModels();
+                model.AvailableProducts = await _fridgeService.GetProductNames();
                 return View(model);
             }
 
-            await _service.CreateFridgeAsync(model);
+            
+            await _fridgeService.CreateFridgeAsync(model.FridgeParameters);
 
             return RedirectToAction(nameof(Index));
         }

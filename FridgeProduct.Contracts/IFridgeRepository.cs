@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace FridgeProduct.Contracts
 {
-    public interface IFridgeRepository
+    public interface IFridgeRepository : IRepositoryBase<Fridge>
     {
         Task<IEnumerable<Fridge>> GetAllFridgesAsync(bool trackChanges);
         IQueryable<Fridge> GetAllFridgesQuery(bool trackChanges);
         Task<Fridge> GetFridgeAsync(Guid fridgeId, bool trackChanges);
-        Task<Guid> CreateAsync(CreateFridgeParameter model);
     }
 }

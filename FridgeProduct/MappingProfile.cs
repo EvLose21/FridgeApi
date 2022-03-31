@@ -21,9 +21,6 @@ namespace FridgeProduct
 
             CreateMap<UserForRegistrationDto, User>();
 
-            CreateMap<Fridge, FridgeListItem>()
-                .ForMember(f => f.Model,
-                opt => opt.MapFrom(x => x.FridgeModel.Name));
 
             CreateMap<Product, ProductListItem>();
         }

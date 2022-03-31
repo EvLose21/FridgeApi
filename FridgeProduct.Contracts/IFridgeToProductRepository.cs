@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FridgeProduct.Contracts
 {
-    public interface IFridgeToProductRepository
+    public interface IFridgeToProductRepository : IRepositoryBase<FridgeToProduct>
     {
         IEnumerable<FridgeToProduct> GetAllFProducts(bool trackChanges);
         FridgeToProduct GetFProduct(Guid fridgeId, Guid id, bool trackChanges);

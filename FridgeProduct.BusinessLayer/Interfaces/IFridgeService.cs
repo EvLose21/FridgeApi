@@ -9,9 +9,10 @@ namespace FridgeProduct.BusinessLayer.Interfaces
     public interface IFridgeService
     {
         Task<PaginatedList<FridgeListItem>> GetFridgeListAsync(int? pageNumber);
-        Task<List<SelectListItem>> InitModelsList();
-        Task<List<SelectListItem>> InitProductsList();
+        Task<List<SelectListItem>> GetFridgeModels();
+        Task<List<SelectListItem>> GetProductNames();
         Task<Guid> CreateFridgeAsync(CreateFridgeModel model);
+        void DeleteFridge(Guid id);
 
     }
 }

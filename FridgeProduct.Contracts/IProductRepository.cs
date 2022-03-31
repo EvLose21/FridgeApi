@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FridgeProduct.Contracts
 {
-    public interface IProductRepository
+    public interface IProductRepository : IRepositoryBase<Product>
     {
         IEnumerable<ProductForFridge> GetProducts(Guid fridgeId, ProductParameters productParameters, bool trackChanges);
         IQueryable<Product> GetAllProductsQuery(bool trackChanges);

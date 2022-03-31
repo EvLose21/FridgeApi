@@ -33,38 +33,5 @@ namespace FridgeProduct.Repository
         public async Task<Fridge> GetFridgeAsync(Guid fridgeId, bool trackChanges)=>
             await FindByCondition(f => f.Id.Equals(fridgeId), trackChanges)
             .SingleOrDefaultAsync();
-
-        public async Task<Guid> CreateAsync(CreateFridgeParameter model)
-        {
-            if(model == null) throw new ArgumentNullException(nameof(CreateFridgeParameter));
-
-            var addedFridge = new Fridge
-            {
-                Name = model.Name,
-                Description = model.Description,
-                FridgeModelId = model.ModelId
-            };
-
-            Create(addedFridge);
-
-            await RepositoryContext.SaveChangesAsync();
-
-            if (model.Products != null && model.Products.Count() > 0)
-            {
-                for(int i = 0; i < model.Products.Count(); i++)
-                {
-                    FridgeToProduct fProduct = new FridgeToProduct()
-                    {
-                        FridgeId = addedFridge.Id,
-                        ProductId = model.Products[i]
-                    };
-                    await RepositoryContext.AddAsync(fProduct);
-                }
-            }
-
-            await RepositoryContext.SaveChangesAsync();
-
-            return addedFridge.Id;
-        }
     }
 }

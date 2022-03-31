@@ -2,7 +2,7 @@
 
 namespace FridgeProduct.BusinessLayer.Models
 {
-    public class ProductListItem
+    public class ProductListItem : BaseModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

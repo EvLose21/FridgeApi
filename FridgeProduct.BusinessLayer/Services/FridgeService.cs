@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using FridgeProduct.BusinessLayer.Interfaces;
 using FridgeProduct.BusinessLayer.Models;
 using FridgeProduct.Contracts;
@@ -15,9 +16,11 @@ namespace FridgeProduct.BusinessLayer.Services
     public class FridgeService : IFridgeService
     {
         private readonly IRepositoryManager _repositoryManager;
-        public FridgeService(IRepositoryManager repositoryManager)
+        private readonly IMapper _mapper;
+        public FridgeService(IRepositoryManager repositoryManager, IMapper mapper)
         {
             _repositoryManager = repositoryManager;
+            _mapper = mapper;
         }
 
         public async Task<PaginatedList<FridgeListItem>> GetFridgeListAsync(int? pageNumber)
@@ -33,7 +36,7 @@ namespace FridgeProduct.BusinessLayer.Services
             return await PaginatedList<FridgeListItem>.CreateAsync(fridges, pageNumber??1, 3);
         }
 
-        public async Task<List<SelectListItem>> InitModelsList()
+        public async Task<List<SelectListItem>> GetFridgeModels()
         {
             var ModelsList = await _repositoryManager.FridgeModel.GetAllFridgeModelsQuery(trackChanges:false)
                 .Select(x => new SelectListItem
@@ -45,7 +48,7 @@ namespace FridgeProduct.BusinessLayer.Services
             return ModelsList;
         }
 
-        public async Task<List<SelectListItem>> InitProductsList()
+        public async Task<List<SelectListItem>> GetProductNames()
         {
             var ProductsList = await _repositoryManager.Product.GetAllProductsQuery(trackChanges: false)
                 .Select(x => new SelectListItem
@@ -60,16 +63,45 @@ namespace FridgeProduct.BusinessLayer.Services
         public async Task<Guid> CreateFridgeAsync(CreateFridgeModel model)
         {
             if(model == null) throw new ArgumentNullException(nameof(model));
+            
+            if (model.ModelId.ToString() == null)
+            { 
+                throw new ArgumentNullException("Fridge model cannot be found"); 
+            }
 
-            CreateFridgeParameter parameter = new CreateFridgeParameter()
+            var addedFridge = new Fridge
             {
                 Name = model.Name,
                 Description = model.Description,
-                ModelId = model.ModelId,
-                Products = model.SelectedProducts
+                FridgeModelId = model.ModelId
             };
 
-            return await _repositoryManager.Fridge.CreateAsync(parameter);
+            _repositoryManager.Fridge.Create(addedFridge);
+            await _repositoryManager.SaveAsync();
+
+            if (model.SelectedProducts != null && model.SelectedProducts.Count() > 0)
+            {
+                for (int i = 0; i < model.SelectedProducts.Count(); i++)
+                {
+                    FridgeToProduct fProduct = new FridgeToProduct()
+                    {
+                        FridgeId = addedFridge.Id,
+                        ProductId = model.SelectedProducts[i]
+                    };
+
+                    _repositoryManager.FridgeToProduct.AddProductForFridge(fProduct);
+                }
+            }
+
+            await _repositoryManager.SaveAsync();
+
+            return addedFridge.Id;
+        }
+
+        public async void DeleteFridge(Guid id)
+        {
+            await _repositoryManager.Fridge.FindByCondition(f => f.Id.Equals(id), trackChanges: false)
+            .SingleOrDefaultAsync();
         }
     }
 }

@@ -1836,6 +1836,7 @@
       },
       "FridgeProduct.BusinessLayer/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "FridgeProduct.Contracts": "1.0.0",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0"
         },

@@ -1,4 +1,5 @@
 ﻿using FridgeProduct.BusinessLayer.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace FridgeProduct.BusinessLayer.Interfaces
@@ -6,5 +7,6 @@ namespace FridgeProduct.BusinessLayer.Interfaces
     public interface IProductService
     {
         Task<PaginatedList<ProductListItem>> GetProductListAsync(int? pageNumber);
+        Task<PaginatedList<ProductListItem>> ProductsByFridgeAsync(Guid? id, int? pageNumber);
     }
 }
