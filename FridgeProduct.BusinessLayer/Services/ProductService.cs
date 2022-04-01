@@ -2,6 +2,7 @@
 using FridgeProduct.BusinessLayer.Interfaces;
 using FridgeProduct.BusinessLayer.Models;
 using FridgeProduct.Contracts;
+using FridgeProduct.Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,9 @@ namespace FridgeProduct.BusinessLayer.Services
     public class ProductService : IProductService
     {
         private readonly IRepositoryManager _repositoryManager;
-        private readonly IMapper _mapper;
         public ProductService(IRepositoryManager repositoryManager, IMapper mapper)
         {
             _repositoryManager = repositoryManager;
-            _mapper = mapper;
         }
 
         public async Task<PaginatedList<ProductListItem>> GetProductListAsync(int? pageNumber)
@@ -48,9 +47,27 @@ namespace FridgeProduct.BusinessLayer.Services
 
                 return await PaginatedList<ProductListItem>.CreateAsync(products, pageNumber ?? 1, 3);
             }
-            else
-                throw new ArgumentNullException("id");
+            else throw new ArgumentNullException("id");
 
+        }
+
+        public async Task<Guid> CreateProductAsync(CreateProductModel model)
+        {
+            var addedProduct = new Product
+            {
+                Name = model.Name,
+                DefaultQuantity = model.DefaultQuantity
+            };
+
+            _repositoryManager.Product.Create(addedProduct);
+            await _repositoryManager.SaveAsync();
+            return addedProduct.Id;
+        }
+
+        public bool IsNameExist(string name)
+        {
+            var result = _repositoryManager.Product.GetAllProductsQuery(trackChanges: false).Select(p => p.Name).ToList().Any();
+            return result;
         }
     }
 }

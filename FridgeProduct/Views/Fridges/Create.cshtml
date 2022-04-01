@@ -11,28 +11,28 @@
         <form asp-controller = "Fridges" asp-action="Create" method = "post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="FridgeParameters.ModelId" class="control-label"></label>
-                <select asp-for="FridgeParameters.ModelId" class="form-control" asp-items = "@Model.ModelsList">
+                <label asp-for="ModelId" class="control-label"></label>
+                <select asp-for="ModelId" class="form-control" asp-items = "@Model.ModelsList">
                     <option>Выберите модель холодильника</option>
                 </select>
-                <span asp-validation-for="FridgeParameters.ModelId" class="text-danger"></span>
+                <span asp-validation-for="ModelId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FridgeParameters.SelectedProducts" class="control-label"></label>
-                <select asp-for="FridgeParameters.SelectedProducts" class="form-control" asp-items = "@Model.AvailableProducts" multiple>
+                <label asp-for="SelectedProducts" class="control-label"></label>
+                <select asp-for="SelectedProducts" class="form-control" asp-items = "@Model.AvailableProducts" multiple>
                     <option>Выберите начальные продукты</option>
                 </select>
-                <span asp-validation-for="AvailableProducts" class="text-danger"></span>
+                <span asp-validation-for="SelectedProducts" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FridgeParameters.Name" class="control-label"></label>
-                <input asp-for="FridgeParameters.Name" class="form-control" />
-                <span asp-validation-for="FridgeParameters.Name" class="text-danger"></span>
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FridgeParameters.Description" class="control-label"></label>
-                <input asp-for="FridgeParameters.Description" class="form-control" />
-                <span asp-validation-for="FridgeParameters.Description" class="text-danger"></span>
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

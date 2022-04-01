@@ -2,7 +2,7 @@
 
 namespace FridgeProduct.BusinessLayer.Models
 {
-    public class FridgeList : BaseModel
+    public class FridgeList
     {
         public IEnumerable<FridgeListItem> FridgesList { get; set; }
     }

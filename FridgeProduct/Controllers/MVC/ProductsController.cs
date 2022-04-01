@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FridgeProduct.BusinessLayer.Interfaces;
+using FridgeProduct.BusinessLayer.Models;
 using FridgeProduct.Contracts;
 using FridgeProduct.Entities;
 using FridgeProduct.Entities.Models;
@@ -17,9 +18,11 @@ namespace FridgeProduct.Controllers.MVC
     public class ProductsController : Controller
     {
         private readonly IProductService _service;
-        public ProductsController(IProductService service)
+        private readonly IMapper _mapper;
+        public ProductsController(IProductService service, IMapper mapper)
         {
             _service = service;
+            _mapper = mapper;
         }
 
         public async Task<IActionResult> Index(int? pageNumber)
@@ -29,7 +32,7 @@ namespace FridgeProduct.Controllers.MVC
         }
 
 
-        /*public IActionResult Create()
+        public IActionResult Create()
         {
             ProductCreateViewModel model = new ProductCreateViewModel();
             return View(model);
@@ -40,20 +43,21 @@ namespace FridgeProduct.Controllers.MVC
         {
             if (ModelState.IsValid)
             {
-                Product product = new Product()
-                {
-                    Name = model.Name,
-                    DefaultQuantity = model.DefaultQuantity
-                };
-                _context.Add(product);
-                await _context.SaveChangesAsync();
+                var product = _mapper.Map<CreateProductModel>(model);
+
+                if (!_service.IsNameExist(product.Name)) ModelState.AddModelError($"{product.Name}", "Product Name already exist");
+
+                await _service.CreateProductAsync(product);
+
+                
+
                 return RedirectToAction(nameof(Index));
             }
 
             return View(model);
         }
 
-        public async Task<IActionResult> Edit(Guid? id)
+        /*public async Task<IActionResult> Edit(Guid? id)
         {
             if (id != null)
             {

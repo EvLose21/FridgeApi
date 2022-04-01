@@ -23,6 +23,9 @@ namespace FridgeProduct
 
 
             CreateMap<Product, ProductListItem>();
+
+            CreateMap<FridgeCreateViewModel, CreateFridgeModel>();
+            CreateMap<ProductCreateViewModel, CreateProductModel>();
         }
     }
 }

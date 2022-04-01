@@ -16,11 +16,9 @@ namespace FridgeProduct.BusinessLayer.Services
     public class FridgeService : IFridgeService
     {
         private readonly IRepositoryManager _repositoryManager;
-        private readonly IMapper _mapper;
         public FridgeService(IRepositoryManager repositoryManager, IMapper mapper)
         {
             _repositoryManager = repositoryManager;
-            _mapper = mapper;
         }
 
         public async Task<PaginatedList<FridgeListItem>> GetFridgeListAsync(int? pageNumber)
@@ -67,6 +65,8 @@ namespace FridgeProduct.BusinessLayer.Services
             if (model.ModelId.ToString() == null)
             { 
                 throw new ArgumentNullException("Fridge model cannot be found"); 
+
+                //сделать перечисление для ошибок
             }
 
             var addedFridge = new Fridge

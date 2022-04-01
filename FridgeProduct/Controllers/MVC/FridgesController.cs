@@ -17,20 +17,16 @@ namespace FridgeProduct.Controllers.MVC
 {
     public class FridgesController : Controller
     {
-        RepositoryContext _context;
-        private readonly IRepositoryManager _repostitory;
         private readonly ILoggerManager _logger;
-        private readonly IMapper _mapper;
         private readonly IFridgeService _fridgeService;
         private readonly IProductService _productService;
-        public FridgesController(IRepositoryManager repostitory, ILoggerManager logger, IMapper mapper, RepositoryContext context, IFridgeService fridgeService, IProductService productService)
+        private readonly IMapper _mapper;
+        public FridgesController(ILoggerManager logger, IFridgeService fridgeService, IProductService productService, IMapper mapper)
         {
-            _repostitory = repostitory;
             _logger = logger;
-            _mapper = mapper;
-            _context = context;
             _fridgeService = fridgeService;
             _productService = productService;
+            _mapper = mapper;
         }
 
         public async Task<IActionResult> Index(int? pageNumber)
@@ -61,7 +57,8 @@ namespace FridgeProduct.Controllers.MVC
         }
 
         [HttpPost]
-        
+        //через modelstate
+        //модельки
         public async Task<IActionResult> Create(FridgeCreateViewModel model)
         {
             if (!ModelState.IsValid)
@@ -71,8 +68,10 @@ namespace FridgeProduct.Controllers.MVC
                 return View(model);
             }
 
-            
-            await _fridgeService.CreateFridgeAsync(model.FridgeParameters);
+            var fridge = _mapper.Map<CreateFridgeModel>(model);
+
+            //вызывать валидацию из сервиса
+            await _fridgeService.CreateFridgeAsync(fridge);
 
             return RedirectToAction(nameof(Index));
         }
