@@ -51,6 +51,7 @@ namespace FridgeProduct.BusinessLayer.Services
 
         }
 
+
         public async Task<Guid> CreateProductAsync(CreateProductModel model)
         {
             var addedProduct = new Product
@@ -59,15 +60,20 @@ namespace FridgeProduct.BusinessLayer.Services
                 DefaultQuantity = model.DefaultQuantity
             };
 
+
+            if(_repositoryManager.Product.GetAllProductsQuery(trackChanges: false).Any(p => p.Name == model.Name))
+            {
+                model.ProductType = EnumProductValidation.exist;
+            }
+
+            if(_repositoryManager.Product.GetAllProductsQuery(trackChanges: false).Count() >= 100)
+            {
+                model.ProductType = EnumProductValidation.over;
+            }
+
             _repositoryManager.Product.Create(addedProduct);
             await _repositoryManager.SaveAsync();
             return addedProduct.Id;
-        }
-
-        public bool IsNameExist(string name)
-        {
-            var result = _repositoryManager.Product.GetAllProductsQuery(trackChanges: false).Select(p => p.Name).ToList().Any();
-            return result;
         }
     }
 }

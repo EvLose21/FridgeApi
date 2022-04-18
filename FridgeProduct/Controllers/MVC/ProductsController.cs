@@ -45,13 +45,34 @@ namespace FridgeProduct.Controllers.MVC
             {
                 var product = _mapper.Map<CreateProductModel>(model);
 
-                if (!_service.IsNameExist(product.Name)) ModelState.AddModelError($"{product.Name}", "Product Name already exist");
+                if (product.ProductType.Equals("exist"))
+                {
+                    ModelState.AddModelError("Name", $"{model.Name} already exist");
+                    return View(model);
+                }
 
-                await _service.CreateProductAsync(product);
+                var addedProduct = await _service.CreateProductAsync(product);
 
-                
+                /*if (product.ProductType.ToString().Equals("exist"))
+                {
+                    ModelState.AddModelError("Name", $"{model.Name} уже существует");
+                    return View(model);
+                }
+
+                if (product.ProductType.ToString().Equals("over"))
+                {
+                    ModelState.AddModelError("Name", $"{model.Name} более 100");
+                    return View(model);
+                }*/
+
+                /*if (addedProduct == Guid.Empty)
+                {
+                    ModelState.AddModelError("Name", $"{model.Name} already exist");
+                    return View(model);
+                }*/
 
                 return RedirectToAction(nameof(Index));
+
             }
 
             return View(model);
