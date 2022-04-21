@@ -10,7 +10,7 @@ namespace FridgeProduct.Entities.Models
         [Column("ProductId")]
         public Guid Id { get; set; }
         [Column("ProductName")]
-        [Required(ErrorMessage = "Product name is a required field.")]
+        //[Required(ErrorMessage = "Product name is a required field.")]
         public string Name { get; set; }
         public int DefaultQuantity { get; set; }
         public List<Fridge> Fridges { get; set; } = new();

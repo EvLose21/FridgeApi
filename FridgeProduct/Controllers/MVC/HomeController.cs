@@ -12,13 +12,6 @@ namespace FridgeProduct.Controllers
 {
     public class HomeController : Controller
     {
-        /*RepositoryContext _context;
-        IWebHostEnvironment _appEnvironment;
-        public HomeController(RepositoryContext context, IWebHostEnvironment appEnvironment)
-        {
-            _context = context;
-            _appEnvironment = appEnvironment;
-        }*/
         RepositoryContext _context;
         public HomeController(RepositoryContext context)
         {

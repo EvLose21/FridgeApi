@@ -31,7 +31,7 @@ namespace FridgeProduct.Controllers.MVC
             return View(products);
         }
 
-
+        
         public IActionResult Create()
         {
             ProductCreateViewModel model = new ProductCreateViewModel();
@@ -43,33 +43,22 @@ namespace FridgeProduct.Controllers.MVC
         {
             if (ModelState.IsValid)
             {
-                var product = _mapper.Map<CreateProductModel>(model);
-
-                if (product.ProductType.Equals("exist"))
-                {
-                    ModelState.AddModelError("Name", $"{model.Name} already exist");
-                    return View(model);
-                }
+                var product = _mapper.Map<CreateProductModel>(model);   
 
                 var addedProduct = await _service.CreateProductAsync(product);
 
-                /*if (product.ProductType.ToString().Equals("exist"))
+                if (addedProduct.Status  == EnumProductValidation.exist)
                 {
-                    ModelState.AddModelError("Name", $"{model.Name} уже существует");
+                    ModelState.AddModelError("Name", $"{product.Name} already exist");
                     return View(model);
                 }
 
-                if (product.ProductType.ToString().Equals("over"))
+                if (addedProduct.Status == EnumProductValidation.over)
                 {
-                    ModelState.AddModelError("Name", $"{model.Name} более 100");
+                    ModelState.AddModelError("", "!!!!");
                     return View(model);
-                }*/
+                }
 
-                /*if (addedProduct == Guid.Empty)
-                {
-                    ModelState.AddModelError("Name", $"{model.Name} already exist");
-                    return View(model);
-                }*/
 
                 return RedirectToAction(nameof(Index));
 

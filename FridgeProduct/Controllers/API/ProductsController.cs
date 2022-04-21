@@ -72,5 +72,21 @@ namespace FridgeProduct.Controllers
             return CreatedAtRoute("GetProducts", new { id = productToReturn.Id },
                 productToReturn);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProductForFridge(Guid id)
+        {
+            var product = await _repository.Product.GetProductAsync(id, trackChanges: true);
+            if (product == null)
+            {
+                _logger.LogInfo($"Product with id: {id} doesn't exist in the database.");
+                return NotFound();
+            }
+
+            _repository.Product.Delete(product);
+            await _repository.SaveAsync();
+
+            return NoContent();
+        }
     }
 }

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ETNYeJZ5jMDmmncw8QBK/ATsxb9R8fE1JdPA9Chgd7eyZFnA8+6g1xqe1XFooQxF3LyBhuanKikILTW3O8TWlQ==",
+  "dgSpecHash": "svOcxU1vp+YNvtRuc/bpJW+bCmXFw5hPn88d3BjoPHjt5pKKEGwGIhzzdlWFUoPhHIw1zfPmS7Gsx3ui+DcRuw==",
   "success": true,
   "projectFilePath": "D:\\30_03\\FridgeApi\\FridgeProduct.BusinessLayer\\FridgeProduct.BusinessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\oadmin\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\oadmin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\oadmin\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
     "C:\\Users\\oadmin\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\oadmin\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\oadmin\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

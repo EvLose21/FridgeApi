@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[11.0.0, )"
             },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.4.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.ViewFeatures": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -178,6 +182,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.4.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.13, )"
@@ -418,6 +426,10 @@
               "target": "Package",
               "version": "[11.0.0, )"
             },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[10.4.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.13, )"
@@ -443,6 +455,10 @@
             "NLog.Extensions.Logging": {
               "target": "Package",
               "version": "[1.7.4, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.4, )"
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",

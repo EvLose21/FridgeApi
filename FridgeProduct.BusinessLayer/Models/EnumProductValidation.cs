@@ -2,8 +2,8 @@
 {
     public enum EnumProductValidation
     {
-        created = 0,
-        exist = 1,
-        over = 2
+        created,
+        exist,
+        over
     }
 }

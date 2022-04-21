@@ -51,8 +51,7 @@ namespace FridgeProduct.BusinessLayer.Services
 
         }
 
-
-        public async Task<Guid> CreateProductAsync(CreateProductModel model)
+        public async Task<ReturnProduct> CreateProductAsync(CreateProductModel model)
         {
             var addedProduct = new Product
             {
@@ -60,20 +59,25 @@ namespace FridgeProduct.BusinessLayer.Services
                 DefaultQuantity = model.DefaultQuantity
             };
 
-
-            if(_repositoryManager.Product.GetAllProductsQuery(trackChanges: false).Any(p => p.Name == model.Name))
+            if (_repositoryManager.Product.GetAllProductsQuery(trackChanges: false).Any(p => p.Name == addedProduct.Name))
             {
-                model.ProductType = EnumProductValidation.exist;
+                return new ReturnProduct
+                {
+                    Status = EnumProductValidation.exist
+                };
             }
 
-            if(_repositoryManager.Product.GetAllProductsQuery(trackChanges: false).Count() >= 100)
+            if (_repositoryManager.Product.GetAllProductsQuery(trackChanges: false).Count() >= 10)
             {
-                model.ProductType = EnumProductValidation.over;
+                return new ReturnProduct
+                {
+                    Status = EnumProductValidation.over
+                };
             }
 
             _repositoryManager.Product.Create(addedProduct);
             await _repositoryManager.SaveAsync();
-            return addedProduct.Id;
+            return new ReturnProduct { Id = addedProduct.Id };
         }
     }
 }

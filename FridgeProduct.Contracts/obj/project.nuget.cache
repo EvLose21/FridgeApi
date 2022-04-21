@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WOuFh+r/8KIFDb+GVKK2NtEWwU/3Dtzj56Zmb56V4p0v2+mOVM7ppg6g0/YBMM7XQyvnSpz1pz2Jl1QmPTsHZA==",
+  "dgSpecHash": "jONRiHfxS/VJIU1WLm7yEWyiGAqF3lTOEdqow3vMJFwAaEA1fCtA15XiLjvQMCYKN5EOTI401uMuOyfE1JZK5g==",
   "success": true,
   "projectFilePath": "D:\\30_03\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\oadmin\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
     "C:\\Users\\oadmin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.13\\microsoft.aspnetcore.cryptography.internal.5.0.13.nupkg.sha512",
     "C:\\Users\\oadmin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.13\\microsoft.aspnetcore.cryptography.keyderivation.5.0.13.nupkg.sha512",
     "C:\\Users\\oadmin\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\5.0.13\\microsoft.aspnetcore.identity.entityframeworkcore.5.0.13.nupkg.sha512",

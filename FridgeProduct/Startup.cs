@@ -21,6 +21,11 @@ using FridgeProduct.Entities;
 using Microsoft.EntityFrameworkCore;
 using FridgeProduct.BusinessLayer.Interfaces;
 using FridgeProduct.BusinessLayer.Services;
+using FluentValidation.AspNetCore;
+using FridgeProduct.BusinessLayer.Models;
+using FridgeProduct.Entities.DataTransferObjects;
+using FridgeProduct.Entities.Models;
+using FridgeProduct.RabbitMQ;
 
 namespace FridgeProduct
 {
@@ -50,7 +55,11 @@ namespace FridgeProduct
             services.AddAuthentication();
             services.ConfigureIdentity();
             services.ConfigureJWT(Configuration);
-            services.ConfigureSwagger();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v2" });
+            });
 
             services.AddRazorPages();
 
@@ -59,29 +68,28 @@ namespace FridgeProduct
                 config.RespectBrowserAcceptHeader = true;
                 config.ReturnHttpNotAcceptable = true;
             }).AddNewtonsoftJson();
+             //   .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ProductValidator>())
+            //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Product>());
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
+
+            services.AddScoped<IMessageProducer, RabbitMQProducer>();
             services.AddScoped<IAuthenticationManager, Repository.AuthenticationManager>();
-            //services.AddScoped<IFridgeToProductRepository, IFridgeToProductRepository>();
             services.AddMvc();
-            //services.AddControllers();
-            //services.AddControllersWithViews();
-            services.AddDbContext<RepositoryContext>(o => o.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
-            //services.AddControllersWithViews()
-            //    .AddJsonOptions(o =>
-            //    {
-            //        o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-            //        o.JsonSerializerOptions.PropertyNamingPolicy = null;
-            //    });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger)
         {
             if (env.IsDevelopment())
             {
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                });
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -95,7 +103,7 @@ namespace FridgeProduct
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            app.UseCors("CorsPolicy"); //почитать
+            app.UseCors("CorsPolicy");
 
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {

@@ -6,8 +6,5 @@ namespace FridgeProduct.BusinessLayer.Models
     {
         public string Name { get; set; }
         public int DefaultQuantity { get; set; }
-
-        public EnumProductValidation ProductType { get; set; }
-        
     }
 }

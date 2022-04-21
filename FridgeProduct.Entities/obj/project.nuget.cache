@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "l+w+lJVh9KInTPcykyFnd7CgT0281g1qFE0m427XZx+v2AWvAyN5EwoZAFlosFlCjKnRjYCjxTcD4HoMkv7+aw==",
+  "dgSpecHash": "SJAKizquU6E+t5ayf4A19gxhNYelTNIkEiIIHI4/AXiU/tMTwMlUV7RtoXd+vxDqzy+gq+IsAJhiVJmHDlse/Q==",
   "success": true,
   "projectFilePath": "D:\\30_03\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\oadmin\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
     "C:\\Users\\oadmin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\oadmin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.13\\microsoft.aspnetcore.cryptography.internal.5.0.13.nupkg.sha512",
     "C:\\Users\\oadmin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.13\\microsoft.aspnetcore.cryptography.keyderivation.5.0.13.nupkg.sha512",
