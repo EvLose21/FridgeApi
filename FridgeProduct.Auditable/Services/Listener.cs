@@ -33,14 +33,16 @@ namespace FridgeProduct.Auditable.Services
             {
                 using var scope = _provider.CreateScope();
                 var context = scope.ServiceProvider.GetRequiredService<RecieveMessageContext>();
+                
                 var body = eventArgs.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
 
                 var content = JsonConvert.DeserializeObject<List<RecieveMessage>>(message);
-
+                //обрабатывать ещё раз, если не обработалось
                 context.Messages.AddRange(content);
                 context.SaveChanges();
                 Console.WriteLine($"Message received: {content}");
+
             };
 
             _channel.BasicConsume(queue: "fridges", autoAck: true, consumer: consumer);

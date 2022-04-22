@@ -1,6 +1,7 @@
 ﻿using FridgeProduct.Contracts;
 using FridgeProduct.Entities.DataTransferObjects;
 using FridgeProduct.Entities.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;

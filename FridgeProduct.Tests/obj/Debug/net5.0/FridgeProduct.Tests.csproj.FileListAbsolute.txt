@@ -1010,3 +1010,11 @@ D:\22\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.dll
 D:\22\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\ref\FridgeProduct.Tests.dll
 D:\22\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.pdb
 D:\22\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.genruntimeconfig.cache
+D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.csproj.AssemblyReference.cache
+D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.AssemblyInfoInputs.cache
+D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.AssemblyInfo.cs
+D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.csproj.CoreCompileInputs.cache
+D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.dll
+D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\refint\FridgeProduct.Tests.dll
+D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.pdb

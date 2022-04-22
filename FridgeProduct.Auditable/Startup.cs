@@ -4,11 +4,13 @@ using FridgeProduct.Auditable.Data.Repositories.Abstracts;
 using FridgeProduct.Auditable.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
@@ -42,7 +44,7 @@ namespace FridgeProduct.Auditable
             services.AddScoped<IRecieveMessageRepository, RecieveMessageRepository>();
 
             //services.AddSingleton<RabbitMqConfiguration>(provider=>new RabbitMqConfiguration() { Hostname = "localhost", QueueName = "fridges", Enabled = true});
-
+            
             services.AddHostedService<Listener>();
         }
 

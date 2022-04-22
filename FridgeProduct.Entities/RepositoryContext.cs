@@ -13,14 +13,19 @@ using System.Threading;
 using RabbitMQ.Client;
 using Newtonsoft.Json;
 using FridgeProduct.Entities.DataTransferObjects;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+using System.Reflection;
 
 namespace FridgeProduct.Entities
 {
     public class RepositoryContext : IdentityDbContext<User>
     {
-        public RepositoryContext(DbContextOptions options)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public RepositoryContext(DbContextOptions options, IHttpContextAccessor httpContextAccessor)
             : base(options)
-        { 
+        {
+            _httpContextAccessor = httpContextAccessor;
         }
         public DbSet<Fridge> Fridges { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -65,15 +70,46 @@ namespace FridgeProduct.Entities
             optionsBuilder.LogTo(Console.WriteLine);
         }
 
-        /*public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return base.SaveChangesAsync(cancellationToken);
-        }*/
-
         public Task<int> SaveChangesAuditable()
         {
-            var entities = ChangeTracker.Entries().Select(c=>new Auditable() { Changed = DateTime.Now, EntityName = c.Entity.GetType().ToString(), Operation = c.State.ToString()});
-                var factory = new ConnectionFactory
+            ChangeTracker.DetectChanges();
+            var ent = new List<Auditable>();
+            var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
+            /*var entities = ChangeTracker.Entries().Select(c=>new Auditable() { 
+                Changed = DateTime.Now, 
+                EntityName = c.Entity.GetType().Name, 
+                Operation = c.State.ToString(),
+                UserId = userId
+                //OldData
+                //NewData = c.CurrentValues.GetValue(c).ToString()
+            });*/
+
+            var modifiedEntities = ChangeTracker.Entries()
+            .Where(p => p.State == EntityState.Modified || p.State == EntityState.Added || p.State == EntityState.Deleted || p.State == EntityState.Modified || p.State == EntityState.Detached).ToList();
+            var now = DateTime.UtcNow;
+
+            foreach (var change in modifiedEntities)
+            {
+                var entityName = change.Entity.GetType().Name;
+                foreach (var prop in change.Entity.GetType().GetTypeInfo().DeclaredProperties)
+                {
+                    if (change.Property(prop.Name).IsModified)
+                    {
+                        var changeLoged = new Auditable
+                        {
+                            Operation = change.State.ToString(),
+                            EntityName = entityName,
+                            Changed = DateTime.Now,
+                            OldData = change.OriginalValues.ToString(),
+                            NewData = change.CurrentValues.ToString(),
+                            UserId = userId
+                        };
+                    }
+                }
+            }
+
+            // должна быть одна фэктори
+            var factory = new ConnectionFactory
                 {
                     HostName = "localhost"
                 };
@@ -83,7 +119,7 @@ namespace FridgeProduct.Entities
 
                 channel.QueueDeclare("fridges", exclusive: false);
 
-                var json = JsonConvert.SerializeObject(entities);
+                var json = JsonConvert.SerializeObject(ent);
                 var body = Encoding.UTF8.GetBytes(json);
 
                 channel.BasicPublish(exchange: "", routingKey: "fridges", body: body);

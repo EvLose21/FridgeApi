@@ -31,7 +31,7 @@ namespace FridgeProduct.Controllers
             _messagePublisher = messagePublisher;
         }
 
-        [HttpGet, /*Authorize(Roles = "Administrator")*/]
+        [HttpGet, Authorize(Roles = "Administrator")]
         public async Task<IActionResult> GetFridges()
         {
             var fridges = await _repostitory.Fridge.GetAllFridgesAsync(trackChanges: false);

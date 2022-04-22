@@ -56,9 +56,32 @@ namespace FridgeProduct
             services.ConfigureIdentity();
             services.ConfigureJWT(Configuration);
 
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(opt =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v2" });
+                opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
+                opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Please enter token",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "bearer"
+                });
+                opt.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            new string[]{}
+        }
+    });
             });
 
             services.AddRazorPages();
@@ -75,7 +98,7 @@ namespace FridgeProduct
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
-
+            services.AddHttpContextAccessor();
             services.AddScoped<IMessageProducer, RabbitMQProducer>();
             services.AddScoped<IAuthenticationManager, Repository.AuthenticationManager>();
             services.AddMvc();
