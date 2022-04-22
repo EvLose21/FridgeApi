@@ -2369,7 +2369,8 @@
           "FluentValidation": "10.4.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.13",
           "Microsoft.EntityFrameworkCore": "5.0.13",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.13"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.13",
+          "RabbitMQ.Client": "6.2.4"
         },
         "compile": {
           "bin/placeholder/FridgeProduct.Entities.dll": {}
@@ -7817,23 +7818,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\oadmin\\.nuget\\packages\\": {},
+    "C:\\Users\\ryzen\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\30_03\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj",
+      "projectUniqueName": "D:\\22\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj",
       "projectName": "FridgeProduct",
-      "projectPath": "D:\\30_03\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj",
-      "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
-      "outputPath": "D:\\30_03\\FridgeApi\\FridgeProduct\\obj\\",
+      "projectPath": "D:\\22\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj",
+      "packagesPath": "C:\\Users\\ryzen\\.nuget\\packages\\",
+      "outputPath": "D:\\22\\FridgeApi\\FridgeProduct\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ryzen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7848,17 +7849,17 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\30_03\\FridgeApi\\FridgeProduct.BusinessLayer\\FridgeProduct.BusinessLayer.csproj": {
-              "projectPath": "D:\\30_03\\FridgeApi\\FridgeProduct.BusinessLayer\\FridgeProduct.BusinessLayer.csproj"
+            "D:\\22\\FridgeApi\\FridgeProduct.BusinessLayer\\FridgeProduct.BusinessLayer.csproj": {
+              "projectPath": "D:\\22\\FridgeApi\\FridgeProduct.BusinessLayer\\FridgeProduct.BusinessLayer.csproj"
             },
-            "D:\\30_03\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
-              "projectPath": "D:\\30_03\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj"
+            "D:\\22\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj": {
+              "projectPath": "D:\\22\\FridgeApi\\FridgeProduct.Contracts\\FridgeProduct.Contracts.csproj"
             },
-            "D:\\30_03\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj": {
-              "projectPath": "D:\\30_03\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj"
+            "D:\\22\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj": {
+              "projectPath": "D:\\22\\FridgeApi\\FridgeProduct.LoggerService\\FridgeProduct.LoggerService.csproj"
             },
-            "D:\\30_03\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj": {
-              "projectPath": "D:\\30_03\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj"
+            "D:\\22\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj": {
+              "projectPath": "D:\\22\\FridgeApi\\FridgeProduct.Repository\\FridgeProduct.Repository.csproj"
             }
           }
         }
@@ -7946,7 +7947,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

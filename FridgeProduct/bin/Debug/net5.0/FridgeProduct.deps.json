@@ -1924,7 +1924,8 @@
           "FluentValidation": "10.4.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.13",
           "Microsoft.EntityFrameworkCore": "5.0.13",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.13"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.13",
+          "RabbitMQ.Client": "6.2.4"
         },
         "runtime": {
           "FridgeProduct.Entities.dll": {}

@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using System.Threading;
+using RabbitMQ.Client;
+using Newtonsoft.Json;
+using FridgeProduct.Entities.DataTransferObjects;
 
 namespace FridgeProduct.Entities
 {
@@ -59,6 +63,31 @@ namespace FridgeProduct.Entities
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FridgeProduct;Trusted_Connection=True");
             optionsBuilder.LogTo(Console.WriteLine);
+        }
+
+        /*public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return base.SaveChangesAsync(cancellationToken);
+        }*/
+
+        public Task<int> SaveChangesAuditable()
+        {
+            var entities = ChangeTracker.Entries().Select(c=>new Auditable() { Changed = DateTime.Now, EntityName = c.Entity.GetType().ToString(), Operation = c.State.ToString()});
+                var factory = new ConnectionFactory
+                {
+                    HostName = "localhost"
+                };
+
+                var connection = factory.CreateConnection();
+                using var channel = connection.CreateModel();
+
+                channel.QueueDeclare("fridges", exclusive: false);
+
+                var json = JsonConvert.SerializeObject(entities);
+                var body = Encoding.UTF8.GetBytes(json);
+
+                channel.BasicPublish(exchange: "", routingKey: "fridges", body: body);
+            return base.SaveChangesAsync();
         }
     }
 }

@@ -20,32 +20,6 @@ namespace FridgeProduct.Auditable
     {
         public static void Main(string[] args)
         {
-            var factory = new ConnectionFactory
-            {
-                HostName = "localhost"
-            };
-
-            var connection = factory.CreateConnection();
-            using var channel = connection.CreateModel();
-            channel.QueueDeclare("fridges", exclusive: false);
-
-            var consumer = new EventingBasicConsumer(channel);
-            consumer.Received += (model, eventArgs) =>
-            {
-                var body = eventArgs.Body.ToArray();
-                var message = Encoding.UTF8.GetString(body);
-
-                var newmes = new RecieveMessage
-                {
-                    Message = message
-                };
-
-                
-
-                Console.WriteLine($"Message received: {message}");
-            };
-
-            channel.BasicConsume(queue: "fridges", autoAck: true, consumer: consumer);
             CreateHostBuilder(args).Build().Run();
         }
 

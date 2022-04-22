@@ -40,7 +40,10 @@ namespace FridgeProduct.Auditable
             });
 
             services.AddScoped<IRecieveMessageRepository, RecieveMessageRepository>();
-            services.AddScoped<IMessageReciever, MesssageReciever>();
+
+            //services.AddSingleton<RabbitMqConfiguration>(provider=>new RabbitMqConfiguration() { Hostname = "localhost", QueueName = "fridges", Enabled = true});
+
+            services.AddHostedService<Listener>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

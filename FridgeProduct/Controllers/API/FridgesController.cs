@@ -31,12 +31,12 @@ namespace FridgeProduct.Controllers
             _messagePublisher = messagePublisher;
         }
 
-        [HttpGet, Authorize(Roles = "Administrator")]
+        [HttpGet, /*Authorize(Roles = "Administrator")*/]
         public async Task<IActionResult> GetFridges()
         {
             var fridges = await _repostitory.Fridge.GetAllFridgesAsync(trackChanges: false);
             var fridgesDto = _mapper.Map<IEnumerable<FridgeDto>>(fridges);
-            _messagePublisher.SendMessage(fridgesDto);
+            //_messagePublisher.SendMessage(fridgesDto);
             return Ok(fridgesDto);
         }
 
@@ -111,9 +111,9 @@ namespace FridgeProduct.Controllers
                 return UnprocessableEntity(ModelState);
             }
 
-            var fridgeEntity = await _repostitory.Fridge.GetFridgeAsync(id, trackChanges: true); 
+            var fridgeEntity = await _repostitory.Fridge.GetFridgeAsync(id, trackChanges: true);
             if (fridgeEntity == null) 
-            { 
+            {
                 _logger.LogInfo($"Fridge with id: {id} doesn't exist in the database."); 
                 return NotFound(); 
             } 
