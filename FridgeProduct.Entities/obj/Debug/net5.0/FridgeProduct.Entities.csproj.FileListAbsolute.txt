@@ -94,7 +94,6 @@ D:\22\FridgeApi\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.r
 D:\22\FridgeApi\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.dll
 D:\22\FridgeApi\FridgeProduct.Entities\bin\Debug\net5.0\ref\FridgeProduct.Entities.dll
 D:\22\FridgeApi\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.pdb
-D:\22\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.csproj.AssemblyReference.cache
 D:\22\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.GeneratedMSBuildEditorConfig.editorconfig
 D:\22\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.AssemblyInfoInputs.cache
 D:\22\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.AssemblyInfo.cs

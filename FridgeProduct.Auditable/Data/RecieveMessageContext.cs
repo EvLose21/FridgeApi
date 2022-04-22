@@ -8,7 +8,7 @@ namespace FridgeProduct.Auditable.Data
         public RecieveMessageContext(DbContextOptions<RecieveMessageContext> options)
             : base(options)
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
