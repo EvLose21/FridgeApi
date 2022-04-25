@@ -61,6 +61,6 @@ namespace FridgeProduct.Repository
             }
         }
 
-        public Task SaveAsync() => _repositoryContext.SaveChangesAuditable();
+        public Task SaveAsync() => _repositoryContext.SaveChangesAsync();
     }
 }

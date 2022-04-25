@@ -117,3 +117,17 @@ D:\22-04\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\refint\FridgeProduct.
 D:\22-04\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.pdb
 D:\22-04\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.genruntimeconfig.cache
 D:\22-04\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\ref\FridgeProduct.Entities.dll
+D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.AssemblyInfoInputs.cache
+D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.AssemblyInfo.cs
+D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.csproj.CoreCompileInputs.cache
+D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.dll
+D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\ref\FridgeProduct.Entities.dll
+D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.pdb
+D:\25\FridgeApi\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.deps.json
+D:\25\FridgeApi\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.runtimeconfig.json
+D:\25\FridgeApi\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.runtimeconfig.dev.json
+D:\25\FridgeApi\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.dll
+D:\25\FridgeApi\FridgeProduct.Entities\bin\Debug\net5.0\ref\FridgeProduct.Entities.dll
+D:\25\FridgeApi\FridgeProduct.Entities\bin\Debug\net5.0\FridgeProduct.Entities.pdb
+D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.genruntimeconfig.cache

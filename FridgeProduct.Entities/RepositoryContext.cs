@@ -70,19 +70,141 @@ namespace FridgeProduct.Entities
             optionsBuilder.LogTo(Console.WriteLine);
         }
 
-        public Task<int> SaveChangesAuditable()
+        public override int SaveChanges()
+        {
+            var auditEntries = ActionBeforeSaveChanges();
+            var result = base.SaveChanges();
+            ActionAfterSaveChanges(auditEntries);
+            return result;
+        }
+
+        public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var auditEntries = ActionBeforeSaveChanges();
+            var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+            await ActionAfterSaveChanges(auditEntries);
+            return result;
+        }
+
+        private List<AuditEntry> ActionBeforeSaveChanges()
+        {
+            ChangeTracker.DetectChanges();
+            var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
+            var entries = new List<AuditEntry>();
+            foreach (var entry in ChangeTracker.Entries())
+            {
+                if (entry.Entity is Auditable || entry.State == EntityState.Detached || entry.State == EntityState.Unchanged)
+                {
+                    continue;
+                }
+
+                var auditEntry = new AuditEntry(entry)
+                {
+                    UserName = userId,
+                    TableName = entry.Entity.GetType().Name
+                };
+                entries.Add(auditEntry);
+
+                foreach (var property in entry.Properties)
+                {
+                    if (property.IsTemporary)
+                    {
+                        auditEntry.TemporaryProperties.Add(property);
+                        continue;
+                    }
+
+                    var propertyName = property.Metadata.Name;
+                    if (property.Metadata.IsPrimaryKey())
+                    {
+                        auditEntry.KeyValues[propertyName] = property.CurrentValue;
+                        continue;
+                    }
+
+                    switch (entry.State)
+                    {
+                        case EntityState.Added:
+                            auditEntry.NewValues[propertyName] = property.CurrentValue;
+                            break;
+
+                        case EntityState.Deleted:
+                            auditEntry.OldValues[propertyName] = property.OriginalValue;
+                            break;
+
+                        case EntityState.Modified:
+                            if (property.IsModified)
+                            {
+                                auditEntry.OldValues[propertyName] = property.OriginalValue;
+                                auditEntry.NewValues[propertyName] = property.CurrentValue;
+                            }
+                            break;
+                        case EntityState.Detached:
+                            break;
+                        case EntityState.Unchanged:
+                            break;
+                    }
+                }
+            }
+
+            return entries;
+        }
+
+        private Task ActionAfterSaveChanges(List<AuditEntry> auditEntries)
+        {
+            if (auditEntries == null || auditEntries.Count == 0)
+                return Task.CompletedTask;
+
+            foreach (var entry in auditEntries.Where(_ => _.HasTemporaryProperties).ToList())
+            {
+                
+                foreach (var prop in entry.TemporaryProperties)
+                {
+                    if (prop.Metadata.IsPrimaryKey())
+                    {
+                        entry.KeyValues[prop.Metadata.Name] = prop.CurrentValue;
+                    }
+                    else
+                    {
+                        entry.NewValues[prop.Metadata.Name] = prop.CurrentValue;
+                    }
+                }   
+            }
+
+            var ent = new List<Auditable>();
+            foreach (var entry in auditEntries)
+            {
+                ent.Add(entry.ToAudit());
+            }
+
+            var factory = new ConnectionFactory
+            {
+                HostName = "localhost"
+            };
+
+            var connection = factory.CreateConnection();
+            using var channel = connection.CreateModel();
+
+            channel.QueueDeclare("fridges", exclusive: false);
+
+            var json = JsonConvert.SerializeObject(ent);
+            var body = Encoding.UTF8.GetBytes(json);
+
+            channel.BasicPublish(exchange: "", routingKey: "fridges", body: body);
+            return Task.CompletedTask;
+        }
+
+        /*public Task<int> SaveChangesAuditable()
         {
             ChangeTracker.DetectChanges();
             var ent = new List<Auditable>();
             var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
-            /*var entities = ChangeTracker.Entries().Select(c=>new Auditable() { 
+            var entities = ChangeTracker.Entries().Select(c=>new Auditable() { 
                 Changed = DateTime.Now, 
                 EntityName = c.Entity.GetType().Name, 
                 Operation = c.State.ToString(),
                 UserId = userId
                 //OldData
                 //NewData = c.CurrentValues.GetValue(c).ToString()
-            });*/
+            });
 
             var modifiedEntities = ChangeTracker.Entries()
             .Where(p => p.State == EntityState.Modified || p.State == EntityState.Added || p.State == EntityState.Deleted || p.State == EntityState.Modified || p.State == EntityState.Detached).ToList();
@@ -124,6 +246,6 @@ namespace FridgeProduct.Entities
 
                 channel.BasicPublish(exchange: "", routingKey: "fridges", body: body);
             return base.SaveChangesAsync();
-        }
+        }*/
     }
 }
