@@ -26,6 +26,7 @@ using FridgeProduct.BusinessLayer.Models;
 using FridgeProduct.Entities.DataTransferObjects;
 using FridgeProduct.Entities.Models;
 using FridgeProduct.RabbitMQ;
+using FridgeProduct.Entities.Services;
 
 namespace FridgeProduct
 {
@@ -101,6 +102,7 @@ namespace FridgeProduct
             services.AddHttpContextAccessor();
             services.AddScoped<IMessageProducer, RabbitMQProducer>();
             services.AddScoped<IAuthenticationManager, Repository.AuthenticationManager>();
+            services.AddScoped<IGetUserId, GetUserId>();
             services.AddMvc();
         }
 

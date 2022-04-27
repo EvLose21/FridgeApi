@@ -15,17 +15,17 @@ using Newtonsoft.Json;
 using FridgeProduct.Entities.DataTransferObjects;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
-using System.Reflection;
+using FridgeProduct.Entities.Services;
 
 namespace FridgeProduct.Entities
 {
     public class RepositoryContext : IdentityDbContext<User>
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        public RepositoryContext(DbContextOptions options, IHttpContextAccessor httpContextAccessor)
+        private readonly IGetUserId _getId;
+        public RepositoryContext(DbContextOptions options, IGetUserId getId)
             : base(options)
         {
-            _httpContextAccessor = httpContextAccessor;
+            _getId = getId;
         }
         public DbSet<Fridge> Fridges { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -89,7 +89,7 @@ namespace FridgeProduct.Entities
         private List<AuditEntry> ActionBeforeSaveChanges()
         {
             ChangeTracker.DetectChanges();
-            var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
+            var userId = _getId.GetUserId(); 
             var entries = new List<AuditEntry>();
             foreach (var entry in ChangeTracker.Entries())
             {
