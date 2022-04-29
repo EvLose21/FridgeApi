@@ -4,6 +4,7 @@ namespace FridgeProduct.Auditable.Data.Models
 {
     public class RecieveMessage
     {
+        
         public int Id { get; set; }
         public string UserName { get; set; }
         public string EntityName { get; set; }

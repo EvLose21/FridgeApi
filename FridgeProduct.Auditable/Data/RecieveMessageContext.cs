@@ -13,5 +13,6 @@ namespace FridgeProduct.Auditable.Data
         }
 
         public DbSet<RecieveMessage> Messages { get; set; }
+
     }
 }

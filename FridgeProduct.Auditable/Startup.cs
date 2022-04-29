@@ -41,10 +41,12 @@ namespace FridgeProduct.Auditable
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FridgeProduct.Auditable", Version = "v1" });
             });
 
+            //services.AddScoped<IRecieveMessageRepository, RecieveMessageRepository>();
             services.AddScoped<IRecieveMessageRepository, RecieveMessageRepository>();
-
+            services.AddSingleton<IDbContextFactory, DbContextFactory>();
             //services.AddSingleton<RabbitMqConfiguration>(provider=>new RabbitMqConfiguration() { Hostname = "localhost", QueueName = "fridges", Enabled = true});
-            
+            //services.AddDbContextFactory<RecieveMessageContext>(options => options
+            //    .UseSqlServer(Configuration.GetConnectionString("sqlConnection")), ServiceLifetime.Singleton);
             services.AddHostedService<Listener>();
         }
 

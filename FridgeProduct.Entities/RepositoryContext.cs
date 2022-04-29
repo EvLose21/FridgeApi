@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Threading;
 using RabbitMQ.Client;
@@ -191,61 +189,5 @@ namespace FridgeProduct.Entities
             channel.BasicPublish(exchange: "", routingKey: "fridges", body: body);
             return Task.CompletedTask;
         }
-
-        /*public Task<int> SaveChangesAuditable()
-        {
-            ChangeTracker.DetectChanges();
-            var ent = new List<Auditable>();
-            var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
-            var entities = ChangeTracker.Entries().Select(c=>new Auditable() { 
-                Changed = DateTime.Now, 
-                EntityName = c.Entity.GetType().Name, 
-                Operation = c.State.ToString(),
-                UserId = userId
-                //OldData
-                //NewData = c.CurrentValues.GetValue(c).ToString()
-            });
-
-            var modifiedEntities = ChangeTracker.Entries()
-            .Where(p => p.State == EntityState.Modified || p.State == EntityState.Added || p.State == EntityState.Deleted || p.State == EntityState.Modified || p.State == EntityState.Detached).ToList();
-            var now = DateTime.UtcNow;
-
-            foreach (var change in modifiedEntities)
-            {
-                var entityName = change.Entity.GetType().Name;
-                foreach (var prop in change.Entity.GetType().GetTypeInfo().DeclaredProperties)
-                {
-                    if (change.Property(prop.Name).IsModified)
-                    {
-                        var changeLoged = new Auditable
-                        {
-                            Operation = change.State.ToString(),
-                            EntityName = entityName,
-                            Changed = DateTime.Now,
-                            OldData = change.OriginalValues.ToString(),
-                            NewData = change.CurrentValues.ToString(),
-                            UserId = userId
-                        };
-                    }
-                }
-            }
-
-            // должна быть одна фэктори
-            var factory = new ConnectionFactory
-                {
-                    HostName = "localhost"
-                };
-
-                var connection = factory.CreateConnection();
-                using var channel = connection.CreateModel();
-
-                channel.QueueDeclare("fridges", exclusive: false);
-
-                var json = JsonConvert.SerializeObject(ent);
-                var body = Encoding.UTF8.GetBytes(json);
-
-                channel.BasicPublish(exchange: "", routingKey: "fridges", body: body);
-            return base.SaveChangesAsync();
-        }*/
     }
 }
