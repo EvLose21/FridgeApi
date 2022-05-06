@@ -21,21 +21,21 @@ namespace FridgeProduct.Auditable.Services
         private IModel _channel;
         private IConnection _connection;
         private readonly IDbContextFactory _dbContextFactory;
+        private readonly Func<List<RecieveMessage>, RecieveMessageContext, int> _saveMessage;
 
-        public Listener(IDbContextFactory dbContextFactory)
+        public Listener(IDbContextFactory dbContextFactory, Func<List<RecieveMessage>, RecieveMessageContext, int> saveMessage)
         {
+            _saveMessage = saveMessage;
             _dbContextFactory = dbContextFactory;
             Reciever();
         }
-
+        
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             stoppingToken.ThrowIfCancellationRequested();
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += (model, eventArgs) =>
             {
-                //using var scope = _provider.CreateScope();
-                //var context = scope.ServiceProvider.GetRequiredService<RecieveMessageContext>();
                 using var context = _dbContextFactory.CreateDbContext();
                 
                 var body = eventArgs.Body.ToArray();
@@ -43,10 +43,7 @@ namespace FridgeProduct.Auditable.Services
 
                 var content = JsonConvert.DeserializeObject<List<RecieveMessage>>(message);
 
-                //обрабатывать ещё раз, если не обработалось
-                
-                context.Messages.AddRange(content);
-                context.SaveChanges();
+                _saveMessage(content, context);
                 Console.WriteLine($"Message received: {content}");
             };
 
@@ -55,7 +52,7 @@ namespace FridgeProduct.Auditable.Services
             return Task.CompletedTask;
         }
         /// <summary>
-        /// Этот етод создаёт connection factory
+        /// Этот метод создаёт connection factory
         /// </summary>
         public void Reciever()
         {

@@ -1,4 +1,5 @@
 using FridgeProduct.Auditable.Data;
+using FridgeProduct.Auditable.Data.Models;
 using FridgeProduct.Auditable.Data.Repositories;
 using FridgeProduct.Auditable.Data.Repositories.Abstracts;
 using FridgeProduct.Auditable.Services;
@@ -40,7 +41,12 @@ namespace FridgeProduct.Auditable
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FridgeProduct.Auditable", Version = "v1" });
             });
-
+            services.AddSingleton<Func<List<RecieveMessage>, RecieveMessageContext, int>>(serviceProvider =>
+            (messages, context)=>
+            {
+                context.Messages.AddRange(messages);
+                return context.SaveChanges();
+            });
             //services.AddScoped<IRecieveMessageRepository, RecieveMessageRepository>();
             services.AddScoped<IRecieveMessageRepository, RecieveMessageRepository>();
             services.AddSingleton<IDbContextFactory, DbContextFactory>();

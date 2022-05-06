@@ -14,12 +14,13 @@ namespace FridgeProduct.Auditable.Services
         {
             _configuration = configuration;
         }
-
         public RecieveMessageContext CreateDbContext()
         {
             var options = new DbContextOptionsBuilder<RecieveMessageContext>();
             options.UseSqlServer(_configuration.GetConnectionString("sqlConnection"));
             return new RecieveMessageContext(options.Options);
         }
+
+
     }
 }

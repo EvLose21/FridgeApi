@@ -232,3 +232,4 @@ D:\25\FridgeApi\FridgeProduct.Auditable\obj\Debug\net5.0\FridgeProduct.Auditable
 D:\25\FridgeApi\FridgeProduct.Auditable\obj\Debug\net5.0\ref\FridgeProduct.Auditable.dll
 D:\25\FridgeApi\FridgeProduct.Auditable\obj\Debug\net5.0\FridgeProduct.Auditable.pdb
 D:\25\FridgeApi\FridgeProduct.Auditable\obj\Debug\net5.0\FridgeProduct.Auditable.genruntimeconfig.cache
+D:\25\FridgeApi\FridgeProduct.Auditable\obj\Debug\net5.0\FridgeProduct.Auditable.csproj.AssemblyReference.cache
