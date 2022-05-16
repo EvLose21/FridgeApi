@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace FridgeProduct.Tests
 {
-    public class ProductsControllerTests
+    public class ProductsControllerTests : IntegrationTest
     {
+        public async Task GetProducts_()
+        {
+            //Arrange
+
+
+            //Act
+
+            //Assert
+        }
     }
 }

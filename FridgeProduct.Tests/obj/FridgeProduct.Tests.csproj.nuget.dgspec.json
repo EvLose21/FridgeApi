@@ -405,6 +405,12 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "D:\\25\\FridgeApi\\FridgeProduct.BusinessLayer\\FridgeProduct.BusinessLayer.csproj": {
+                "projectPath": "D:\\25\\FridgeApi\\FridgeProduct.BusinessLayer\\FridgeProduct.BusinessLayer.csproj"
+              },
+              "D:\\25\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj": {
+                "projectPath": "D:\\25\\FridgeApi\\FridgeProduct.Entities\\FridgeProduct.Entities.csproj"
+              },
               "D:\\25\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj": {
                 "projectPath": "D:\\25\\FridgeApi\\FridgeProduct\\FridgeProduct.csproj"
               }
@@ -421,9 +427,29 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.6.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.0.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.0, )"
             },
             "xunit": {
               "target": "Package",

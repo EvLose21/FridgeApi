@@ -20,10 +20,17 @@ namespace FridgeProduct.Entities
     public class RepositoryContext : IdentityDbContext<User>
     {
         private readonly IGetUserId _getId;
+        private bool _isAuditable;
         public RepositoryContext(DbContextOptions options, IGetUserId getId)
             : base(options)
         {
             _getId = getId;
+        }
+
+        public RepositoryContext(DbContextOptions options, bool isAuditable)
+            : base(options)
+        {
+            _isAuditable = isAuditable;
         }
         public DbSet<Fridge> Fridges { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -64,12 +71,16 @@ namespace FridgeProduct.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FridgeProduct;Trusted_Connection=True");
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FridgeProduct;Trusted_Connection=True");
             optionsBuilder.LogTo(Console.WriteLine);
         }
 
         public override int SaveChanges()
         {
+            if(_isAuditable == false)
+            {
+                return base.SaveChanges();   
+            }
             var auditEntries = ActionBeforeSaveChanges();
             var result = base.SaveChanges();
             ActionAfterSaveChanges(auditEntries);
@@ -78,6 +89,10 @@ namespace FridgeProduct.Entities
 
         public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (_isAuditable == false)
+            {
+                return await base.SaveChangesAsync();
+            }
             var auditEntries = ActionBeforeSaveChanges();
             var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
             await ActionAfterSaveChanges(auditEntries);
@@ -87,7 +102,7 @@ namespace FridgeProduct.Entities
         private List<AuditEntry> ActionBeforeSaveChanges()
         {
             ChangeTracker.DetectChanges();
-            var userId = _getId.GetUserId(); 
+            var userId = _getId.GetUserId();
             var entries = new List<AuditEntry>();
             foreach (var entry in ChangeTracker.Entries())
             {

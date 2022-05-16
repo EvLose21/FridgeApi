@@ -1018,10 +1018,6 @@ D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.cspr
 D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.dll
 D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\refint\FridgeProduct.Tests.dll
 D:\22-04\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.pdb
-D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\testhost.exe
-D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
-D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\xunit.runner.reporters.netcoreapp10.dll
-D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\xunit.runner.utility.netcoreapp10.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Views.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Views.pdb
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.deps.json
@@ -1031,8 +1027,12 @@ D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\nlog.config
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\appsettings.Development.json
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\appsettings.json
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.exe
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\testhost.exe
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\testhost.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.TestPlatform.PlatformAbstractions.dll
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\xunit.runner.reporters.netcoreapp10.dll
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\xunit.runner.utility.netcoreapp10.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Tests.deps.json
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Tests.runtimeconfig.json
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Tests.runtimeconfig.dev.json
@@ -1041,6 +1041,7 @@ D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\ref\FridgeProduct.Tests.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Tests.pdb
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\AutoMapper.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Castle.Core.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FluentValidation.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
@@ -1055,6 +1056,7 @@ D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.Data.SqlClient.dl
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
@@ -1077,6 +1079,7 @@ D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.TestPlatform.Comm
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.TestPlatform.CrossPlatEngine.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.TestPlatform.Utilities.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Microsoft.VisualStudio.TestPlatform.Common.dll
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Moq.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\NLog.dll
@@ -1179,10 +1182,10 @@ D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Entities.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.LoggerService.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Repository.dll
-D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.pdb
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.BusinessLayer.pdb
-D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Contracts.pdb
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Entities.pdb
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.pdb
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Contracts.pdb
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.LoggerService.pdb
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\FridgeProduct.Repository.pdb
 D:\25\FridgeApi\FridgeProduct.Tests\obj\Debug\net5.0\FridgeProduct.Tests.csproj.AssemblyReference.cache

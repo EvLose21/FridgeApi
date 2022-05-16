@@ -16,7 +16,7 @@ namespace FridgeProduct.BusinessLayer.Services
     public class FridgeService : IFridgeService
     {
         private readonly IRepositoryManager _repositoryManager;
-        public FridgeService(IRepositoryManager repositoryManager, IMapper mapper)
+        public FridgeService(IRepositoryManager repositoryManager)
         {
             _repositoryManager = repositoryManager;
         }
