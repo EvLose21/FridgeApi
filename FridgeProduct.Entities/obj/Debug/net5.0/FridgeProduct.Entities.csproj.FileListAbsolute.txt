@@ -131,3 +131,4 @@ D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.d
 D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\ref\FridgeProduct.Entities.dll
 D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.pdb
 D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.genruntimeconfig.cache
+D:\25\FridgeApi\FridgeProduct.Entities\obj\Debug\net5.0\FridgeProduct.Entities.csproj.AssemblyReference.cache

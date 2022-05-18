@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FridgeProduct.Controllers
@@ -47,6 +48,14 @@ namespace FridgeProduct.Controllers
                 var productDto = _mapper.Map<ProductDto>(product);
                 return Ok(productDto);
             }
+        }
+
+        [HttpGet("products-count")]
+        public IActionResult GetProductCount()
+        {
+            int productsCount = _repository.Product.GetAllProductsQuery(false).Count();
+
+            return Ok(productsCount);
         }
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] ProductForCreationDto product)
