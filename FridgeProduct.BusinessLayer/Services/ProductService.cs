@@ -59,6 +59,8 @@ namespace FridgeProduct.BusinessLayer.Services
                 DefaultQuantity = model.DefaultQuantity
             };
 
+            
+
             if (_repositoryManager.Product.GetAllProductsQuery(trackChanges: false).Any(p => p.Name == addedProduct.Name))
             {
                 return new ReturnProduct
@@ -77,7 +79,7 @@ namespace FridgeProduct.BusinessLayer.Services
 
             _repositoryManager.Product.Create(addedProduct);
             await _repositoryManager.SaveAsync();
-            return new ReturnProduct { Id = addedProduct.Id };
+            return new ReturnProduct { Id = addedProduct.Id, Status = EnumProductValidation.created };
         }
     }
 }

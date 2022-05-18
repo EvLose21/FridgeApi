@@ -17,7 +17,7 @@ namespace FridgeProduct.Tests
 {
     public class IntegrationTest
     {
-        protected readonly HttpClient TestClient;
+        /*protected readonly HttpClient TestClient;
         protected IntegrationTest()
         {
             var appFactory = new WebApplicationFactory<Startup>()
@@ -35,6 +35,6 @@ namespace FridgeProduct.Tests
         {
             var response = await TestClient.PostAsJsonAsync("api/products", product);
             return await response.Content.ReadAsAsync<Product>();
-        }
+        }*/
     }
 }

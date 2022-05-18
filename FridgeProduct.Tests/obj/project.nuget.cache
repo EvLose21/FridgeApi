@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "aZgtY5vk1YZH2hNo44cEQlbUF1kcL+Vio7SKlnmVVDfJOA/BTssm22mQmyOtF63JzCgO1TZTfW44FcV2my2Pdw==",
+  "dgSpecHash": "I9YojmRT8L1wqoc042Caj3FE0DZNbXvv8k4X5S5bUi5v+VX/83n7ZCdR6ijjiPwCrWleVI190ccOVVs6zQ3xSQ==",
   "success": true,
   "projectFilePath": "D:\\25\\FridgeApi\\FridgeProduct.Tests\\FridgeProduct.Tests.csproj",
   "expectedPackageFiles": [
@@ -105,6 +105,9 @@
     "C:\\Users\\ryzen\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\ryzen\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\ryzen\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\ryzen\\.nuget\\packages\\mockqueryable.core\\5.0.2\\mockqueryable.core.5.0.2.nupkg.sha512",
+    "C:\\Users\\ryzen\\.nuget\\packages\\mockqueryable.entityframeworkcore\\5.0.2\\mockqueryable.entityframeworkcore.5.0.2.nupkg.sha512",
+    "C:\\Users\\ryzen\\.nuget\\packages\\mockqueryable.moq\\5.0.2\\mockqueryable.moq.5.0.2.nupkg.sha512",
     "C:\\Users\\ryzen\\.nuget\\packages\\moq\\4.18.0\\moq.4.18.0.nupkg.sha512",
     "C:\\Users\\ryzen\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\ryzen\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
