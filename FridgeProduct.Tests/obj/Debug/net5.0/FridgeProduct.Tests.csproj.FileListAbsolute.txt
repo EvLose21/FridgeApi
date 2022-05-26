@@ -1476,3 +1476,6 @@ D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\MockQueryable.Core.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\MockQueryable.EntityFrameworkCore.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\MockQueryable.Moq.dll
 D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\System.IO.Pipelines.dll
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\MediatR.dll
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\MediatR.Contracts.dll
+D:\25\FridgeApi\FridgeProduct.Tests\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll

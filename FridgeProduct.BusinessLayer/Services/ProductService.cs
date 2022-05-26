@@ -1,12 +1,9 @@
-﻿using AutoMapper;
-using FridgeProduct.BusinessLayer.Interfaces;
+﻿using FridgeProduct.BusinessLayer.Interfaces;
 using FridgeProduct.BusinessLayer.Models;
 using FridgeProduct.Contracts;
 using FridgeProduct.Entities.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FridgeProduct.BusinessLayer.Services
@@ -59,7 +56,7 @@ namespace FridgeProduct.BusinessLayer.Services
                 DefaultQuantity = model.DefaultQuantity
             };
 
-            
+
 
             if (_repositoryManager.Product.GetAllProductsQuery(trackChanges: false).Any(p => p.Name == addedProduct.Name))
             {

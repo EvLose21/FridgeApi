@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace FridgeProduct.BusinessLayer.Models
+﻿namespace FridgeProduct.BusinessLayer.Models
 {
     public class CreateProductModel
     {

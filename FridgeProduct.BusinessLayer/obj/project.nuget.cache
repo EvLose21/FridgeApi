@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "vwDJPSh7/KFa3hHws7Y18BqyVQUy5RbmDs6dMAkGK1OSNC4/9qUlxblOq6s8/JKVDjqJq5O/moJGW9gkr503YQ==",
+  "dgSpecHash": "LEESdBoxeZEACRmMAbYyGYPxKrThO4sipG7v45olOkAvBGQkWESfPSRZ2kztu3RSQ4FpKIXLYyUzZVku+Yf2eA==",
   "success": true,
   "projectFilePath": "D:\\25\\FridgeApi\\FridgeProduct.BusinessLayer\\FridgeProduct.BusinessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ryzen\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\ryzen\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\ryzen\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
+    "C:\\Users\\ryzen\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\ryzen\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\ryzen\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "C:\\Users\\ryzen\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\ryzen\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\ryzen\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

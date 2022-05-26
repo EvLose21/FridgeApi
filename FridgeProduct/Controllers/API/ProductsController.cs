@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
+using FridgeProduct.BusinessLayer.MediatR.Products.Commands;
+using FridgeProduct.BusinessLayer.MediatR.Products.Queries;
 using FridgeProduct.Contracts;
 using FridgeProduct.Entities.DataTransferObjects;
 using FridgeProduct.Entities.Models;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,19 +23,23 @@ namespace FridgeProduct.Controllers
         private readonly IRepositoryManager _repository;
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public ProductsController(IRepositoryManager repository, ILoggerManager logger, IMapper mapper)
+        public ProductsController(IRepositoryManager repository, ILoggerManager logger, IMapper mapper, IMediator mediator)
         {
             _repository = repository;
             _logger = logger;
             _mapper = mapper;
+            _mediator = mediator;
         }
         [HttpGet(Name = "GetProducts")]
         public async Task<IActionResult> GetProducts()
         {
-            var products = await _repository.Product.GetAllProductsAsync(trackChanges: false);
-            var productsDto = _mapper.Map<IEnumerable<ProductDto>>(products);
-            return Ok(productsDto);
+            var result = await _mediator.Send(new GetProductsQuery());
+            return Ok(result);
+            //var products = await _repository.Product.GetAllProductsAsync(trackChanges: false);
+            //var productsDto = _mapper.Map<IEnumerable<ProductDto>>(products);
+            //return Ok(productsDto);
         }
         [HttpGet("{id}", Name = "ProductById")]
         public async Task<IActionResult> GetProduct(Guid id)
@@ -60,26 +67,9 @@ namespace FridgeProduct.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] ProductForCreationDto product)
         {
-            if (product == null)
-            {
-                _logger.LogError("FridgeForCreationDto object sent from client is null.");
-                return BadRequest("FridgeForCreationDto object is null");
-            }
+            var productToReturn = await _mediator.Send(new CreateProductCommand(product));
 
-            if (!ModelState.IsValid)
-            {
-                _logger.LogError("Invalid model state for the ProductForCreationDto object");
-                return UnprocessableEntity(ModelState);
-            }
-
-            var productEntity = _mapper.Map<Product>(product);
-            _repository.Product.CreateProdcut(productEntity);
-            await _repository.SaveAsync();
-
-            var productToReturn = _mapper.Map<ProductDto>(productEntity);
-
-            return CreatedAtRoute("GetProducts", new { id = productToReturn.Id },
-                productToReturn);
+            return CreatedAtRoute("GetProducts", new { id = productToReturn }, productToReturn);
         }
 
         [HttpDelete("{id}")]

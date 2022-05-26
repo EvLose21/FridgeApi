@@ -10,7 +10,8 @@ using Microsoft.Extensions.Hosting;
 using System.IO;
 using NLog;
 using FridgeProduct.Contracts;
-
+using MediatR;
+using FridgeProduct.BusinessLayer.MediatR.Products.Queries;
 
 namespace FridgeProduct
 {
@@ -42,7 +43,7 @@ namespace FridgeProduct
             services.ConfigureJWT(Configuration);
 
             services.ConfigureSwagger();
-
+            services.AddMediatR(typeof(GetProductsQuery).Assembly);
             services.AddRazorPages();
 
             services.AddControllers(config =>

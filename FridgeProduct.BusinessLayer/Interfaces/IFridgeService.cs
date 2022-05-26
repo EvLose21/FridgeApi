@@ -1,8 +1,8 @@
 ﻿using FridgeProduct.BusinessLayer.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System;
 
 namespace FridgeProduct.BusinessLayer.Interfaces
 {

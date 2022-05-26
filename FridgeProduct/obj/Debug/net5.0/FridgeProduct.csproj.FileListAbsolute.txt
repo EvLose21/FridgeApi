@@ -960,3 +960,6 @@ D:\25\FridgeApi\FridgeProduct\obj\Debug\net5.0\FridgeProduct.dll
 D:\25\FridgeApi\FridgeProduct\obj\Debug\net5.0\ref\FridgeProduct.dll
 D:\25\FridgeApi\FridgeProduct\obj\Debug\net5.0\FridgeProduct.pdb
 D:\25\FridgeApi\FridgeProduct\obj\Debug\net5.0\FridgeProduct.genruntimeconfig.cache
+D:\25\FridgeApi\FridgeProduct\bin\Debug\net5.0\MediatR.dll
+D:\25\FridgeApi\FridgeProduct\bin\Debug\net5.0\MediatR.Contracts.dll
+D:\25\FridgeApi\FridgeProduct\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll

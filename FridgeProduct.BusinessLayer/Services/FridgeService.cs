@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using FridgeProduct.BusinessLayer.Interfaces;
+﻿using FridgeProduct.BusinessLayer.Interfaces;
 using FridgeProduct.BusinessLayer.Models;
 using FridgeProduct.Contracts;
 using FridgeProduct.Entities.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace FridgeProduct.BusinessLayer.Services
 {
@@ -31,12 +29,12 @@ namespace FridgeProduct.BusinessLayer.Services
                     Model = l.FridgeModel.Name
                 });
 
-            return await PaginatedList<FridgeListItem>.CreateAsync(fridges, pageNumber??1, 3);
+            return await PaginatedList<FridgeListItem>.CreateAsync(fridges, pageNumber ?? 1, 3);
         }
 
         public async Task<List<SelectListItem>> GetFridgeModels()
         {
-            var ModelsList = await _repositoryManager.FridgeModel.GetAllFridgeModelsQuery(trackChanges:false)
+            var ModelsList = await _repositoryManager.FridgeModel.GetAllFridgeModelsQuery(trackChanges: false)
                 .Select(x => new SelectListItem
                 {
                     Value = x.Id.ToString(),
@@ -60,11 +58,11 @@ namespace FridgeProduct.BusinessLayer.Services
 
         public async Task<Guid> CreateFridgeAsync(CreateFridgeModel model)
         {
-            if(model == null) throw new ArgumentNullException(nameof(model));
-            
+            if (model == null) throw new ArgumentNullException(nameof(model));
+
             if (model.ModelId.ToString() == null)
-            { 
-                throw new ArgumentNullException("Fridge model cannot be found"); 
+            {
+                throw new ArgumentNullException("Fridge model cannot be found");
 
                 //сделать перечисление для ошибок
             }
