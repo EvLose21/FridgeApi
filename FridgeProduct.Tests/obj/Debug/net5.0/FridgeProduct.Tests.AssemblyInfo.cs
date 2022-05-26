@@ -12,13 +12,13 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("FridgeProduct.BusinessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=nul" +
-    "l", "D:\\25\\FridgeApi\\FridgeProduct.BusinessLayer", "FridgeProduct.BusinessLayer.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("FridgeProduct.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\25\\FridgeApi\\FridgeProduct.Contracts", "FridgeProduct.Contracts.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("FridgeProduct, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\25\\FridgeApi\\FridgeProduct", "FridgeProduct.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("FridgeProduct.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\25\\FridgeApi\\FridgeProduct.Entities", "FridgeProduct.Entities.csproj", "0")]
+    "l", "D:\\mediatr\\FridgeApi\\FridgeProduct.BusinessLayer", "FridgeProduct.BusinessLayer.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("FridgeProduct.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\mediatr\\FridgeApi\\FridgeProduct.Contracts", "FridgeProduct.Contracts.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("FridgeProduct, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\mediatr\\FridgeApi\\FridgeProduct", "FridgeProduct.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("FridgeProduct.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\mediatr\\FridgeApi\\FridgeProduct.Entities", "FridgeProduct.Entities.csproj", "0")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("FridgeProduct.LoggerService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=nul" +
-    "l", "D:\\25\\FridgeApi\\FridgeProduct.LoggerService", "FridgeProduct.LoggerService.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("FridgeProduct.Repository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\25\\FridgeApi\\FridgeProduct.Repository", "FridgeProduct.Repository.csproj", "0")]
+    "l", "D:\\mediatr\\FridgeApi\\FridgeProduct.LoggerService", "FridgeProduct.LoggerService.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("FridgeProduct.Repository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\mediatr\\FridgeApi\\FridgeProduct.Repository", "FridgeProduct.Repository.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("FridgeProduct.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

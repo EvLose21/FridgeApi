@@ -12,6 +12,8 @@ using NLog;
 using FridgeProduct.Contracts;
 using MediatR;
 using FridgeProduct.BusinessLayer.MediatR.Products.Queries;
+using FluentValidation;
+using FridgeProduct.BusinessLayer.MediatR.Pipelines;
 
 namespace FridgeProduct
 {
@@ -58,7 +60,8 @@ namespace FridgeProduct
             });
             services.AddHttpContextAccessor();
             services.AddScoped<IAuthenticationManager, Repository.AuthenticationManager>();
-            
+            services.AddTransient(typeof(ValidationPipe<,>));
+            services.AddValidatorsFromAssembly(typeof(ValidationPipe<,>).Assembly);
             services.AddMvc();
         }
 

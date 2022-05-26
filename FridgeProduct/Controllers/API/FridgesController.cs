@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
+using FridgeProduct.BusinessLayer.MediatR.Fridges.Queries;
 
 namespace FridgeProduct.Controllers
 {
@@ -20,20 +22,20 @@ namespace FridgeProduct.Controllers
         private readonly IRepositoryManager _repostitory;
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
-        public FridgesController(IRepositoryManager repostitory, ILoggerManager logger, IMapper mapper)
+        private readonly IMediator _mediator;
+        public FridgesController(IRepositoryManager repostitory, ILoggerManager logger, IMapper mapper, IMediator mediator)
         {
             _repostitory = repostitory;
             _logger = logger;
             _mapper = mapper;
+            _mediator = mediator;
         }
 
         [HttpGet, Authorize]
         public async Task<IActionResult> GetFridges()
         {
-            var fridges = await _repostitory.Fridge.GetAllFridgesAsync(trackChanges: false);
-            var fridgesDto = _mapper.Map<IEnumerable<FridgeDto>>(fridges);
-            //_messagePublisher.SendMessage(fridgesDto);
-            return Ok(fridgesDto);
+            var fridges = await _mediator.Send(new GetFridgesQuery());
+            return Ok(fridges);
         }
 
         [HttpGet("{fridgeId}")]
