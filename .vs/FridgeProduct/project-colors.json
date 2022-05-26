@@ -60,7 +60,17 @@
       "ProjectGuid": "077b17ac-02c0-4343-98da-9fcc23f0779b",
       "DisplayName": "FridgeProduct.Auditable",
       "ColorIndex": 10
+    },
+    "cf3e5da4-a8a6-4004-9189-ce037e8aef78": {
+      "ProjectGuid": "cf3e5da4-a8a6-4004-9189-ce037e8aef78",
+      "DisplayName": "FridgeProduct.IntegrationTests",
+      "ColorIndex": 11
+    },
+    "f6f04267-361c-466e-b1ab-af07ae91806f": {
+      "ProjectGuid": "f6f04267-361c-466e-b1ab-af07ae91806f",
+      "DisplayName": "FridgeProduct.IntegrationTests",
+      "ColorIndex": 12
     }
   },
-  "NextColorIndex": 11
+  "NextColorIndex": 13
 }

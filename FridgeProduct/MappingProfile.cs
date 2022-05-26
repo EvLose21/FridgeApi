@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FridgeProduct.BusinessLayer.Models;
 using FridgeProduct.Entities.DataTransferObjects;
+using FridgeProduct.Entities.DataTransferObjects.Auth;
 using FridgeProduct.Entities.Models;
 using FridgeProduct.ViewModels;
 
@@ -20,6 +21,7 @@ namespace FridgeProduct
             CreateMap<FridgeForUpdateDto, Fridge>();
 
             CreateMap<UserForRegistrationDto, User>();
+            CreateMap<AuthenticatedResponse, User>();
 
 
             CreateMap<Product, ProductListItem>();

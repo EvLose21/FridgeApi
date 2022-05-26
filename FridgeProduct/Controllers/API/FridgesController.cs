@@ -3,7 +3,6 @@ using FridgeProduct.Contracts;
 using FridgeProduct.Entities.DataTransferObjects;
 using FridgeProduct.Entities.Models;
 using FridgeProduct.Entities.RequestFeatures;
-using FridgeProduct.RabbitMQ;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,17 +20,14 @@ namespace FridgeProduct.Controllers
         private readonly IRepositoryManager _repostitory;
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
-        private readonly IMessageProducer _messagePublisher;
-
-        public FridgesController(IRepositoryManager repostitory, ILoggerManager logger, IMapper mapper, IMessageProducer messagePublisher)
+        public FridgesController(IRepositoryManager repostitory, ILoggerManager logger, IMapper mapper)
         {
             _repostitory = repostitory;
             _logger = logger;
             _mapper = mapper;
-            _messagePublisher = messagePublisher;
         }
 
-        [HttpGet, /*Authorize(Roles = "Administrator")*/]
+        [HttpGet, Authorize]
         public async Task<IActionResult> GetFridges()
         {
             var fridges = await _repostitory.Fridge.GetAllFridgesAsync(trackChanges: false);

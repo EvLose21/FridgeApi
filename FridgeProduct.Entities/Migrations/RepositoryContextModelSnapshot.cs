@@ -320,7 +320,6 @@ namespace FridgeProduct.Entities.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("ProductName");
 
@@ -457,6 +456,12 @@ namespace FridgeProduct.Entities.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RefreshTokenExpiryTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -509,15 +514,15 @@ namespace FridgeProduct.Entities.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1d2f185c-904f-4172-9f24-f38234e9e982",
-                            ConcurrencyStamp = "63c34413-7c80-4793-b1fa-9d6d150f0f1f",
+                            Id = "772bba8a-79f6-4f79-91af-7fa9d69274bb",
+                            ConcurrencyStamp = "95f4282a-e36d-44be-98fd-e9c030a9882a",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "cc835824-ce3b-4e8b-bdf2-af200673d965",
-                            ConcurrencyStamp = "12352b8d-6a2e-43ac-91d6-64372783b894",
+                            Id = "0fbeaff7-df36-4957-8f01-2fb3edc86e88",
+                            ConcurrencyStamp = "02724c26-9d17-4812-b5da-0cf4e2511fbb",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

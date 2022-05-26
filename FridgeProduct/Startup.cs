@@ -7,26 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using NLog;
-using System.Linq;
-using System.Threading.Tasks;
 using FridgeProduct.Contracts;
-using System.Net;
-using FridgeProduct.Entities;
-using Microsoft.EntityFrameworkCore;
-using FridgeProduct.BusinessLayer.Interfaces;
-using FridgeProduct.BusinessLayer.Services;
-using FluentValidation.AspNetCore;
-using FridgeProduct.BusinessLayer.Models;
-using FridgeProduct.Entities.DataTransferObjects;
-using FridgeProduct.Entities.Models;
-using FridgeProduct.RabbitMQ;
-using FridgeProduct.Entities.Services;
+
 
 namespace FridgeProduct
 {
@@ -57,33 +41,7 @@ namespace FridgeProduct
             services.ConfigureIdentity();
             services.ConfigureJWT(Configuration);
 
-            services.AddSwaggerGen(opt =>
-            {
-                opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
-                opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    In = ParameterLocation.Header,
-                    Description = "Please enter token",
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.Http,
-                    BearerFormat = "JWT",
-                    Scheme = "bearer"
-                });
-                opt.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type=ReferenceType.SecurityScheme,
-                    Id="Bearer"
-                }
-            },
-            new string[]{}
-        }
-    });
-            });
+            services.ConfigureSwagger();
 
             services.AddRazorPages();
 
@@ -92,17 +50,14 @@ namespace FridgeProduct
                 config.RespectBrowserAcceptHeader = true;
                 config.ReturnHttpNotAcceptable = true;
             }).AddNewtonsoftJson();
-             //   .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ProductValidator>())
-            //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Product>());
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
             services.AddHttpContextAccessor();
-            services.AddScoped<IMessageProducer, RabbitMQProducer>();
             services.AddScoped<IAuthenticationManager, Repository.AuthenticationManager>();
-            services.AddScoped<IGetUserId, GetUserId>();
+            
             services.AddMvc();
         }
 

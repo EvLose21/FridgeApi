@@ -16,6 +16,7 @@ namespace FridgeProduct.Tests.Infrastructure.Helpers
 
             var options = builder.Options;
             Context = new RepositoryContext(options, false);
+            //Context = new RepositoryContext(options);
             Context.Database.EnsureDeleted();
             Context.AddRange(ProductHelper.Getmany());
 

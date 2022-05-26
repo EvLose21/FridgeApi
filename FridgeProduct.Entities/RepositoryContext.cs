@@ -24,6 +24,7 @@ namespace FridgeProduct.Entities
         public RepositoryContext(DbContextOptions options, IGetUserId getId)
             : base(options)
         {
+            _isAuditable = true;
             _getId = getId;
         }
 
@@ -36,7 +37,6 @@ namespace FridgeProduct.Entities
         public DbSet<Product> Products { get; set; }
         public DbSet<FridgeModel> FridgeModels { get; set; }
         public DbSet<FridgeToProduct> FridgeToProducts { get; set; }
-        public DbSet<FileModel> Files { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -81,22 +81,22 @@ namespace FridgeProduct.Entities
             {
                 return base.SaveChanges();   
             }
-            var auditEntries = ActionBeforeSaveChanges();
-            var result = base.SaveChanges();
-            ActionAfterSaveChanges(auditEntries);
-            return result;
+                var auditEntries = ActionBeforeSaveChanges();
+                var result = base.SaveChanges();
+                ActionAfterSaveChanges(auditEntries);
+                return result;  
         }
 
         public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (_isAuditable == false)
             {
-                return await base.SaveChangesAsync();
+                return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
             }
-            var auditEntries = ActionBeforeSaveChanges();
-            var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-            await ActionAfterSaveChanges(auditEntries);
-            return result;
+                var auditEntries = ActionBeforeSaveChanges();
+                var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+                await ActionAfterSaveChanges(auditEntries);
+                return result;   
         }
 
         private List<AuditEntry> ActionBeforeSaveChanges()

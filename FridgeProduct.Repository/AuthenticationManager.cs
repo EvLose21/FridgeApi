@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,21 +33,23 @@ namespace FridgeProduct.Repository
             return (_user != null && await _userManager.CheckPasswordAsync(_user,
             userForAuth.Password));
         }
-        public async Task<string> CreateToken()
+        
+
+        public string GenerateRefreshToken()
         {
-            var signingCredentials = GetSigningCredentials();
-            var claims = await GetClaims();
-            var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
-            return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+            var randomNumber = new byte[32];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomNumber);
+                return Convert.ToBase64String(randomNumber);
+            }
         }
         private SigningCredentials GetSigningCredentials()
         {
-            var key =
-            Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"));
-            var secret = new SymmetricSecurityKey(key);
+            var secret = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET")));
             return new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);
         }
-        private async Task<List<Claim>> GetClaims()
+        public async Task<List<Claim>> GetClaims()
         {
             var claims = new List<Claim>
             {
@@ -70,10 +73,52 @@ namespace FridgeProduct.Repository
             issuer: jwtSettings.GetSection("validIssuer").Value,
             audience: jwtSettings.GetSection("validAudience").Value,
             claims: claims,
-            expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings.GetSection("expires").Value)),
+            expires: DateTime.Now.AddSeconds(30),
             signingCredentials: signingCredentials
             );
             return tokenOptions;
+        }
+
+        public ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
+        {
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateAudience = false, //you might want to validate the audience and issuer depending on your use case
+                ValidateIssuer = false,
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"))),
+                ValidateLifetime = false //here we are saying that we don't care about the token's expiration date
+            };
+            var tokenHandler = new JwtSecurityTokenHandler();
+            SecurityToken securityToken;
+            var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
+            var jwtSecurityToken = securityToken as JwtSecurityToken;
+            if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+                throw new SecurityTokenException("Invalid token");
+            return principal;
+        }
+
+        public async Task<string> CreateToken()
+        {
+            var signingCredentials = GetSigningCredentials();
+            var claims = await GetClaims();
+            var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
+            return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+        }
+
+        public string GenerateAccessToken(IEnumerable<Claim> claims)
+        {
+            var secret = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET")));
+            var signinCredentials = new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);
+            var tokeOptions = new JwtSecurityToken(
+                issuer: "https://localhost:5001",
+                audience: "https://localhost:5001",
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(5),
+                signingCredentials: signinCredentials
+            );
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
+            return tokenString;
         }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace FridgeProduct.Entities.DataTransferObjects
 {
@@ -13,5 +10,9 @@ namespace FridgeProduct.Entities.DataTransferObjects
         public string UserName { get; set; }
         [Required(ErrorMessage = "Password name is required")]
         public string Password { get; set; }
+        [JsonIgnore]
+        public string RefreshToken { get; set; }
+        [JsonIgnore]
+        public DateTime RefreshTokenExpiryTime { get; set; }
     }
 }

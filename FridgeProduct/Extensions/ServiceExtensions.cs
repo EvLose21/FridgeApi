@@ -15,6 +15,7 @@ using System.Text;
 using Microsoft.OpenApi.Models;
 using FridgeProduct.BusinessLayer.Interfaces;
 using FridgeProduct.BusinessLayer.Services;
+using FridgeProduct.Entities.Services;
 
 namespace FridgeProduct.Extensions
 {
@@ -49,11 +50,11 @@ namespace FridgeProduct.Extensions
         {
             var builder = services.AddIdentityCore<User>(o =>
             {
-                o.Password.RequireDigit = true;
+                o.Password.RequireDigit = false;
                 o.Password.RequireLowercase = false;
                 o.Password.RequireUppercase = false;
                 o.Password.RequireNonAlphanumeric = false;
-                o.Password.RequiredLength = 10;
+                o.Password.RequiredLength = 4;
                 o.User.RequireUniqueEmail = true;
             });
 
@@ -78,10 +79,12 @@ namespace FridgeProduct.Extensions
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
+                        RequireExpirationTime = true,
                         ValidateIssuer = true,
                         ValidateAudience = true,
-                        ValidateLifetime = true,
+                        ValidateLifetime = false,
                         ValidateIssuerSigningKey = true,
+                        ClockSkew = TimeSpan.Zero,
                         ValidIssuer = jwtSettings.GetSection("validIssuer").Value,
                         ValidAudience = jwtSettings.GetSection("validAudience").Value,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
@@ -94,19 +97,68 @@ namespace FridgeProduct.Extensions
             }
         }
 
+        /*public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
+        {     
+                services.AddAuthentication(opt =>
+                {
+                    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(options =>
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.SaveToken = false;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ClockSkew = TimeSpan.Zero,
+
+                        ValidIssuer = configuration["JWT:Issuer"],
+                        ValidAudience = configuration["JWT:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"]))
+                    };
+                });
+        }*/
+
         public static void ConfigureSwagger(this IServiceCollection services)
         {
-            services.AddSwaggerGen(s =>
+            services.AddSwaggerGen(opt =>
             {
-                s.SwaggerDoc("v1", new OpenApiInfo { Title = "Fridge Products API", Version = "v1" });
-                s.SwaggerDoc("v2", new OpenApiInfo { Title = "Fridge Products API", Version = "v2" });
+                opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
+                opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Please enter token",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "bearer"
+                });
+                opt.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type=ReferenceType.SecurityScheme,
+                            Id="Bearer"
+                        }
+                    },
+                    new string[]{}
+                }
+                });
             });
         }
 
         public static void RegisterServices(this IServiceCollection services)
         {
-            services.AddScoped<IFridgeService, FridgeService>();
-            services.AddScoped<IProductService, ProductService>();
+            services.AddTransient<IFridgeService, FridgeService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IGetUserId, GetUserId>();
         }
     }
 }
