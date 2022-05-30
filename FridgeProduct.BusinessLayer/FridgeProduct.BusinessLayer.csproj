@@ -15,4 +15,8 @@
     <ProjectReference Include="..\FridgeProduct.Contracts\FridgeProduct.Contracts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MediatR\Fridges\Commands\" />
+  </ItemGroup>
+
 </Project>

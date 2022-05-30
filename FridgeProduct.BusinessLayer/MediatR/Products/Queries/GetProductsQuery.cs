@@ -6,7 +6,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using FridgeProduct.Contracts;
-using FridgeProduct.Entities;
 using FridgeProduct.Entities.DataTransferObjects;
 using MediatR;
 
@@ -30,6 +29,8 @@ namespace FridgeProduct.BusinessLayer.MediatR.Products.Queries
             var productsDto = _mapper.Map<IEnumerable<ProductDto>>(products);
 
             return productsDto;
+
+            // проверить есть ли доступ к тому или иному ходоильнику перед выполнением команды
         }
     }
 }
